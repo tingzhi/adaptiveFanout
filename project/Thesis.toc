@@ -1,0 +1,54 @@
+\contentsline {chapter}{Declaration of Authorship}{i}{dummy.1}
+\vspace {1em}
+\contentsline {chapter}{Abstract}{iii}{dummy.2}
+\vspace {1em}
+\contentsline {chapter}{Acknowledgements}{iv}{dummy.3}
+\vspace {1em}
+\contentsline {chapter}{List of Figures}{vii}{dummy.5}
+\contentsline {chapter}{List of Tables}{viii}{dummy.7}
+\contentsline {chapter}{Abbreviations}{ix}{dummy.9}
+\contentsline {chapter}{Physical Constants}{x}{dummy.12}
+\contentsline {chapter}{Symbols}{xi}{dummy.15}
+\vspace {2em}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.18}
+\contentsline {section}{\numberline {1.1}A Section}{2}{section.19}
+\contentsline {subsection}{\numberline {1.1.1}A Subsection}{2}{subsection.20}
+\contentsline {section}{\numberline {1.2}Another Section}{2}{section.21}
+\contentsline {chapter}{\numberline {2}PROBLEM STATEMENT}{3}{chapter.22}
+\contentsline {section}{\numberline {2.1}A Section}{5}{section.23}
+\contentsline {subsection}{\numberline {2.1.1}A Subsection}{5}{subsection.24}
+\contentsline {section}{\numberline {2.2}Another Section}{5}{section.25}
+\contentsline {chapter}{\numberline {3}SOLUTION APPROACH}{6}{chapter.26}
+\contentsline {subsection}{\numberline {3.0.1}ICMP Extension}{6}{subsection.27}
+\contentsline {subsection}{\numberline {3.0.2}Gossip Protocol}{7}{subsection.31}
+\contentsline {subsection}{\numberline {3.0.3}Gathering Simulation Data}{9}{subsection.33}
+\contentsline {section}{\numberline {3.1}A Section}{10}{section.35}
+\contentsline {subsection}{\numberline {3.1.1}A Subsection}{10}{subsection.36}
+\contentsline {section}{\numberline {3.2}Another Section}{10}{section.37}
+\contentsline {chapter}{\numberline {4}PERFORMANCE EVALUATION}{11}{chapter.38}
+\contentsline {section}{\numberline {4.1}A Section}{13}{section.39}
+\contentsline {subsection}{\numberline {4.1.1}A Subsection}{13}{subsection.40}
+\contentsline {section}{\numberline {4.2}Another Section}{13}{section.41}
+\contentsline {chapter}{\numberline {5}PREVIOUS WORK}{14}{chapter.42}
+\contentsline {subsection}{\numberline {5.0.1}Virtual Sensor Networks}{14}{subsection.43}
+\contentsline {subsection}{\numberline {5.0.2}Virtual Networks on Top of the Internet}{15}{subsection.44}
+\contentsline {subsection}{\numberline {5.0.3}Virtualization Algorithm}{15}{subsection.45}
+\contentsline {section}{\numberline {5.1}A Section}{16}{section.46}
+\contentsline {subsection}{\numberline {5.1.1}A Subsection}{16}{subsection.47}
+\contentsline {section}{\numberline {5.2}Another Section}{16}{section.48}
+\contentsline {chapter}{\numberline {6}CONCLUSION}{18}{chapter.49}
+\contentsline {section}{\numberline {6.1}A Section}{19}{section.50}
+\contentsline {subsection}{\numberline {6.1.1}A Subsection}{19}{subsection.51}
+\contentsline {section}{\numberline {6.2}Another Section}{19}{section.52}
+\contentsline {chapter}{\numberline {7}FUTURE WORK}{20}{chapter.53}
+\contentsline {section}{\numberline {7.1}A Section}{21}{section.54}
+\contentsline {subsection}{\numberline {7.1.1}A Subsection}{21}{subsection.55}
+\contentsline {section}{\numberline {7.2}Another Section}{21}{section.56}
+\contentsline {chapter}{\numberline {8}Contributions}{23}{chapter.57}
+\contentsline {section}{\numberline {8.1}A Section}{23}{section.58}
+\contentsline {subsection}{\numberline {8.1.1}A Subsection}{23}{subsection.59}
+\contentsline {section}{\numberline {8.2}Another Section}{24}{section.60}
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}An Appendix}{25}{appendix.61}
+\vspace {2em}
+\contentsline {chapter}{Bibliography}{27}{dummy.62}

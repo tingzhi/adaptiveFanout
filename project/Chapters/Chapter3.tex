@@ -1,0 +1,161 @@
+\chapter{SOLUTION APPROACH}
+
+To achieve the goals stated in section~\ref{sec:problem}, I took four crucial steps.
+
+\begin{itemize}
+	\item Extend the Internet Control Message Protocol (ICMP) to support transmitting three simple control messages needed for gossip protocol.
+	\item Develop the gossip protocol application to be installed on network nodes.
+	\item Set wireless ad-hoc network attributes and gossip protocol attributes, which has already be presented in section~\ref{sec:problem}.
+	\item Import nodes connectivity information from topology files and export simulation results for performance evaluation.
+\end{itemize}
+
+\subsection{ICMP Extension}
+
+ICMP stands for Internet Control Message Protocol. The most common use of ICMP is for error reporting~\cite{james}. A ICMP message contains two parts: 8-byte header and data section. The first 4 btyes of the header have fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in table \ref{table:1}.
+
+\begin{table}[h!]￼
+	\centering
+	\caption{ICMP Header Structure}
+	\label{table:1}
+	\begin{tabular}{|p{1 cm}|p{1 cm}|p{1 cm}|p{1 cm}|p{1 cm}|}
+		\hline
+		Octet & 0 & 1 & 2 & 3 \\
+		\hline
+		& Type & Code & 
+		\multicolumn{2}{ |c| }{Checksum}  \\
+		\hline
+		Octet & 4 & 5 & 6 & 7 \\
+		\hline
+		& 
+		\multicolumn{4}{|c|}{Rest of Header}  \\
+		\hline
+	\end{tabular}
+\end{table} 
+
+Table \ref{table:2} here presented some selected ICMP message types. 
+
+\begin{table}[h]
+	\centering
+	\caption{Control Messages}
+	\label{table:2}
+	\begin{tabular}{|p{1.5cm}|p{0.8 cm}|p{4.5 cm}|}
+		\hline
+		Type & Code & Description \\                                                           
+		\hline
+		0  & 0   & Echo reply   \\ \hline
+		8  &  0 & Echo request \\ 
+		\hline
+		9 & 0 & Router Advertisement \\
+		\hline
+		10	& 0	&	Router discovery/selection/solicitation \\
+		\hline
+		42 to 255    &   & Reserved    \\ 
+		\hline
+	\end{tabular}
+\end{table}
+
+Since type 42 to 255 are reserved for further development, I decided to extend ICMP by defining type 42, 43, and 44 to represent ackownlegement packet, request packet, and data packet respectively. The detail is shown in table \ref{table:3}.
+
+\begin{table}[h]
+	\centering
+	\caption{Gossip Protocol Control Messages}
+	\label{table:3}
+	\begin{tabular}{|p{0.8cm}|p{0.5 cm}|p{3.5 cm}|}
+		\hline
+		Type & Code & Description \\                                                           
+		\hline
+		42  & 0   & Send Acknowledgment   \\ \hline
+		43  &  0 & Send Request \\ 
+		\hline
+		44 & 0 & Send Data \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Upon these new control message types extension, we could further develop gossip protocol in ns-3.
+
+\subsection{Gossip Protocol}
+
+Gossip protocol is a computer communication protocol which inspired by the social activity -- gossip. This protocol accomplishes to synchronize a message in a network that does not need real-time synchronization. It provides $O(\log n)$ time to synchronize the message to the network, where $n$ means the number of nodes in the network. There are three packet types for the message protocol: Data packet, ACK packet and request packet as mentioned above. The data packet contains the message from a certain source node that is expected to be disseminated to the whole network. The ACK packet is used to acknowledge to source node that destination node already received message before. The request packet is used for source node to request for the message from destination node. There are two states for each node, running and stop.
+
+\begin{figure}
+	\centering
+	\begin{verbatim}[fontsize=\small]
+	switch(state):
+	case running:
+	if message is not null:
+	every 5 milliseconds:
+	find a random neighbor R
+	send data packet to R
+	if receive a packet:
+	if packet is ACK:
+	state <- stop
+	if packet is data:
+	send ACK to packet source
+	else:
+	if receive a packet:
+	if packet is a data packet:
+	update the message
+	every 5 seconds:
+	find a random neighbor R
+	send a request packet to R
+	if receive a packet:
+	if packet is a data packet:
+	update the message to data
+	
+	case stop:
+	if receive a packet:
+	if packet is request:
+	send data to the source node
+	if packet is data:
+	send ACK to the source node
+	\end{verbatim}
+	\caption{The pseudo code of the gossip algorithm.}
+	\label{fig:pseudo}
+\end{figure}
+
+The pseudo code of gossip algorithm is given in figure~\ref{fig:pseudo}. All nodes in the network have same behavior and they are independent to each other. When user would like to spread a message x to the whole network, the protocol randomly assign the message x to a node and run this algorithm. For the discussion, let's assume node 1 got the initial message x. Node 1 start with running state, and node 1 has a message x, so it will find a random neighbor every 0.005s and send a data packet which contain message x to its random neighbor. If node 1 receive a ACK packet it will go to stop state, otherwise it will keep doing above steps. Other nodes which do not have the message x will wait for packet, if a node 1 send a data packet to the node 2 which do not have message x, node 2 will update the message x in node 2 and not return anything to node 1. If node 2 do not have message 2, it will send a request packet to a random neighbor every 5 second. If node 2 receives a data packet after sending the request packet, it will update its message to x. The nodes in stop state would always waiting for other node send control messages to it and it will send data packet or ACK packet back depends on what kind of packets it receives.
+
+\subsection{Gathering Simulation Data}
+
+To evaluate the performance of gossip protocol, we use several randomly generated topology files with the number of nodes as variable. Those topology files are derived from a random geometric graph network, which was created by uniformly and randomly placing nodes into a space and then connect nodes whose distance is smaller than some given radius.
+
+\begin{figure}
+	\centering
+	\begin{verbatim}[fontsize=\small]
+	#Nodes
+	0
+	1
+	2
+	#Edges
+	(0, 1)
+	(1, 2)
+	\end{verbatim}
+	\caption{A topology file of a linear topology with three nodes.}
+	\label{fig:topsimple}
+\end{figure}
+
+
+Each topology file contains the number of nodes as well as all the edges, which represents the connections between nodes. As an example, the content of a simple topology file is shown in figure~\ref{fig:topsimple}. A parser written in C++ is developed to create the given number of nodes in ns-3 and installed the gossip protocol application on them. Thereafter, all edges are parsed and created accordingly. Each node holds an ns-3 Ipv4Interface with assigned Ipv4 address and stores the Ipv4 addresses of his neighbors.
+
+For the simulation, we set the link rate for all connections to be 1Mbp. Also, all nodes are instructed to execute the gossip process of sending out data periodically every 5ms. The interval of requesting new data is set to 5s.
+
+To allow the performance analysis, all nodes count the number of data packets they sent. All nodes would track how many hops the data message experienced before reaching them and they record the time when they received the data message as well. For every single simulation, we collect the information from the nodes and determine the average amount of data packets sent per node and average number of hops per node. Moreover, the information about how long it took for the message to reach the ``last'' node is also recorded.
+
+This information is determined and stored for each of the several hundred topology files. It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data in the hope of verifying the assumptions we made in section~\ref{sec:problem}.
+
+
+
+\section{A Section}
+
+Quisque tristique urna in lorem laoreet at laoreet quam congue. Donec dolor turpis, blandit non imperdiet aliquet, blandit et felis. In lorem nisi, pretium sit amet vestibulum sed, tempus et sem. Proin non ante turpis. Nulla imperdiet fringilla convallis. Vivamus vel bibendum nisl. Pellentesque justo lectus, molestie vel luctus sed, lobortis in libero. Nulla facilisi. Aliquam erat volutpat. Suspendisse vitae nunc nunc. Sed aliquet est suscipit sapien rhoncus non adipiscing nibh consequat. Aliquam metus urna, faucibus eu vulputate non, luctus eu justo.
+
+\subsection{A Subsection}
+
+Donec urna leo, vulputate vitae porta eu, vehicula blandit libero. Phasellus eget massa et leo condimentum mollis. Nullam molestie, justo at pellentesque vulputate, sapien velit ornare diam, nec gravida lacus augue non diam. Integer mattis lacus id libero ultrices sit amet mollis neque molestie. Integer ut leo eget mi volutpat congue. Vivamus sodales, turpis id venenatis placerat, tellus purus adipiscing magna, eu aliquam nibh dolor id nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed cursus convallis quam nec vehicula. Sed vulputate neque eget odio fringilla ac sodales urna feugiat.
+
+\section{Another Section}
+
+Phasellus nisi quam, volutpat non ullamcorper eget, congue fringilla leo. Cras et erat et nibh placerat commodo id ornare est. Nulla facilisi. Aenean pulvinar scelerisque eros eget interdum. Nunc pulvinar magna ut felis varius in hendrerit dolor accumsan. Nunc pellentesque magna quis magna bibendum non laoreet erat tincidunt. Nulla facilisi.
+
+Duis eget massa sem, gravida interdum ipsum. Nulla nunc nisl, hendrerit sit amet commodo vel, varius id tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dolor est. Suspendisse ultrices tincidunt metus eget accumsan. Nullam facilisis, justo vitae convallis sollicitudin, eros augue malesuada metus, nec sagittis diam nibh ut sapien. Duis blandit lectus vitae lorem aliquam nec euismod nisi volutpat. Vestibulum ornare dictum tortor, at faucibus justo tempor non. Nulla facilisi. Cras non massa nunc, eget euismod purus. Nunc metus ipsum, euismod a consectetur vel, hendrerit nec nunc.

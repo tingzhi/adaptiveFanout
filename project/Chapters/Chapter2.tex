@@ -1,0 +1,66 @@
+\chapter{PROBLEM STATEMENT}
+
+The project goal is to evaluate gossip protocol performance in the wireless ad-hoc network since several papers\cite{gossip}\cite{gossip2} claimed that gossip protocol is an efficient, scalable, reliable message dissemination approach. I would like to implement gossip protocol in a wireless ad-hoc network in ns-3 and study its reliability, scalability and efficiency. Based on the progress of implementation gossip protocol in a wired peer-to-peer network in ns-3, my first step is to switch the network environment from wired peer-to-peer to wireless ad-hoc network. The wireless ad-hoc network setting are as following:
+
+\begin{itemize}
+	\item WLAN Standard: IEEE 802.11b
+	\item MAC layer: wifi ad-hoc mode
+	\item Add non-QoS upper mac layer
+	\item Modulation: DSSS
+	\item Data Rate: 1Mbps
+	\item RTS/CTS: On
+	\item Receiver Gain: 0dB
+	\item Delay Mode: Constant Speed Propagation Delay Mode
+	\item Loss Mode: Friis Propagation Loss Mode
+	\item Ipv4 address base: 10.1.0.0
+	\item Ipv4 address netmask: 255.255.0.0
+\end{itemize}
+
+For the topologies that I used to evaluate gossip protocol, the number of nodes are 100, 250, 400, 550, 700, 850, and 1000. For each case, there are 100 random generated topology files defining the connectivity among those nodes. In the ad-hoc network, each node usually has multiple edges and we assume that there is no isolated node in the network. For the allocation of those nodes, I used random grip allocator in ns-3. The distance between two adjacent nodes is 5 meters. I assume that the connectivity remained regardless of the distance between two nodes. A simple example of 9 nodes random grip allocation would look like fig.~\ref{fig:allocator}. Implementation of gossip protocol will be presented in section~\ref{sec:solution}. 
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=3in]{figs/allocator}
+%	\caption{Nine nodes random grip allocation.}
+%	\label{fig:allocator}
+%\end{figure}
+
+%Second, we need to test gossip protocol performance under different wireless ad-hoc network settings. Finally, thoroughly analysis the collected performance data and conduct evaluation on the performance of gossip protocol. 
+
+%customize the gossip protocol control messages based on ICMP. Second, we need to develop the gossip protocol and implement it in ns-3. Finanlly, we are supposed to evaluate the performance of the gossip protocol in a mesh network of peer-to-peer connected IoT devices by running simulations in ns-3. 
+
+There are three essential performance metrics I would like to measure. 
+
+\begin{itemize}
+	\item Average number of data packets sent per node
+	\item Average hops per node needed to spread the message
+	\item Maximum time needed until the message is spread
+\end{itemize}
+
+The average number of data packets sent per node is a key metrics that measure the efficieny of gossip protocol comparing to other popular multicast protocol like MAODV. It mostly emphysis on the efficiency or workload of sender's side. Theoretically, the average number of data packets sent per node would remain constant regradless of the scale of the network. 
+
+The average hops per node needed to spread the message is a metrics that indicates the efficiency on the receiver's side. It is a metrics that represents how many times the message is forwarded before the node received it. Generally, lower average hops per node is preferred. 
+
+The maximum time needed to spread the message could be used to evaluate the time complexity of gossip protocol. Baically, this metrics indicates how fast a message can be spred across the whole network.  
+
+In this project, randomness is shown in three different aspects: (1) network topologies are random generated. (2) The node that get the initial message is randomly chosen. (3) For each node during simulation, it randomly chooses neighbour to perform "gossipping." 
+
+After evaluation the performance of gossip protocol, we hope to verify the following assumptions.
+\begin{itemize}
+	\item Time complexity of the gossip protocol is $O(\log N)$, where $N$ is the number of nodes.
+	\item Average number of data packets sent per node will remain constant regardless of network scale.
+\end{itemize}
+
+
+\section{A Section}
+
+Quisque tristique urna in lorem laoreet at laoreet quam congue. Donec dolor turpis, blandit non imperdiet aliquet, blandit et felis. In lorem nisi, pretium sit amet vestibulum sed, tempus et sem. Proin non ante turpis. N
+
+
+\subsection{A Subsection}
+
+Donec urna leo, vulputate vitae porta eu, vehicula blandit libero. Phasellus eget massa et leo condimentum mollis. Nullam molestie, justo at pellentesque vulputate, sapien velit ornare diam, nec gravida lacus augue
+
+\section{Another Section}
+
+Phasellus nisi quam, volutpat non ullamcorper eget, congue fringilla leo. Cras et erat et nibh placerat commodo id ornare est. Nulla facilisi. Aenean pulvinar scelerisque eros eget interdum. Nunc pulvinar magna ut felis varius in hendrerit dolor accumsan. Nunc pellentesque magna quis magna bibendum non laoreet erat tincidunt. Nulla facilisi.
