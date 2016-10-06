@@ -1,4 +1,16 @@
-\chapter{Contributions}
+\chapter{CONTRIBUTION}
+
+In the future work, I would like to investigate how request interval time and gossip interval time would impact the performance of gossip protocol. In my estimation, if we increase the gossip interval time and decrease the request interval time, average number of hops per node would increase. Spread time would potentially decrease and average data packets per node would not be affected.
+
+Another direction would be implementing smart routing protocol. For example, a node can improve routing (or decrease the number of hops) by notifying neighbors if there exists a shorter route to the owner of a message. To accomplish this, the program need to keep track of the number of hops and then compare if the owner of a received message is one of their immediate neighbors. In case this is true and they will notify the source of the message, that the \textit{true} (or ideal) number of hops would be 1. Another option for further work, would be writing the code to generate more continous topology files in term of number of nodes so that we could better investigate the characteristic of gossip protocol.
+
+Due to time limitations we could not address the huge spectrum of possible analysis. Power limitations and mobility of the nodes should be included in such a scenario. Thus, the list of neighbors for each node changes over time and a topology file is only need for initialization.
+
+
+
+
+
+
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus at pulvinar nisi. Phasellus hendrerit, diam placerat interdum iaculis, mauris justo cursus risus, in viverra purus eros at ligula. Ut metus justo, consequat a tristique posuere, laoreet nec nibh. Etiam et scelerisque mauris. Phasellus vel massa magna. Ut non neque id tortor pharetra bibendum vitae sit amet nisi. Duis nec quam quam, sed euismod justo. Pellentesque eu tellus vitae ante tempus malesuada. Nunc accumsan, quam in congue consequat, lectus lectus dapibus erat, id aliquet urna neque at massa. Nulla facilisi. Morbi ullamcorper eleifend posuere. Donec libero leo, faucibus nec bibendum at, mattis et urna. Proin consectetur, nunc ut imperdiet lobortis, magna neque tincidunt lectus, id iaculis nisi justo id nibh. Pellentesque vel sem in erat vulputate faucibus molestie ut lorem.
 

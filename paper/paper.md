@@ -40,14 +40,6 @@ Here's how my idea compares to other people's approaches
 
 
 
-The key idea of this protocol
-
-In order to save each node's energy and potentially extend the lifespan of the whole network. My idea is to use each node's remaining energy fraction (much like the battery indicator on your phone) as the X for the function of one of gossip protocol's parameter — fanout. The more energy a node has, the bigger the fanout will be for it. Thus, compare to constant fanout protocol, which does not take nodes' energy into account, our apprach — adaptive fanout will dynamically adjust fanout based on a node's remaining energy.
-
-Why not adjust gossip probability based on remaining energy fraction?
-
-Why not adjust other gossip protocol parameters based on remaining energy fraction?
-
 ## PROTOCOL IMPLEMENTATION
 
 Topology wise, nodes are randomly place in a square area which is proportional to the number of nodes. The equation to calculate the size of the square is as follows:

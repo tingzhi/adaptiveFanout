@@ -1,24 +1,66 @@
-\chapter{PREVIOUS WORK}
+\chapter{PERFORMANCE EVALUATION}
 
-\subsection{Virtual Sensor Networks}
-The ongoing technological progress further and further improves the computation, connectivity and sensing capabilities of various devices, sometimes mobile ones. \cite{Jayasumana} This enables a huge variety of opportunities in sensor networks. For example, devices in a sensor network could be assigned tasks based on their constraints in computation, power usage or networking potential. In contrast to dedicated sensor networks, where the participating nodes serve a single application, Virtual Sensor Networks (VSN) take advantage of the node’s technological progress. When a VSN is formed on top of a Wireless Sensor Network, only a subset of all available nodes is part in the VSN. Furthermore, several VSNs can exist simultaneously in on Wireless Sensor Network. \cite{Jayasumana} That is, one subset of the nodes forms a VSN and relies on the remaining nodes to communicate between its nodes. In some cases, physical nodes of one VSN even could be completely cut off from communication due to their spatial distribution and must rely on the other nodes. Usually the different VSNs pursue completely unrelated sensing tasks and the nodes in each VSN behave like they are on their independent Sensor Network. Figure~\ref{vsnfig} based on \cite{Jayasumana} depicts a visualization of two VSNs formed on top of an Wireless Sensor Network. This logical separation helps to simplify the implementation of applications significantly. \cite{Jayasumana} Further advantages of VSNs are enhanced performance and better scalability.
+The random generated topology files are the input of our simulations. There are 7 different cases where the number of nodes vary from 100 to 1000 , increasing with 150 nodes step. And for each case, we sampled 100 topology files to run the simulations.
 
-The development of algorithms and protocols to support the grouping of VSNs on top of Sensor Networks, is still an ongoing research topic. Those need to consider how the available time and frequencies should be fairly distributed for intra network communication. Moreover, it should be possible for nodes to change their membership in VSNs.
+First, I analyzed the average number of data packets each node sent, depicted in fig.~\ref{fig:msgAbs}. It is important to note that the the collected average number for one topology file was again averaged over all reported values produced by topology files with the same number of nodes. Thus, the error bar is an indicator how consistent the average number is. It can be deduced from fig.~\ref{fig:msgAbs} that this value is ranging from 190 data packets per node to 280 data packets per node depending on the scale of the network. But considering the network scale, average number of data packets per node didn't increase proportionally as we can see in fig.~\ref{fig:msgOver}. This metrics actually decreased exponentially. 
 
 %\begin{figure}
 %	\centering
-%	\includegraphics[width=3in]{figs/VirtualSensorNetwork.pdf}
-%	\caption{Broadcast path from a node (S) in VSN2.}
-%	\label{vsnfig}
+%	\includegraphics[width=3in]{figs/msgAbs}
+%	\caption{The average number of data packets each node sent (Ad-hoc environment)}
+%	\label{fig:msgAbs}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=3in]{figs/msgOver}
+%	\caption{The average number of data packets each node over the size of the network (Ad-hoc environment) }
+%	\label{fig:msgOver}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=3in]{figs/msgP}
+%	\caption{The average number of ICMP messages each node sent (P2P environment)}
+%	\label{fig:msgP}
 %\end{figure}
 
+Since when I collected the different data (average ICMP messages per node) from wired peer-to-peer network environment, here I could not perform a fair comparasion between these two evnironment. But as you can see in fig.~\ref{fig:msgP}, the average ICMP messages per node is significantly lower than in the wireless ad-hoc network. I believe the reason behind this is the shared medium for wireless communication. With shared medium, collision is prone to occur thus RTS/CTS plays an important role during the whole communicating process. Thus higher average data packets sent per node is expected.
 
-\subsection{Virtual Networks on Top of the Internet}
-It is important to realize that the Internet, due to so many different participants with sometimes opposing interests, is hard to modify and only possible small and slow steps, if at all. Therefore, Virtual Networks are often the only way to realize innovation. To implement a Virtual Network using the existing Internet, several things need to be considered. First, the characteristics of the networking technology determine the attributes of the Virtual Network. For instance, a wired network yields a more scalable and bandwidth flexible Virtual Network than a wireless network would do. \cite{Chowdhury} Second, the layer of virtualization (referring to the OSI layer model) impacts the flexibility of the Virtual Network. That is, the lower the layer of virtualization, the more flexibility will be possible. Specifically, so-called overlay networks, mostly realized in the application layer, are limited in their ability to support fundamentally different architectures. \cite{Chowdhury} Moreover, virtualization on top of IP is fixed to the network layer protocol and cannot deploy IP independent mechanisms.  \cite{Chowdhury} Lastly, an important consideration in the non-comprehensive list is also about security and privacy in virtual networks. Thus, attack vectors such as denial-of-service or distributed denial-of-service against the underlying physical network will have impact on all simultaneously virtualized networks.
+Second, the average number of hops per node is analyzed. This is different from what we collected in the P2P environment which is maximum number of hops. Thus fair comparison between these two environment can not be performed here. In the wireless ad-hoc network, as we can see in fig. ~\ref{fig:hop}, the average number of hops per node mostly concentrated around 2.3 hops regardless of the growing number of nodes. For wired P2P network, the maximum hops is around 16.5. But the standard deviation has the tendency to decrease which is a positive sign since we hope the gossip protocol performance metrics would converge as the network grows. Nonetheless, the overall impression for both network environment is that the number of hops either average or maximum are more or less constant. But why is that the average hops per node could remaine 2 to 3 in a wireless ad-hoc network? My explaination is that since the topology of the network is almost a complete graph as you can see in fig.~\ref{fig:graph} showing a simple 10 nodes case, with gossip interval 5ms and request interval 5s, before any node send out request packets, chances are the starting node already gossipped with most of the node in the network result to a low average hops per node.
 
-\subsection{Virtualization Algorithm}
-Though, it is possible to form a VSN of mobile IoT devices by having access to all relevant data such as availability, sensor capabilities or sensor mobility, a more efficient solution is to assume the managing cloud agent does not have full knowledge of every sensors’ properties. \cite{Sherif} The cloud agent even may not be connected to all nodes but only to a subgroup of them. The presented algorithm also takes into account mobility of the devices which sometimes leads to nodes being unavailable for some time. \cite{Sherif}
-This virtualization algorithm will search and select appropriate sensors from the whole network to form the virtual network which then executes the sensing task.
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=3in]{figs/hop}
+%	\caption{The average number of hops per node (Ad-hoc environment).}
+%	\label{fig:hop}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=3in]{figs/hopP}
+%	\caption{The maximum amount of hops the message experienced (P2P environment).}
+%	\label{fig:hopP}
+%\end{figure}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=3in]{figs/Net_10}
+%	\caption{A simple ten nodes random generated topology.}
+%	\label{fig:graph}
+%\end{figure}
+
+Moreover, figure~\ref{fig:time} illustrates the time needed to spread the message across the whole network. For the P2P network environment, the average time needed to spread the message is found to be more or less constant and slightly less than 15s. Due to the huge difference in the gossip-interval-time (5ms) and solicit-interval-time (5s), only the influence of the solicit-interval can be deduced from the results. One can see, that the time needed to spread the message is fluctuating due to the random nature of the gossip protocol, especially for the case of a number of nodes of 100, where the standard deviation is the largest. However, when we compare this result with ad-hoc network simulation result, the different between them is significant. For the latter case, the spread time starts around 190s and grows almost linearly with the number of nodes in the network. In term of absolute maginitude, wireless network perform much worse than P2P network. However, this result is total within our expectation since wireless communication often encounter collision problem and thus result in longer spread time.
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=3in]{figs/time}
+%	\caption{The spread time under different number of nodes cases}
+%	\label{fig:time}
+%\end{figure}
+
+Section~\ref{sec:further} proposes further work which can be done to gain a more thorough evaluation.
+
 
 
 
