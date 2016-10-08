@@ -120,7 +120,7 @@ def main():
 	lifeSpan = []
 	files = []
 	for i in range(10, 210, 10):
-		path = 'data_fanout_5/lifeSpan/lifeSpan_' + str(i) + '.txt'
+		path = 'data_fanout_10/lifeSpan/lifeSpan_' + str(i) + '.txt'
 		#print path
 		files.append(path)
 
@@ -163,7 +163,7 @@ def main():
 
 	print len(expList)
 	for el in expList:
-		statsUtility.AppendToFile("testLifeSpan_5.txt", str(el)+'\n')
+		statsUtility.AppendToFile("testLifeSpan_10.txt", str(el)+'\n')
 
 
 

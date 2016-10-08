@@ -120,7 +120,7 @@ def main():
 	energy = []
 	files = []
 	for i in range(10, 210, 10):
-		path = 'data_fanout_5/energy/energy_' + str(i) + '.txt'
+		path = 'data_fanout_10/energy/energy_' + str(i) + '.txt'
 		#print path
 		files.append(path)
 
@@ -163,7 +163,7 @@ def main():
 
 	print len(expList)
 	for el in expList:
-		statsUtility.AppendToFile("testEnergy_5.txt", str(el)+'\n')
+		statsUtility.AppendToFile("testEnergy_10.txt", str(el)+'\n')
 
 
 

@@ -126,12 +126,13 @@ def main():
 
 	path = []
 	for i in range(10, 210, 10):
-		temp = 'data_fanout_5/brTime_' + str(i) + '/brTime_' + str(i) + '_*.txt'
+		temp = 'data/brTime_' + str(i) + '/brTime_' + str(i) + '_*.txt'
 		path.append(temp)
 
 	print 'path variable is ' + str(path)
 
 	avgList = []
+	numList = []  # avg number of broadcasting messages
 	for j in range(len(path)):
 		files=glob.glob(path[j])  # one case e.g 10 nodes 85 files
 		print len(files)
@@ -154,6 +155,14 @@ def main():
 		# 	print len(brTime[i])
 		# print 'end here!!!\n'
 
+		sum = 0.0
+		for el in brTime:
+			sum = sum + len(el)
+
+		temp = sum / len(brTime)
+		numList.append(temp)
+
+
 		expList = []
 		for i in range(len(brTime)):
 		# ls = []
@@ -170,7 +179,11 @@ def main():
 	# print avgList
 
 	for el in avgList:
-		statsUtility.AppendToFile("avgBrTime_5.txt", str(el)+'\n')
+		statsUtility.AppendToFile("avgBrTime.txt", str(el)+'\n')
+
+	#print numList
+	for el in numList:
+		statsUtility.AppendToFile("avgBrNum.txt", str(el)+'\n')
 
 	# print len(expList)
 	# for el in expList:
