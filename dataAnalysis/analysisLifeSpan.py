@@ -119,10 +119,15 @@ def runStats(ls):
 def main():
 	lifeSpan = []
 	files = []
-	for i in range(10, 210, 10):
-		path = 'data_fanout_10/lifeSpan/lifeSpan_' + str(i) + '.txt'
+	for i in range(10, 100, 40):
+		path = 'noIdleCurrentData/fanout10/lifeSpan/lifeSpan_' + str(i) + '.txt'
 		#print path
 		files.append(path)
+
+	path = 'noIdleCurrentData/fanout10/lifeSpan/lifeSpan_150.txt'
+	files.append(path)
+
+	print files
 
 	# path = 'data/energy/*.txt'
 	# files=glob.glob(path)
@@ -163,7 +168,7 @@ def main():
 
 	print len(expList)
 	for el in expList:
-		statsUtility.AppendToFile("testLifeSpan_10.txt", str(el)+'\n')
+		statsUtility.AppendToFile("noIdle_lifeSpan_10.txt", str(el)+'\n')
 
 
 

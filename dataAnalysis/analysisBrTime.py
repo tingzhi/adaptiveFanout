@@ -125,9 +125,12 @@ def main():
 	# 	files.append(path)
 
 	path = []
-	for i in range(10, 210, 10):
-		temp = 'data/brTime_' + str(i) + '/brTime_' + str(i) + '_*.txt'
+	for i in range(10, 100, 40):
+		temp = 'noIdleCurrentData/fanout10/brTime_' + str(i) + '/brTime_' + str(i) + '_*.txt'
 		path.append(temp)
+
+	temp = 'noIdleCurrentData/fanout10/brTime_150/brTime_150_*.txt'
+	path.append(temp)
 
 	print 'path variable is ' + str(path)
 
@@ -179,11 +182,11 @@ def main():
 	# print avgList
 
 	for el in avgList:
-		statsUtility.AppendToFile("avgBrTime.txt", str(el)+'\n')
+		statsUtility.AppendToFile("noIdle_avgBrTime_10.txt", str(el)+'\n')
 
 	#print numList
 	for el in numList:
-		statsUtility.AppendToFile("avgBrNum.txt", str(el)+'\n')
+		statsUtility.AppendToFile("noIdle_avgBrNum_10.txt", str(el)+'\n')
 
 	# print len(expList)
 	# for el in expList:
