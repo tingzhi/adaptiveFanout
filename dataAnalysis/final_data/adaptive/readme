@@ -1,0 +1,2 @@
+fanout = adaptive [1,5]
+idle current = 0

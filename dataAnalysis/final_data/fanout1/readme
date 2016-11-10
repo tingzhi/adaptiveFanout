@@ -1,0 +1,8 @@
+fanout = 1
+initial energy = 108J
+stop at 10.8J remaining energy
+IdleCurrentA = 0.0
+SleepCurrentA = 0.0
+TxCurrentA = 0.38
+RxCurrentA = 0.313
+
