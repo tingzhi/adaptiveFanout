@@ -14,42 +14,48 @@
 \contentsline {section}{\numberline {1.1}A Section}{2}{section.19}
 \contentsline {subsection}{\numberline {1.1.1}A Subsection}{2}{subsection.20}
 \contentsline {section}{\numberline {1.2}Another Section}{2}{section.21}
-\contentsline {chapter}{\numberline {2}PROBLEM STATEMENT}{3}{chapter.22}
-\contentsline {section}{\numberline {2.1}A Section}{5}{section.23}
-\contentsline {subsection}{\numberline {2.1.1}A Subsection}{5}{subsection.24}
-\contentsline {section}{\numberline {2.2}Another Section}{5}{section.25}
-\contentsline {chapter}{\numberline {3}SOLUTION APPROACH}{6}{chapter.26}
-\contentsline {section}{\numberline {3.1}Key Intuition of Our Approach}{6}{section.27}
-\contentsline {section}{\numberline {3.2}From gossip course paper}{6}{section.28}
-\contentsline {subsection}{\numberline {3.2.1}ICMP Extension}{7}{subsection.29}
-\contentsline {subsection}{\numberline {3.2.2}Gossip Protocol}{7}{subsection.33}
-\contentsline {subsection}{\numberline {3.2.3}Gathering Simulation Data}{9}{subsection.35}
-\contentsline {subsection}{\numberline {3.2.4}A Subsection}{10}{subsection.37}
-\contentsline {section}{\numberline {3.3}Another Section}{10}{section.38}
-\contentsline {chapter}{\numberline {4}PROTOCOL IMPLEMENTATION}{11}{chapter.39}
-\contentsline {section}{\numberline {4.1}A Section}{11}{section.40}
-\contentsline {subsection}{\numberline {4.1.1}A Subsection}{12}{subsection.41}
-\contentsline {section}{\numberline {4.2}Another Section}{12}{section.42}
-\contentsline {chapter}{\numberline {5}PERFORMANCE EVALUATION}{13}{chapter.43}
-\contentsline {section}{\numberline {5.1}A Section}{15}{section.44}
-\contentsline {subsection}{\numberline {5.1.1}A Subsection}{15}{subsection.45}
-\contentsline {section}{\numberline {5.2}Another Section}{15}{section.46}
-\contentsline {chapter}{\numberline {6}RELATED WORK}{16}{chapter.47}
-\contentsline {subsection}{\numberline {6.0.1}Virtual Sensor Networks}{16}{subsection.48}
-\contentsline {subsection}{\numberline {6.0.2}Virtual Networks on Top of the Internet}{17}{subsection.49}
-\contentsline {subsection}{\numberline {6.0.3}Virtualization Algorithm}{17}{subsection.50}
-\contentsline {section}{\numberline {6.1}A Section}{18}{section.51}
-\contentsline {subsection}{\numberline {6.1.1}A Subsection}{18}{subsection.52}
-\contentsline {section}{\numberline {6.2}Another Section}{18}{section.53}
-\contentsline {chapter}{\numberline {7}CONCLUSION and FUTURE WORK}{20}{chapter.54}
-\contentsline {section}{\numberline {7.1}A Section}{21}{section.55}
-\contentsline {subsection}{\numberline {7.1.1}A Subsection}{21}{subsection.56}
-\contentsline {section}{\numberline {7.2}Another Section}{21}{section.57}
-\contentsline {chapter}{\numberline {8}CONTRIBUTION}{22}{chapter.58}
-\contentsline {section}{\numberline {8.1}A Section}{23}{section.59}
-\contentsline {subsection}{\numberline {8.1.1}A Subsection}{23}{subsection.60}
-\contentsline {section}{\numberline {8.2}Another Section}{23}{section.61}
+\contentsline {chapter}{\numberline {2}Related Work}{3}{chapter.22}
+\contentsline {section}{\numberline {2.1}Virtual Sensor Networks}{3}{section.23}
+\contentsline {section}{\numberline {2.2}Virtual Networks on Top of the Internet}{4}{section.24}
+\contentsline {section}{\numberline {2.3}Virtualization Algorithm}{4}{section.25}
+\contentsline {section}{\numberline {2.4}A Section}{6}{section.26}
+\contentsline {subsection}{\numberline {2.4.1}A Subsection}{6}{subsection.27}
+\contentsline {section}{\numberline {2.5}Another Section}{6}{section.28}
+\contentsline {chapter}{\numberline {3}Energy-aware Gossip}{7}{chapter.29}
+\contentsline {section}{\numberline {3.1}Classcial Gossip}{7}{section.30}
+\contentsline {subsection}{\numberline {3.1.1}How it works}{8}{subsection.31}
+\contentsline {subsection}{\numberline {3.1.2}All Parameters}{8}{subsection.32}
+\contentsline {subsection}{\numberline {3.1.3}Different Approach}{8}{subsection.33}
+\contentsline {section}{\numberline {3.2}Proposed Adaptive Gossip}{8}{section.34}
+\contentsline {subsection}{\numberline {3.2.1}Intuition}{8}{subsection.35}
+\contentsline {section}{\numberline {3.3}Key Intuition of Our Approach}{8}{section.36}
+\contentsline {section}{\numberline {3.4}From gossip course paper}{8}{section.37}
+\contentsline {subsection}{\numberline {3.4.1}ICMP Extension}{9}{subsection.38}
+\contentsline {subsection}{\numberline {3.4.2}Gossip Protocol}{9}{subsection.42}
+\contentsline {subsection}{\numberline {3.4.3}Gathering Simulation Data}{11}{subsection.44}
+\contentsline {subsection}{\numberline {3.4.4}A Subsection}{12}{subsection.46}
+\contentsline {section}{\numberline {3.5}Another Section}{12}{section.47}
+\contentsline {chapter}{\numberline {4}Implementation}{13}{chapter.48}
+\contentsline {section}{\numberline {4.1}A Section}{14}{section.49}
+\contentsline {subsection}{\numberline {4.1.1}A Subsection}{14}{subsection.50}
+\contentsline {section}{\numberline {4.2}Another Section}{14}{section.51}
+\contentsline {chapter}{\numberline {5}Performance Evaluation}{15}{chapter.52}
+\contentsline {section}{\numberline {5.1}Performance Metrics}{16}{section.53}
+\contentsline {section}{\numberline {5.2}Results Analysis}{17}{section.54}
+\contentsline {section}{\numberline {5.3}A Section}{18}{section.55}
+\contentsline {subsection}{\numberline {5.3.1}A Subsection}{18}{subsection.56}
+\contentsline {section}{\numberline {5.4}Another Section}{18}{section.57}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{19}{chapter.58}
+\contentsline {section}{\numberline {6.1}A Section}{20}{section.59}
+\contentsline {subsection}{\numberline {6.1.1}A Subsection}{20}{subsection.60}
+\contentsline {chapter}{\numberline {7}A chapter}{21}{chapter.61}
+\contentsline {section}{\numberline {7.1}A Section}{21}{section.62}
+\contentsline {subsection}{\numberline {7.1.1}A Subsection}{21}{subsection.63}
+\contentsline {section}{\numberline {7.2}Another Section}{21}{section.64}
+\contentsline {chapter}{\numberline {8}A chapter}{22}{chapter.65}
+\contentsline {section}{\numberline {8.1}A Section}{22}{section.66}
+\contentsline {subsection}{\numberline {8.1.1}A Subsection}{22}{subsection.67}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}An Appendix}{25}{appendix.62}
+\contentsline {chapter}{\numberline {A}An Appendix}{23}{appendix.68}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{27}{dummy.63}
+\contentsline {chapter}{Bibliography}{24}{dummy.69}

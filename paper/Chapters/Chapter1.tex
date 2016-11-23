@@ -3,32 +3,31 @@
 % start with a example
 % 2. state your contribution
 
-
-
-summarize what I have done so far.
-
-trickle algorithm in a gist: 
-The main idea of this paper is ....
-
-The gossip protocol could be used to build routing table[?], perform multicast[?], or in this case, perform broadcast.
-
 There is no doubt that the \emph{Internet of Things (IoT)} is an innovative paradigm, \cite{Atzori} which is gaining popularity in our modern society.  With the development of information technology, digital devices are getting smaller and yet more powerful. The basic ideal of IoT is that with "unique addressing schemes", various of \emph{things} or \emph{objects} such as smart phones, watches, thermostats, Radio-Frequency IDentification (RFID) tags, sensors are able to communicate, cooperate with each other to perform tasks \cite{Atzori}.  
-
-%As of today, research in the area of IoT is emerging rapidly and many open questions remain to be answered.
 
 Remote sensing is one of the promising services of IoT. With remote sensing, the users could retrieve collected data through the network instead of physically retrieving data. Remote sensing involves the search and selection of IoT devices to form a virtual sensor network. Afterwards, sensing task is sent to the virtual sensor network. The selected devices then perform sensing collaboratively and report the result back to the remote cloud agent. 
 
-There is one step during remote sensing process that I am particularly interested in, which is sending tasks to the virtual sensor network. Ther are two aspects of this area. One question is that what kind of network would IoT devices form? The other question is that what kind of protocol is efficient and robust for multicasting the sensing task? As we know, IoT devices often have limited bandwidth and power. Their mobility further impacted the topology of the selected virtual sensor network. Due to the characteristics of IoT devices, ad-hoc network become the most suitable tool to model IoT devices formed virtual seonsor network. In this paper, we choose gossip protocol\cite{gossip} as our multicast protocol and evaluate its performance.
+There is one step during remote sensing process that I am particularly interested in, which is sending tasks to the virtual sensor network. There are two aspects of this area. One question is that what kind of network would IoT devices form? The other question is that what kind of protocol is efficient and robust for broadcasting the sensing task? As we know, IoT devices often have limited bandwidth and power. Their mobility further impacted the topology of the selected virtual sensor network. Due to the characteristics of IoT devices, ad-hoc network is often used to communicate among devices. Flooding was a simple algorithm to broadcast messages in wired network but was prove to be unsuited for wireless environment due to excessive overhead, media contention, and packets collision. Gossip technique instead is often used to quickly broadcast messages with lower overhead. Gossip technique is inspired by the form of gossip seen in social network. In a network, a node with a new message would randomly pick another node and gossip the message. The other node then would do the same thing. This is refer to as classic gossip technique. A variation of that would only randomly pick a node that is its neighbor. But regardless of how a node pick aother node or choose where to pick from, gossip technique could broadcast a new message in a timely and robust manner.
 
+Over the years, researcher have been focusing on how to improve gossip technique's reliability while lowering overhead. Many proposed gossip schemes have been proposed. Some porposed to apply gossip probability on nodes. The idea behind that is that a message could be broadcasted successfully without every nodes' participation. In this scheme, a lower overhead could be achieved because a portion of the nodes participated in gossipping but a message is still being broadcasted. Some proposed a event counter based scheme to combat this issue. The gist of that shceme is that if a node overheard the same messages $a$ times and $a > b$ were $b$ is the threshold, it would not gossip its latest message this time. Some even went a step further, they tried to identify the dependency among a node and its neighbors and dynamically adjust gossip probability based on collected information.
+
+However, none of them focused directly on how to conserve energy while gossipping. Some might argure that the effort on lowering overhead is equivlent to conserving energy but (!!!need to think about this). As we are moving to an IoT and mobile devices dominated world, energy conservation become more and more important as to overall user experience or network survival time. In this thesis, I proposed a gossip technique that dynamically adjust gossip fan-out based on each node's remaining energy. The results showed that my proposed approach performed as well as constant gossip fan-out approach while still conserving significant amount of energy.
+
+%In this paper, we choose gossip protocol\cite{gossip} as our multicast protocol and evaluate its performance.
+
+%summarize what I have done so far.
+
+%trickle algorithm in a gist: 
+%The main idea of this paper is ....
+
+%The gossip protocol could be used to build routing table[?], perform multicast[?], or in this case, perform broadcast.
+
+%As of today, research in the area of IoT is emerging rapidly and many open questions remain to be answered.
 
 \section{A Section}
 
-Quisque tristique urna in lorem laoreet at laoreet quam congue. Donec dolor turpis, blandit non imperdiet aliquet, blandit et felis. In lorem nisi, 
 
 \subsection{A Subsection}
 
-Donec urna leo, vulputate vitae porta eu, vehicula blandit libero. Phasellus eget massa et leo condimentum mollis. Nullam molestie, justo at 
 
 \section{Another Section}
-
-Phasellus nisi quam, volutpat non ullamcorper eget, congue fringilla leo. Cras et erat et nibh placerat commodo id ornare est. Nulla facilisi. Aenean 

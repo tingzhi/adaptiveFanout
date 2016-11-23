@@ -1,4 +1,26 @@
-\chapter{SOLUTION APPROACH}
+\chapter{Energy-aware Gossip}
+
+The objective of gossip protocol is to broadcast messages in an efficient way by mimicing social activities when people spread rumors in office. It works as follows: when a node received a new message, it then will send it to multiple nodes in the network. The number of nodes it contacted is defined as the \emph{fan-out} of gossip protocol. It is denoted as $f$. Each time when a node face the decision of sending a new message to another node, the probability of doing so is defined as $p_{gossip}$. In the rest of the thesis, I will refer to it as $p_g$. $p_g$ is usually between 0 and 1. Once a node received a new message, the number of times it will contact other nodes is defined as \emph{message live time}. It is denoted as $T_l$.
+
+
+
+\section{Classcial Gossip}
+For classic gossip protocol in wired network sceniro, \emph{probability of gossip} is set to be 1 and \emph{fan-out} is usually set to be 1 or 2. 
+\emph{message live time} could vary depending on the requirement. 
+
+\subsection{How it works}
+
+\subsection{All Parameters}
+
+\subsection{Different Approach}
+
+\section{Proposed Adaptive Gossip}
+
+
+
+\subsection{Intuition}
+
+
 
 \section{Key Intuition of Our Approach}
 
@@ -8,6 +30,9 @@ Why not adjust gossip probability based on remaining energy fraction?
 
 Why not adjust other gossip protocol parameters based on remaining energy fraction?
 
+
+
+(from 563 paper).
 \section{From gossip course paper}
 
 To achieve the goals stated in section~\ref{sec:problem}, I took four crucial steps.
@@ -155,16 +180,8 @@ To allow the performance analysis, all nodes count the number of data packets th
 This information is determined and stored for each of the several hundred topology files. It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data in the hope of verifying the assumptions we made in section~\ref{sec:problem}.
 
 
-
-
-
-
 \subsection{A Subsection}
 
-Donec urna leo, vulputate vitae porta eu, vehicula blandit libero. Phasellus eget massa et leo condimentum mollis. Nullam molestie, justo at pellentesque vulputate, sapien velit ornare diam, nec gravida lacus augue non diam. Integer mattis lacus id libero ultrices sit amet mollis neque molestie. Integer ut leo eget mi volutpat congue. Vivamus sodales, turpis id venenatis placerat, tellus purus adipiscing magna, eu aliquam nibh dolor id nibh. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed cursus convallis quam nec vehicula. Sed vulputate neque eget odio fringilla ac sodales urna feugiat.
 
 \section{Another Section}
 
-Phasellus nisi quam, volutpat non ullamcorper eget, congue fringilla leo. Cras et erat et nibh placerat commodo id ornare est. Nulla facilisi. Aenean pulvinar scelerisque eros eget interdum. Nunc pulvinar magna ut felis varius in hendrerit dolor accumsan. Nunc pellentesque magna quis magna bibendum non laoreet erat tincidunt. Nulla facilisi.
-
-Duis eget massa sem, gravida interdum ipsum. Nulla nunc nisl, hendrerit sit amet commodo vel, varius id tellus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac dolor est. Suspendisse ultrices tincidunt metus eget accumsan. Nullam facilisis, justo vitae convallis sollicitudin, eros augue malesuada metus, nec sagittis diam nibh ut sapien. Duis blandit lectus vitae lorem aliquam nec euismod nisi volutpat. Vestibulum ornare dictum tortor, at faucibus justo tempor non. Nulla facilisi. Cras non massa nunc, eget euismod purus. Nunc metus ipsum, euismod a consectetur vel, hendrerit nec nunc.
