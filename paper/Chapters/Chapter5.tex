@@ -1,8 +1,7 @@
 \chapter{Performance Evaluation}
 
-In order to evaluate my protocol, I choose to use a open-source simulation software called NS-3 (Network Simulator 3). 
+Talk about the settings
 
-Introduction of ns3
 
 The number of nodes, simulation time, maximum wifi range, initial battery energy, gossip interval, and solicit interval are all the parameters I could control in the simulation. The number of nodes is ranging from 10 to 200 with step 10. The simulation time is set to be large enough to ensure any node's battery will die before the simulation stops. The maximum wifi range is set to be 50 meters so that no one node is connected to all other nodes. The initial battery energy is set to be 1080 Joule (equivalent to 100mAh) for every node. The gossip interval is set to be 1 second meaning for any node every second the gossip process will wake up and check if it need to gossip a new packet to its neighbors. The solicit interval is set to be 5 seconds which means every 5 seconds, a node will randomly pick a neighbor and query for their latest received packet. 
 
@@ -18,41 +17,6 @@ In summary, the simulation parameters are set to be as follows:
 
 
 The simulation will stop when any node's energy was depleted. For each scenario (e.g. n = 10), 100 independent trials were simulated in order to gather performance data. Any simulation parameters other than number of nodes stay the same through all simulation trials. 
-
-
-\section{Performance Metrics}
-Life Span of the Network
-
-Definition: The time when any node's battery die
-
-Because the goal of this protocol is to broadcast any new packet, the network will lose the phsical ability whenever any node lost wireless connection to its neighbors due to energy depletion. Therefore, this metric indicates how long a network with size n could stay connected using a broadcast protocol.
-
-Average Packet Broadcast Time
-
-Let's think about broadcasting one packet from one node to (n-1) nodes, the packet broadcast time of this packet for this network is the difference between the time when last node received the packet and the time this packet was first sent.
-
-Because for each independent trial, multiple packets will be sent. The packet broadcast time is calculated for each packet in the way described above. In the end, we average the times for each scenario (e.g. n = 10). 
-
-Need to develop a mathmatical equation for this
-
-The average packet broadcast time indicates the time needed for a packet to reach every node in the network.
-
-Protocol Overhead
-
-There are three types of protocol packets for the protocol. The ack packet, solicit packet, and the payload packet. The ackownledgment packet is sent to the sender from receiver when a node received a payload that it already received before. The solicit packet is sent to query a random neighbor for its latest payload. For example, in one trial with n nodes, if it broadcasted m packets, then the average protocol overhead is defined as:
-
-$overhead = ()(p1 + p2 + … + p_n) / n) / m$
-
-This metric indicated how many packets is needed for a node to facilitate broadcasting one packet. 
-
-Consumed Energy
-
-The consumed energy per node per packet is defined as
-
-energy = ((e1 + e2 + … + en)/n)/m
-
-This metric measures the amount of energy needed for a node to facilitate broadcasting one packet. 
-
 
 
 \section{Results Analysis}
@@ -122,14 +86,5 @@ Moreover, figure~\ref{fig:time} illustrates the time needed to spread the messag
 Section~\ref{sec:further} proposes further work which can be done to gain a more thorough evaluation.
 
 
-\section{A Section}
-
-
-
-\subsection{A Subsection}
-
-
-
-\section{Another Section}
 
 

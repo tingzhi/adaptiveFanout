@@ -1,134 +1,81 @@
 \chapter{Energy-aware Gossip}
 
-The objective of gossip protocol is to broadcast messages in an efficient way by mimicing social activities when people spread rumors in office. It works as follows: when a node received a new message, it then will send it to multiple nodes in the network. The number of nodes it contacted is defined as the \emph{fan-out} of gossip protocol. It is denoted as $f$. Each time when a node face the decision of sending a new message to another node, the probability of doing so is defined as $p_{gossip}$. In the rest of the thesis, I will refer to it as $p_g$. $p_g$ is usually between 0 and 1. Once a node received a new message, the number of times it will contact other nodes is defined as \emph{message live time}. It is denoted as $T_l$.
-
+The objective of gossip protocol is to broadcast messages in an efficient way by mimicing social activities when people spread rumors in office. It works as follows: when a node received a new message, it then will send it to multiple nodes in the network. The number of nodes it contacted is defined as the \emph{fanout} of gossip protocol. It is denoted as $f$. Each time when a node face the decision of sending a new message to another node, the probability of doing so is defined as $p_{gossip}$. In the rest of the thesis, I will refer to it as $p_g$. $p_g$ is between 0 and 1. Once a node received a new message, the number of times it will contact other nodes is defined as \emph{message live time}. It is denoted as $T_l$.
 
 
 \section{Classcial Gossip}
-For classic gossip protocol in wired network sceniro, \emph{probability of gossip} is set to be 1 and \emph{fan-out} is usually set to be 1 or 2. 
-\emph{message live time} could vary depending on the requirement. 
+For classic gossip protocol in wired network sceniro, \emph{probability of gossip} is set to be 1 and \emph{fanout} is usually set to be 1 or 2. \emph{Message live time} could vary depending on the requirement. In a wireless adhoc network sceniro, even though each node has the ability to broadcast locally, it is often not utilized due to pontential broadcast storm problem. Instead \emph{fanout} is set to be 1 or 2 as well. However, it is desirable to set \emph{probability of gossip} to be a number below 1 in order to reduce protocol overhead. Some paper proposed a global $p_g$ based on the connectivity of the network. A typical value is about 0.6. The intuition behind this approach is that from our life experience, a rumor can be successfully spread even whithout everyone's participation. Thus, a \emph{probability of gossip} value set below 1 will still allow new messages to be broadcasted with reasonably high successful rate. However, it is often difficult to gather global information in a wireless adhoc network due to its distributed and dynamic nature. Therefore, even an optimal global $p_g$ could become sub-optimal overtime. 
+
+To address these issues, some paper proposed dynamic global $p_g$ where frequently the protocol will gather network information(such as number of nodes in the network) to adjust $p_g$. This approach does take dynamic network topology into account but gathering global network information remain to be difficult. Meanwhile, some paper proposed dynamic $p_g$ for each individual node. The \emph{probability of gossip} can be adjusted based on its node's degree (define as the number of neighbors, denoted as $d$) or based on how many times a node overheard the same message. Here a node's degree is be used as a density metrics. Idealy in order to reduce overhead, we want $p_g$ to be inversely correlated with node's degree. The equation is shown as:
+
+\[ p_g = \frac{1}{d}\]
+
+The basic idea behind this approach is that for a node with higher node's degree (meaning it has more neighbors, thus this area is more dense), a lower \emph{probability of gossip} will be sufficient to spread out the new message.
+
+For the aprroach that focus on how many times a node overheard the same message, during a small time frame $\tau$ (e.g. 5s), a node will listen messages that are being sent to other nodes. If the times this node overhear the same message exccees its threshold, it will not send its latest message to one or several randomly selected neighbors. 
 
 \subsection{How it works}
 
+\subsection{Mathmatical model of gossip protocol}
+
 \subsection{All Parameters}
+Four key parameters that define the behavior of gossip protocol in a wireless adhoc network are: 
+
+\begin{itemize}
+	\item \emph{probability of gossip}(denoted as $p_g$)
+	\item \emph{fanout} (denoted as $f$)
+	\item \emph{message live time} (denoted as $T_l$)
+	\item \emph{gossip interval} (when $T_l > 1$)
+\end{itemize}
+
+When $p_g = 1$ and $f = node's degree$, this protocol is closely resemble to flooding broadcasting scheme which is not suitable for wireless adhoc network. When $p_g = 1$ and $f = 1, 2$, it is set to be classic gossip broadcast protocol. $T_l$ is a parameter that is closely related to a node's memory constrain. A large $T_l$ setting will is will increase the message broadcasting successful rate at the expnse of higher memory requirement and higher protocol overhead. 
 
 \subsection{Different Approach}
 
-\section{Proposed Adaptive Gossip}
+\section{Proposed Energy-aware Adaptive Gossip}
+As we stated previsouly in the thesis, the current state of research on gossip techniques for wireless broadcassting focused very little on energy efficiency and network lifetime. Far too many researches focused on dynamically adjust $p_g$ based on global or local network infromation (global: number of nodes, local: node's degree, overhearring). Our objective here is to develop a new energy-aware gossip protocol that could extend network lifetime while still remain to have a fast and reliable broadcasting performance. The parameter that we focused on shifted from \emph{probability of gossip} to \emph{fanout} as well. 
+
+Our observation tells us that a higher \emph{fanout} setting will result in a shorter broadcasting time for a new message at the expense of higher energy consumption. While a lower \emph{fanout} setting will conserve energy but result in a longer broadcasting time. First of all, we argue that each node's battery life should be maximized in order to extend network lifetime. Since for a broadcasting protocol, any node that disconnected to the network due to energy depletion renders a situation that broadcasting can no longer work. In order to maximize each node's battery life, a constant high \emph{fanout} setting is undesirable when battery is very low. Similarly when battery is very high, a constatnt low \emph{fanout} setting can hinder the message broadcasting time. Therefore, we proposed that \emph{fantou} should be dynamically adjusted based on each node's remaining energy fraction. 
+
+Let's denoted the \emph{remaining energy fraction} as $r$. The fanout fucnntion is as follow:
+
+\[ f(r) = 5 when 0.8 \leq r \leq 1\]
+
+The fanout function is plotted as follow:
 
 
-
-\subsection{Intuition}
-
+The basic idea of our fanout function is that if a node has high remaining energy, the \emph{fanout} of that node will be higher and vice versa. 
 
 
-\section{Key Intuition of Our Approach}
+\section{Basic Gossip Protocol Details}
+The actual protocol utilizes three packet types to perform. They are:
+\begin{itemize}
+	\item Data packet
+	\item Ack packet  (Acknowledgment)
+	\item Request packet
+\end{itemize}
 
-In order to save each node's energy and potentially extend the lifespan of the whole network. My idea is to use each node's remaining energy fraction (much like the battery indicator on your phone) as the X for the function of one of gossip protocol's parameter — fanout. The more energy a node has, the bigger the fanout will be for it. Thus, compare to constant fanout protocol, which does not take nodes' energy into account, our apprach — adaptive fanout will dynamically adjust fanout based on a node's remaining energy.
-
-Why not adjust gossip probability based on remaining energy fraction?
-
-Why not adjust other gossip protocol parameters based on remaining energy fraction?
-
+The Data packet contains the message that is expected to be disseminated to the whole network from a certain source node. The Ack packet is used to acknowledge to the sender that receiver node already received that message before. The Request packet is used for a node to ask for the latest message from destination node. There are two states for each node, gossipping or sleep.
 
 
 (from 563 paper).
-\section{From gossip course paper}
-
-To achieve the goals stated in section~\ref{sec:problem}, I took four crucial steps.
-
-\begin{itemize}
-	\item Extend the Internet Control Message Protocol (ICMP) to support transmitting three simple control messages needed for gossip protocol.
-	\item Develop the gossip protocol application to be installed on network nodes.
-	\item Set wireless ad-hoc network attributes and gossip protocol attributes, which has already be presented in section~\ref{sec:problem}.
-	\item Import nodes connectivity information from topology files and export simulation results for performance evaluation.
-\end{itemize}
-
-\subsection{ICMP Extension}
-
-ICMP stands for Internet Control Message Protocol. The most common use of ICMP is for error reporting~\cite{james}. A ICMP message contains two parts: 8-byte header and data section. The first 4 btyes of the header have fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in table \ref{table:1}.
-
-\begin{table}[h!]￼
-	\centering
-	\caption{ICMP Header Structure}
-	\label{table:1}
-	\begin{tabular}{|p{1 cm}|p{1 cm}|p{1 cm}|p{1 cm}|p{1 cm}|}
-		\hline
-		Octet & 0 & 1 & 2 & 3 \\
-		\hline
-		& Type & Code & 
-		\multicolumn{2}{ |c| }{Checksum}  \\
-		\hline
-		Octet & 4 & 5 & 6 & 7 \\
-		\hline
-		& 
-		\multicolumn{4}{|c|}{Rest of Header}  \\
-		\hline
-	\end{tabular}
-\end{table} 
-
-Table \ref{table:2} here presented some selected ICMP message types. 
-
-\begin{table}[h]
-	\centering
-	\caption{Control Messages}
-	\label{table:2}
-	\begin{tabular}{|p{1.5cm}|p{0.8 cm}|p{4.5 cm}|}
-		\hline
-		Type & Code & Description \\                                                           
-		\hline
-		0  & 0   & Echo reply   \\ \hline
-		8  &  0 & Echo request \\ 
-		\hline
-		9 & 0 & Router Advertisement \\
-		\hline
-		10	& 0	&	Router discovery/selection/solicitation \\
-		\hline
-		42 to 255    &   & Reserved    \\ 
-		\hline
-	\end{tabular}
-\end{table}
-
-Since type 42 to 255 are reserved for further development, I decided to extend ICMP by defining type 42, 43, and 44 to represent ackownlegement packet, request packet, and data packet respectively. The detail is shown in table \ref{table:3}.
-
-\begin{table}[h]
-	\centering
-	\caption{Gossip Protocol Control Messages}
-	\label{table:3}
-	\begin{tabular}{|p{0.8cm}|p{0.5 cm}|p{3.5 cm}|}
-		\hline
-		Type & Code & Description \\                                                           
-		\hline
-		42  & 0   & Send Acknowledgment   \\ \hline
-		43  &  0 & Send Request \\ 
-		\hline
-		44 & 0 & Send Data \\
-		\hline
-	\end{tabular}
-\end{table}
-
-Upon these new control message types extension, we could further develop gossip protocol in ns-3.
-
-\subsection{Gossip Protocol}
-
-Gossip protocol is a computer communication protocol which inspired by the social activity -- gossip. This protocol accomplishes to synchronize a message in a network that does not need real-time synchronization. It provides $O(\log n)$ time to synchronize the message to the network, where $n$ means the number of nodes in the network. There are three packet types for the message protocol: Data packet, ACK packet and request packet as mentioned above. The data packet contains the message from a certain source node that is expected to be disseminated to the whole network. The ACK packet is used to acknowledge to source node that destination node already received message before. The request packet is used for source node to request for the message from destination node. There are two states for each node, running and stop.
 
 \begin{figure}
 	\centering
 	\begin{verbatim}[fontsize=\small]
 	switch(state):
 	case running:
-	if message is not null:
-	every 5 milliseconds:
-	find a random neighbor R
-	send data packet to R
-	if receive a packet:
-	if packet is ACK:
-	state <- stop
-	if packet is data:
-	send ACK to packet source
-	else:
-	if receive a packet:
+		if message is not null:
+			every 5 milliseconds:
+				find a random neighbor R
+				send data packet to R
+		if receive a packet:
+			if packet is ACK:
+				state <- stop
+			if packet is data:
+				send ACK to packet source
+		else:
+			if receive a packet:
 	if packet is a data packet:
 	update the message
 	every 5 seconds:
@@ -150,38 +97,3 @@ Gossip protocol is a computer communication protocol which inspired by the socia
 \end{figure}
 
 The pseudo code of gossip algorithm is given in figure~\ref{fig:pseudo}. All nodes in the network have same behavior and they are independent to each other. When user would like to spread a message x to the whole network, the protocol randomly assign the message x to a node and run this algorithm. For the discussion, let's assume node 1 got the initial message x. Node 1 start with running state, and node 1 has a message x, so it will find a random neighbor every 0.005s and send a data packet which contain message x to its random neighbor. If node 1 receive a ACK packet it will go to stop state, otherwise it will keep doing above steps. Other nodes which do not have the message x will wait for packet, if a node 1 send a data packet to the node 2 which do not have message x, node 2 will update the message x in node 2 and not return anything to node 1. If node 2 do not have message 2, it will send a request packet to a random neighbor every 5 second. If node 2 receives a data packet after sending the request packet, it will update its message to x. The nodes in stop state would always waiting for other node send control messages to it and it will send data packet or ACK packet back depends on what kind of packets it receives.
-
-\subsection{Gathering Simulation Data}
-
-To evaluate the performance of gossip protocol, we use several randomly generated topology files with the number of nodes as variable. Those topology files are derived from a random geometric graph network, which was created by uniformly and randomly placing nodes into a space and then connect nodes whose distance is smaller than some given radius.
-
-\begin{figure}
-	\centering
-	\begin{verbatim}[fontsize=\small]
-	#Nodes
-	0
-	1
-	2
-	#Edges
-	(0, 1)
-	(1, 2)
-	\end{verbatim}
-	\caption{A topology file of a linear topology with three nodes.}
-	\label{fig:topsimple}
-\end{figure}
-
-
-Each topology file contains the number of nodes as well as all the edges, which represents the connections between nodes. As an example, the content of a simple topology file is shown in figure~\ref{fig:topsimple}. A parser written in C++ is developed to create the given number of nodes in ns-3 and installed the gossip protocol application on them. Thereafter, all edges are parsed and created accordingly. Each node holds an ns-3 Ipv4Interface with assigned Ipv4 address and stores the Ipv4 addresses of his neighbors.
-
-For the simulation, we set the link rate for all connections to be 1Mbp. Also, all nodes are instructed to execute the gossip process of sending out data periodically every 5ms. The interval of requesting new data is set to 5s.
-
-To allow the performance analysis, all nodes count the number of data packets they sent. All nodes would track how many hops the data message experienced before reaching them and they record the time when they received the data message as well. For every single simulation, we collect the information from the nodes and determine the average amount of data packets sent per node and average number of hops per node. Moreover, the information about how long it took for the message to reach the ``last'' node is also recorded.
-
-This information is determined and stored for each of the several hundred topology files. It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data in the hope of verifying the assumptions we made in section~\ref{sec:problem}.
-
-
-\subsection{A Subsection}
-
-
-\section{Another Section}
-
