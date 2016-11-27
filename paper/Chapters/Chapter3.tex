@@ -1,53 +1,81 @@
-\chapter{Energy-aware Gossip}
+\chapter{Energy-aware Gossip Protocol}
+\label{Chapter3}
+\lhead{Chapter 3. \emph{Energy-aware Gossip Protocol}} % Write in your own chapter title to set the page header
 
-The objective of gossip protocol is to broadcast messages in an efficient way by mimicing social activities when people spread rumors in office. It works as follows: when a node received a new message, it then will send it to multiple nodes in the network. The number of nodes it contacted is defined as the \emph{fanout} of gossip protocol. It is denoted as $f$. Each time when a node face the decision of sending a new message to another node, the probability of doing so is defined as $p_{gossip}$. In the rest of the thesis, I will refer to it as $p_g$. $p_g$ is between 0 and 1. Once a node received a new message, the number of times it will contact other nodes is defined as \emph{message live time}. It is denoted as $T_l$.
+In this chapter, we will first introduce the classic \gp ~which will serve as a base protocol for other variations of gossip protocols. Then we will explain the detail of our basic push-pull \gp. And lastly, we will introduce our proposed energy-aware gossip protocol which is built based on the basic push-pull \gp.
 
+\section{Classic Gossip Protocol}
+% how gossip protocol works
 
-\section{Classcial Gossip}
-For classic gossip protocol in wired network sceniro, \emph{probability of gossip} is set to be 1 and \emph{fanout} is usually set to be 1 or 2. \emph{Message live time} could vary depending on the requirement. In a wireless adhoc network sceniro, even though each node has the ability to broadcast locally, it is often not utilized due to pontential broadcast storm problem. Instead \emph{fanout} is set to be 1 or 2 as well. However, it is desirable to set \emph{probability of gossip} to be a number below 1 in order to reduce protocol overhead. Some paper proposed a global $p_g$ based on the connectivity of the network. A typical value is about 0.6. The intuition behind this approach is that from our life experience, a rumor can be successfully spread even whithout everyone's participation. Thus, a \emph{probability of gossip} value set below 1 will still allow new messages to be broadcasted with reasonably high successful rate. However, it is often difficult to gather global information in a wireless adhoc network due to its distributed and dynamic nature. Therefore, even an optimal global $p_g$ could become sub-optimal overtime. 
+The objective of gossip protocol is to broadcast messages in an efficient manner by mimicking social activities when people spread rumors in office by gossiping among each other. The classic \gp ~works as follows: when a node had a new message, it will send it to multiple randomly picked nodes in the network. Every node that received the new messages then will each randomly select multiple nodes and share the message with them. After a couple rounds of gossiping, majority of the nodes in the network have received this new message. The number of nodes a node tried to contacted is defined as the \emph{Fanout} of \gp. It is denoted as $f$. Each time when a node face the decision of whether sending a new message to another node or not, the probability of doing so is defined as $p_{gossip}$. In the rest of this thesis, I will refer to \emph{\pog} as $p_g$. Once a node received a new message, the number of times it will contact other nodes is defined as the \emph{Message Live Time} of \gp. It is denoted as $T_l$.
 
-To address these issues, some paper proposed dynamic global $p_g$ where frequently the protocol will gather network information(such as number of nodes in the network) to adjust $p_g$. This approach does take dynamic network topology into account but gathering global network information remain to be difficult. Meanwhile, some paper proposed dynamic $p_g$ for each individual node. The \emph{probability of gossip} can be adjusted based on its node's degree (define as the number of neighbors, denoted as $d$) or based on how many times a node overheard the same message. Here a node's degree is be used as a density metrics. Idealy in order to reduce overhead, we want $p_g$ to be inversely correlated with node's degree. The equation is shown as:
+In a wired network setting , the \emph{\pog} of classic \gp ~is set to be 1 and \emph{Fanout} is usually set to be 1 or 2. \emph{Message Live Time} could vary depending on the application requirement. In a wireless ad-hoc network setting, a simple broadcasting by flooding would cause \emph{broadcast storm} problem \cite{tseng2002broadcast}. Due to overlapping radio signals in a geographical area, flooding often cause excessive redundancy, serious contention, and collision. Instead \emph{Fanout} is set to be 1 or 2 as well. However, people often tweak \emph{\pog} based on local or global network information such as total number of nodes, or node's degree (number of neighbors). Their goal is to reduce protocol overhead by lowering \emph{\pog} while still achieving decent message broadcasting coverage. 
 
-\[ p_g = \frac{1}{d}\]
+\subsection{Mathematical Model of Gossip Protocol}
 
-The basic idea behind this approach is that for a node with higher node's degree (meaning it has more neighbors, thus this area is more dense), a lower \emph{probability of gossip} will be sufficient to spread out the new message.
+\subsection{Key Gossip Protocol Control Parameters}
+Four key parameters that define the behavior of gossip protocol in a wireless ad hoc network are: 
+
+\begin{itemize}
+	\item \emph{\pog}: $p_g  \quad (0 < p_g \leq 1)$
+	\item \emph{Fanout}: $f = 1, 2, 3, \ldots$
+	\item \emph{Message Live Time}: $T_l = 1,2,3, \ldots$
+	\item \emph{Gossip Interval} $\Delta T_g$ (applicable when $T_l > 1$)
+\end{itemize}
+
+When $p_g = 1$ and $f = \mbox{node's degree}$, this protocol is closely resemble to flooding broadcast scheme which is not suitable for wireless ad hoc network. When $p_g = 1$ and $f = 1 \mbox{ or } 2$, this protocol is set to be classic \gp. $T_l$ is a parameter that is closely related to a node's memory constrain. A large $T_l$ setting will increase the message broadcasting successful rate at the expense of higher memory requirement and greater protocol overhead. 
+
+\subsection{Variations of Gossip Protocol}
+
+It is more clear when we category different variations of \gp ~into a matrix as shown in Table \ref{table:matrix}. 
+
+\begin{table}[h]
+	\centering
+	\caption{Gossip Protocol Category Matrix}
+	\label{table:matrix}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline 
+		& Global Network Information & Local Network Information \\ 
+		\hline 
+		Fixed  $p_g$ & \textbf{Quadrant I} & \textbf{Quadrant II} \\ 
+		\hline 
+		Adaptive $p_g$ & \textbf{Quadrant III} & \textbf{Quadrant IV} \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
+
+The \emph{\pog} can be set to a fixed value or be adaptive. The basis of calculating $p_g$ can either be local network information such as node's degree (number of neighbors) or global network information such as number of nodes in the network. Therefore, we have four quadrants in this matrix. 
+
+\begin{itemize}
+	\item \textbf{Quadrant I}: fixed $p_g$ based on global network information. 
+	\item \textbf{Quadrant II}: fixed $p_g$ based on local network information. 
+	\item \textbf{Quadrant III}: adaptive $p_g$ based on global network information. 
+	\item \textbf{Quadrant IV}: adaptive $p_g$ based on local network information. 
+\end{itemize}
+
+One observation is that researchers mainly focused on adjusting \emph{\pog}. Very little attention has been paid to another \gp ~parameter \emph{Fanout}. Fixed \emph{\pog} approaches can calculate its probability based on network density, distance among nodes, and speed \cite{2015survey}. In this scheme, nodes forward an incoming message with a fixed $p_g$, and the probability of not forwarding the incoming packet is $1-p_g$ \cite{2015survey}. The major challenge of fixed scheme is determining the optimal $p_g$. Due to the dynamic nature of wireless ad-hoc network, even an optimal initial global $p_g$ could become sub-optimal overtime. 
+
+Adaptive \emph{\pog} approaches uses local or global network information such as density and speed to adjust individual or global probability. In adaptive scheme, there are adaptive non-counter-based schemes and adaptive counter-based schemes \cite{2015survey}. Adaptive density-based schemes usually utilize node's degree metrics. In (nb-scheme) the $p_g$ has an inverse relationship with the number of neighbors of a node \cite{cartigny2003border}. If we denote node's degree as $n_b$, then 
+
+\[ p_g = \frac{k}{n_b} \mbox{\quad where $k$ is the propagation factor}\]
+
+The $k$ is used so that the maximum and minimum probability can be adjusted \cite{cartigny2003border}. The basic idea behind this approach is that for a node with higher node's degree (meaning it has more neighbors, thus this area is more dense), a lower \emph{\pog} will be sufficient to spread out the new message. While for an sparse area, higher \emph{\pog} would be more desirable. Some paper \cite{qing2010dynamic} \cite{wisitpongphan2007broadcast} suggested schemes that dynamically adjust \emph{\pog} based on Received Signal Strength (RSS) or euclidean distance. In \cite{wisitpongphan2007broadcast}, the authors denoted the relative distance between node $i$ and node $j$ by $D_{ij}$ and the average transmission range by $r$. The \emph{\pog} is calculated using the following equation:
+
+\[ p_g = \frac{D_{ij}}{r}\]
+
+For a given $D_{ij}$, wider average transmission range will result in a lower \emph{\pog}. On the other hand, for a given average transmission range, \emph{\pog} will increase when the distance between node $i$ and node $j$ gets greater.
+
+In counter-based schemes, nodes keep track with number of received copies of a given broadcast message and use it to determine its broadcasting state \cite{2015survey}. Similar to non-counter-density-based schemes, some paper \cite{lee2010adaptive} used node's degree in conjunction with a counter. The equation used to calculate \emph{\pog} is as follows:
+
+\[ p_g = \frac{p_i}{n_b} \quad \mbox{where } p_i \mbox{ is the initial \pog}\]
+
+The initial probability is set to be 1. If we denote the copy of messages threshold by $m_{th}$ and number of received copies of a given broadcast message by $m_r$, then whenever $m_r \geq m_{th}$, the above equation starts to kick in.
+
 
 For the aprroach that focus on how many times a node overheard the same message, during a small time frame $\tau$ (e.g. 5s), a node will listen messages that are being sent to other nodes. If the times this node overhear the same message exccees its threshold, it will not send its latest message to one or several randomly selected neighbors. 
 
-\subsection{How it works}
-
-\subsection{Mathmatical model of gossip protocol}
-
-\subsection{All Parameters}
-Four key parameters that define the behavior of gossip protocol in a wireless adhoc network are: 
-
-\begin{itemize}
-	\item \emph{probability of gossip}(denoted as $p_g$)
-	\item \emph{fanout} (denoted as $f$)
-	\item \emph{message live time} (denoted as $T_l$)
-	\item \emph{gossip interval} (when $T_l > 1$)
-\end{itemize}
-
-When $p_g = 1$ and $f = node's degree$, this protocol is closely resemble to flooding broadcasting scheme which is not suitable for wireless adhoc network. When $p_g = 1$ and $f = 1, 2$, it is set to be classic gossip broadcast protocol. $T_l$ is a parameter that is closely related to a node's memory constrain. A large $T_l$ setting will is will increase the message broadcasting successful rate at the expnse of higher memory requirement and higher protocol overhead. 
-
-\subsection{Different Approach}
-
-\section{Proposed Energy-aware Adaptive Gossip}
-As we stated previsouly in the thesis, the current state of research on gossip techniques for wireless broadcassting focused very little on energy efficiency and network lifetime. Far too many researches focused on dynamically adjust $p_g$ based on global or local network infromation (global: number of nodes, local: node's degree, overhearring). Our objective here is to develop a new energy-aware gossip protocol that could extend network lifetime while still remain to have a fast and reliable broadcasting performance. The parameter that we focused on shifted from \emph{probability of gossip} to \emph{fanout} as well. 
-
-Our observation tells us that a higher \emph{fanout} setting will result in a shorter broadcasting time for a new message at the expense of higher energy consumption. While a lower \emph{fanout} setting will conserve energy but result in a longer broadcasting time. First of all, we argue that each node's battery life should be maximized in order to extend network lifetime. Since for a broadcasting protocol, any node that disconnected to the network due to energy depletion renders a situation that broadcasting can no longer work. In order to maximize each node's battery life, a constant high \emph{fanout} setting is undesirable when battery is very low. Similarly when battery is very high, a constatnt low \emph{fanout} setting can hinder the message broadcasting time. Therefore, we proposed that \emph{fantou} should be dynamically adjusted based on each node's remaining energy fraction. 
-
-Let's denoted the \emph{remaining energy fraction} as $r$. The fanout fucnntion is as follow:
-
-\[ f(r) = 5 when 0.8 \leq r \leq 1\]
-
-The fanout function is plotted as follow:
-
-
-The basic idea of our fanout function is that if a node has high remaining energy, the \emph{fanout} of that node will be higher and vice versa. 
-
-
-\section{Basic Gossip Protocol Details}
+\section{Our Basic Push-pull Gossip Protocol}
 The actual protocol utilizes three packet types to perform. They are:
 \begin{itemize}
 	\item Data packet
@@ -65,17 +93,17 @@ The Data packet contains the message that is expected to be disseminated to the 
 	\begin{verbatim}[fontsize=\small]
 	switch(state):
 	case running:
-		if message is not null:
-			every 5 milliseconds:
-				find a random neighbor R
-				send data packet to R
-		if receive a packet:
-			if packet is ACK:
-				state <- stop
-			if packet is data:
-				send ACK to packet source
-		else:
-			if receive a packet:
+	if message is not null:
+	every 5 milliseconds:
+	find a random neighbor R
+	send data packet to R
+	if receive a packet:
+	if packet is ACK:
+	state <- stop
+	if packet is data:
+	send ACK to packet source
+	else:
+	if receive a packet:
 	if packet is a data packet:
 	update the message
 	every 5 seconds:
@@ -92,8 +120,25 @@ The Data packet contains the message that is expected to be disseminated to the 
 	if packet is data:
 	send ACK to the source node
 	\end{verbatim}
-	\caption{The pseudo code of the gossip algorithm.}
+	\caption{The pseudo code of our push-pull gossip algorithm}
 	\label{fig:pseudo}
 \end{figure}
 
 The pseudo code of gossip algorithm is given in figure~\ref{fig:pseudo}. All nodes in the network have same behavior and they are independent to each other. When user would like to spread a message x to the whole network, the protocol randomly assign the message x to a node and run this algorithm. For the discussion, let's assume node 1 got the initial message x. Node 1 start with running state, and node 1 has a message x, so it will find a random neighbor every 0.005s and send a data packet which contain message x to its random neighbor. If node 1 receive a ACK packet it will go to stop state, otherwise it will keep doing above steps. Other nodes which do not have the message x will wait for packet, if a node 1 send a data packet to the node 2 which do not have message x, node 2 will update the message x in node 2 and not return anything to node 1. If node 2 do not have message 2, it will send a request packet to a random neighbor every 5 second. If node 2 receives a data packet after sending the request packet, it will update its message to x. The nodes in stop state would always waiting for other node send control messages to it and it will send data packet or ACK packet back depends on what kind of packets it receives.
+
+\section{Proposed Energy-aware Adaptive Gossip Protocol}
+As we stated previously in the thesis, the current state of research on gossip techniques for wireless broadcassting focused very little on energy efficiency and network lifetime. Far too many researches focused on dynamically adjust $p_g$ based on global or local network information (global: number of nodes, local: node's degree, overhearing). Our objective here is to develop a new energy-aware gossip protocol that could extend network lifetime while still remain to have a fast and reliable broadcasting performance. The parameter that we focused on shifted from \emph{probability of gossip} to \emph{fanout} as well. 
+
+Our observation tells us that a higher \emph{fanout} setting will result in a shorter broadcasting time for a new message at the expense of higher energy consumption. While a lower \emph{fanout} setting will conserve energy but result in a longer broadcasting time. First of all, we argue that each node's battery life should be maximized in order to extend network lifetime. Since for a broadcasting protocol, any node that disconnected to the network due to energy depletion renders a situation that broadcasting can no longer work. In order to maximize each node's battery life, a constant high \emph{fanout} setting is undesirable when battery is very low. Similarly when battery is very high, a constatnt low \emph{fanout} setting can hinder the message broadcasting time. Therefore, we proposed that \emph{fantou} should be dynamically adjusted based on each node's remaining energy fraction. 
+
+Let's denoted the \emph{remaining energy fraction} as $r$. The fanout fucnntion is as follow:
+
+\[ f(r) = 5 when 0.8 \leq r \leq 1\]
+
+The fanout function is plotted as follow:
+
+
+The basic idea of our fanout function is that if a node has high remaining energy, the \emph{fanout} of that node will be higher and vice versa. 
+
+
+

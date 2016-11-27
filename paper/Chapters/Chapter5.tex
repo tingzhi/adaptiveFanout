@@ -1,4 +1,6 @@
 \chapter{Performance Evaluation}
+\label{Chapter5}
+\lhead{Chapter 5. \emph{Performance Evaluation}} % Write in your own chapter title to set the page header
 
 Talk about the settings
 
@@ -20,6 +22,45 @@ The simulation will stop when any node's energy was depleted. For each scenario 
 
 
 \section{Results Analysis}
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=3in]{brTime.png}
+	\caption{Average message broadcast time vs. number of nodes}
+	\label{fig:brTime}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=3in]{brNum.png}
+	\caption{Average number of broadcasted messages vs. number of nodes}
+	\label{fig:brNum}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=3in]{energy.png}
+	\caption{Average consumed energy per node per message vs. number of nodes}
+	\label{fig:energy}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=3in]{overhead.png}
+	\caption{Average packets sent per node per message vs. number of nodes}
+	\label{fig:overhead}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=3in]{life.png}
+	\caption{Average network lifetime vs. number of nodes}
+	\label{fig:life}
+\end{figure}
+
+
+
 Fanout of gossip protocol is defined as the number of neighbors a node contact each time when a new packet is received. It is one of the parameters that control the behavior of gossip protocol. In one scenario, fanout is set to be one. In another scenario, fanout is set to be five. These two scenarios 's trials are conducted to compare to the adaptive fanout scenario. 
 
 (from 563 paper).

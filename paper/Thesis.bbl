@@ -1,56 +1,75 @@
-\begin{thebibliography}{8}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{10}
 
-\bibitem[Atzori et~al.(2010)Atzori, Iera, and Morabito]{Atzori}
-Luigi Atzori, Antonio Iera, and Giacomo Morabito.
-\newblock The internet of things: A survey.
-\newblock \emph{Computer networks}, 54\penalty0 (15):\penalty0 2787--2805,
-  2010.
+\bibitem{Atzori}
+L.~Atzori, A.~Iera, and G.~Morabito, ``The internet of things: A survey,'' {\em
+  Computer networks}, vol.~54, no.~15, pp.~2787--2805, 2010.
 
-\bibitem[Jenkins et~al.(2001)Jenkins, Hopkinson, and Birman]{gossip}
-Kate Jenkins, Ken Hopkinson, and Ken Birman.
-\newblock A gossip protocol for subgroup multicast.
-\newblock In \emph{Distributed Computing Systems Workshop, 2001 International
-  Conference on}, pages 25--30. IEEE, 2001.
+\bibitem{Jayasumana}
+A.~P. Jayasumana, Q.~Han, and T.~H. Illangasekare, ``Virtual sensor networks-a
+  resource efficient approach for concurrent applications,'' in {\em
+  Information Technology, 2007. ITNG'07. Fourth International Conference on},
+  pp.~111--115, IEEE, 2007.
 
-\bibitem[Chandra et~al.(2001)Chandra, Ramasubramanian, and Birman]{gossip2}
-Ranveer Chandra, Venugopalan Ramasubramanian, and Kenneth~P Birman.
-\newblock Anonymous gossip: Improving multicast reliability in mobile ad-hoc
-  networks.
-\newblock In \emph{Distributed Computing Systems, 2001. 21st International
-  Conference on.}, pages 275--283. IEEE, 2001.
+\bibitem{Chowdhury}
+N.~M.~K. Chowdhury and R.~Boutaba, ``A survey of network virtualization,'' {\em
+  Computer Networks}, vol.~54, no.~5, pp.~862--876, 2010.
 
-\bibitem[James and Keith(2004)]{james}
-F~KUROSE James and W~ROSS Keith.
-\newblock \emph{Computer networking a top-down approach featuring the
-  internet}.
+\bibitem{Sherif}
+S.~Abdelwahab, B.~Hamdaoui, and M.~Guizani, ``Cloud-assisted remote sensor
+  network virtualization for distributed consensus estimation,'' {\em arXiv
+  preprint arXiv:1501.03547}, 2015.
+
+\bibitem{gossip}
+K.~Jenkins, K.~Hopkinson, and K.~Birman, ``A gossip protocol for subgroup
+  multicast,'' in {\em Distributed Computing Systems Workshop, 2001
+  International Conference on}, pp.~25--30, IEEE, 2001.
+
+\bibitem{gossip2}
+R.~Chandra, V.~Ramasubramanian, and K.~P. Birman, ``Anonymous gossip: Improving
+  multicast reliability in mobile ad-hoc networks,'' in {\em Distributed
+  Computing Systems, 2001. 21st International Conference on.}, pp.~275--283,
+  IEEE, 2001.
+
+\bibitem{tseng2002broadcast}
+Y.-C. Tseng, S.-Y. Ni, Y.-S. Chen, and J.-P. Sheu, ``The broadcast storm
+  problem in a mobile ad hoc network,'' {\em Wireless networks}, vol.~8,
+  no.~2-3, pp.~153--167, 2002.
+
+\bibitem{2015survey}
+D.~Reina, S.~Toral, P.~Johnson, and F.~Barrero, ``A survey on probabilistic
+  broadcast schemes for wireless ad hoc networks,'' {\em Ad Hoc Networks},
+  vol.~25, pp.~263--292, 2015.
+
+\bibitem{cartigny2003border}
+J.~Cartigny and D.~Simplot, ``Border node retransmission based probabilistic
+  broadcast protocols in ad-hoc networks,'' in {\em System Sciences, 2003.
+  Proceedings of the 36th Annual Hawaii International Conference on},
+  pp.~10--pp, IEEE, 2003.
+
+\bibitem{qing2010dynamic}
+W.~Qing-wen, S.~Hao-shan, and Q.~Qi, ``A dynamic probabilistic broadcasting
+  scheme based on cross-layer design for manets,'' {\em International Journal
+  of Modern Education and Computer Science}, vol.~2, no.~1, p.~40, 2010.
+
+\bibitem{wisitpongphan2007broadcast}
+N.~Wisitpongphan, O.~K. Tonguz, J.~S. Parikh, P.~Mudalige, F.~Bai, and
+  V.~Sadekar, ``Broadcast storm mitigation techniques in vehicular ad hoc
+  networks,'' {\em IEEE Wireless Communications}, vol.~14, no.~6, pp.~84--94,
+  2007.
+
+\bibitem{lee2010adaptive}
+A.~Lee and I.~Ra, ``Adaptive-gossiping for an energy-aware routing protocol in
+  wireless sensor networks,'' in {\em Proceedings of the 6th International
+  Wireless Communications and Mobile Computing Conference}, pp.~1131--1135,
+  ACM, 2010.
+
+\bibitem{james}
+F.~K. James and W.~R. Keith, {\em Computer networking a top-down approach
+  featuring the internet}.
 \newblock Addison-Wesley, Reading, 2004.
 
-\bibitem[Forouzan(2006)]{forouzan}
-A~Behrouz Forouzan.
-\newblock \emph{Data Communications \& Networking (sie)}.
+\bibitem{forouzan}
+A.~B. Forouzan, {\em Data Communications \& Networking (sie)}.
 \newblock Tata McGraw-Hill Education, 2006.
-
-\bibitem[Jayasumana et~al.(2007)Jayasumana, Han, and Illangasekare]{Jayasumana}
-Anura~P Jayasumana, Qi~Han, and Tissa~H Illangasekare.
-\newblock Virtual sensor networks-a resource efficient approach for concurrent
-  applications.
-\newblock In \emph{Information Technology, 2007. ITNG'07. Fourth International
-  Conference on}, pages 111--115. IEEE, 2007.
-
-\bibitem[Chowdhury and Boutaba(2010)]{Chowdhury}
-NM~Mosharaf~Kabir Chowdhury and Raouf Boutaba.
-\newblock A survey of network virtualization.
-\newblock \emph{Computer Networks}, 54\penalty0 (5):\penalty0 862--876, 2010.
-
-\bibitem[Abdelwahab et~al.(2015)Abdelwahab, Hamdaoui, and Guizani]{Sherif}
-Sherif Abdelwahab, Bechir Hamdaoui, and Mohsen Guizani.
-\newblock Cloud-assisted remote sensor network virtualization for distributed
-  consensus estimation.
-\newblock \emph{arXiv preprint arXiv:1501.03547}, 2015.
 
 \end{thebibliography}
