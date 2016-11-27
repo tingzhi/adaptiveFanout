@@ -72,10 +72,16 @@ In counter-based schemes, nodes keep track with number of received copies of a g
 
 The initial probability is set to be 1. If we denote the copy of messages threshold by $m_{th}$ and number of received copies of a given broadcast message by $m_r$, then whenever $m_r \geq m_{th}$, the above equation starts to kick in.
 
+Similar to non-counter-distance-based schemes, some paper \cite{} used the distance between nodes as a metrics combining with a counter to determine the broadcasting state a node should be in. 
 
-For the aprroach that focus on how many times a node overheard the same message, during a small time frame $\tau$ (e.g. 5s), a node will listen messages that are being sent to other nodes. If the times this node overhear the same message exccees its threshold, it will not send its latest message to one or several randomly selected neighbors. 
+equation
+
+a little explanation
+
 
 \section{Our Basic Push-pull Gossip Protocol}
+When each node in the network only forward new broadcast messages when it receive one, it is called a \emph{push} \gp. Similarly, when each node only request for new broadcast messages from other nodes, it is called  a \emph{pull} \gp. A pull \gp is good to push out new \msgs ~to 
+
 The actual protocol utilizes three packet types to perform. They are:
 \begin{itemize}
 	\item Data packet
