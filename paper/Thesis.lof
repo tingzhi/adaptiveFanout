@@ -1,15 +1,15 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The pseudo code of our push-pull gossip algorithm\relax }}{12}{figure.caption.36}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The pseudo code of our push-pull gossip algorithm\relax }}{13}{figure.caption.36}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces An example when two separate subnets formed\relax }}{14}{figure.caption.39}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces A topology file of a linear topology with three nodes.\relax }}{18}{figure.caption.46}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An example when two separate subnets formed\relax }}{15}{figure.caption.39}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces A topology file of a linear topology with three nodes.\relax }}{19}{figure.caption.46}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes\relax }}{20}{figure.caption.49}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Average number of broadcasted messages vs. number of nodes\relax }}{20}{figure.caption.50}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes\relax }}{20}{figure.caption.51}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Average packets sent per node per message vs. number of nodes\relax }}{21}{figure.caption.52}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Average network lifetime vs. number of nodes\relax }}{21}{figure.caption.53}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes\relax }}{21}{figure.caption.49}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Average number of broadcasted messages vs. number of nodes\relax }}{21}{figure.caption.50}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes\relax }}{21}{figure.caption.51}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Average packets sent per node per message vs. number of nodes\relax }}{22}{figure.caption.52}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Average network lifetime vs. number of nodes\relax }}{22}{figure.caption.53}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

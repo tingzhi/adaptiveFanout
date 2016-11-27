@@ -80,14 +80,29 @@ a little explanation
 
 
 \section{Our Basic Push-pull Gossip Protocol}
-When each node in the network only forward new broadcast messages when it receive one, it is called a \emph{push} \gp. Similarly, when each node only request for new broadcast messages from other nodes, it is called  a \emph{pull} \gp. A pull \gp is good to push out new \msgs ~to 
+When each node in the network only forward new broadcast messages when it receive one, it is called a \emph{push} \gp. Similarly, when each node only request for new broadcast messages from other nodes, it is called  a \emph{pull} \gp. Our \gp combined both mechanisms thus it is called a \emph{push-pull} \gp. 
 
-The actual protocol utilizes three packet types to perform. They are:
+Our basic push-pull \gp ~utilizes three packet types to perform. They are:
 \begin{itemize}
 	\item Data packet
-	\item Ack packet  (Acknowledgment)
+	\item Ack packet 
 	\item Request packet
 \end{itemize}
+
+Data packet carries the actually payload (broadcast \msg). Ack packet and Request packet are used to control gossip process.There are several rules in our push-pull \gp. 
+\begin{itemize}
+	\item Rule 1: A node can only be in two states -- sleep state, and gossip state.
+	\item Rule 2: Periodically, a node will request for new \msg from one randomly selected neighbor regardless of its state.
+	\item Rule 3: When a node received a new broadcast \msg, it will enter the gossip state.
+	\item Rule 4: When a node is in gossip state, it will periodically randomly select $min(f, n_b)$ neighbors and forward the \msg ~to them.
+	\item Rule 5: when a node received an Ack packet from any of its neighbor, it will enter sleep state which mean it will stop gossiping the new \msg.
+	\item Rule 6: when a node received a duplicate \msg ~from anther node, it will send an Ack packet back. 
+\end{itemize}
+
+
+
+
+
 
 The Data packet contains the message that is expected to be disseminated to the whole network from a certain source node. The Ack packet is used to acknowledge to the sender that receiver node already received that message before. The Request packet is used for a node to ask for the latest message from destination node. There are two states for each node, gossipping or sleep.
 
