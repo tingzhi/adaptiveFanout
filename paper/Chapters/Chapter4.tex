@@ -2,30 +2,11 @@
 \label{Chapter4}
 \lhead{Chapter 4. \emph{Implementation}} % Write in your own chapter title to set the page header
 
-In order to test our proposed energy-aware gossip broadcasting protocol, we developed this protocol in open-source software Network Simulator 3 (ns-3). 
+In order to evaluate our proposed energy-aware gossip broadcasting protocol, we implemented the protocol in a open-source software called Network Simulator 3 (ns-3). There are two folds in our implementation. First fold is that we implemented the basic push-pull \gp. The second fold is how we implemented proposed adaptive fanout scheme. 
 
-To achieve the goals stated in section~\ref{sec:problem}, I took four crucial steps.
+\section{Basic Push-pull Gossip Protocol Implementation} \label{ppi}
 
-We applied Depth First Search (DFS) algorithm to ensure that all nodes in the network are connected in some way. Thus we eliminated the possibility that a network is separated into two subnets such as shown in Figure~\ref{fig:twoSepNet}. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=3in]{twoSepNet.png}
-	\caption{An example when two separate subnets formed}
-	\label{fig:twoSepNet}
-\end{figure}
-
-
-\begin{itemize}
-	\item Extend the Internet Control Message Protocol (ICMP) to support transmitting three simple control messages needed for gossip protocol.
-	\item Develop the gossip protocol application to be installed on network nodes.
-	\item Set wireless ad-hoc network attributes and gossip protocol attributes, which has already be presented in section~\ref{sec:problem}.
-	\item Import nodes connectivity information from topology files and export simulation results for performance evaluation.
-\end{itemize}
-
-\subsection{ICMP Extension}
-
-ICMP stands for Internet Control Message Protocol. The most common use of ICMP is for error reporting~\cite{james}. A ICMP message contains two parts: 8-byte header and data section. The first 4 bytes of the header have fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in table \ref{table:1}.
+For the basic push-pull \gp implementation, we first started building those 3 types of packets (Data packet, Ack packet, and Request packet) by extending the existing Internet Control Message Protocol (ICMP). The most common use of ICMP is for error reporting~\cite{james}. An ICMP message contains two parts: 8-byte header and data section. The first 4 bytes of the header have a fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in table \ref{table:1}.
 
 \begin{table}[h!]￼
 	\centering
@@ -46,7 +27,7 @@ ICMP stands for Internet Control Message Protocol. The most common use of ICMP i
 	\end{tabular}
 \end{table} 
 
-Table \ref{table:2} here presented some selected ICMP message types. 
+Table \ref{table:2} here presented some of the selected ICMP message types. 
 
 \begin{table}[h]
 	\centering
@@ -68,7 +49,7 @@ Table \ref{table:2} here presented some selected ICMP message types.
 	\end{tabular}
 \end{table}
 
-Since type 42 to 255 are reserved for further development, I decided to extend ICMP by defining type 42, 43, and 44 to represent acknowledgment packet, request packet, and data packet respectively. The detail is shown in table \ref{table:3}.
+Since type 42 to 255 are reserved for further development, we decided to extend ICMP by defining type 42, 43, and 44 to represent Ack packet, Request packet, and Data packet respectively. The detail is shown in table \ref{table:3}.
 
 \begin{table}[h]
 	\centering
@@ -86,13 +67,60 @@ Since type 42 to 255 are reserved for further development, I decided to extend I
 	\end{tabular}
 \end{table}
 
-Upon these new control message types extension, we could further develop gossip protocol in NS-3.
+Based on these new control message types extension, we could further develop our basic \pp  ~\gp ~in ns-3. ICMP is a layer 3 protocol, but the actual control logic of our \gp ~is developed in application layer. 
 
+In order to collect simulation results, the system consists of a source node and $n$ gossip nodes. The source node is responsible for the following duties:
 
+\begin{itemize}
+	\item generate new broadcast \msgs
+	\item store time stamps for each generated new \msgs
+	\item collect time stamps from gossip nodes.
+\end{itemize}
 
-Topology wise, nodes are randomly place in a square area which is proportional to the number of nodes. The equation to calculate the size of the square is as follows:
+Every time when a new broadcast \msg ~is generated, it will send it to one of the gossip nodes thus start the whole process. Except the first broadcast \msg, every other new broadcast \msg ~will only be generated and sent out when it received $n$ time stamps from all gossip nodes for the previous broadcast \msg. Because in the program, we make sure that each gossip node will only send the time stamp of a specific broadcast \msg once, it is a good indication that this \msg ~has been successfully broadcast. In order to support these roles that a source node play, we deployed an UDP server application so that every gossip node could connect to it and report its broadcast \msg ~time stamps. 
 
-(Insert the equation here).
+For gossip nodes, as shown in Figure \ref{fig:pseudo}, there are two main processes running. The periodic request processes and periodic gossip processes. At the start of the simulation, these two processes will be initialized. Most of the functionalities for a gossip node belong to either receiving end or transmitting end. In receiving end, we developed functions to handle Ack packet, Request packet, and Data packet. In the transmitting end, we developed functions to send Ack packet, Request packet, and Data packet. Besides, we also deployed an UDP client application on these gossip nodes so that it can send time stamps of each broadcast \msg ~back. To make all these functionalities work, these functions actually call the corresponding functions in ICMP as we described earlier. For example, if a gossip node is trying to send a new broadcast \msg ~to another gossip node, it would first call the function \emph{sendPayload()} that is in application layer. Then \emph{sendPayload()} would have to call the function \emph{sendMessage()} in ICMP which is in network layer. On the receiving end, a node first would receive the new broadcast \msg ~in network layer. The \msg ~is handled by a function in ICMP called \emph{handleData()}. Then in turn, this function will call the corresponding function in the application layer. The whole process is illustrated in Figure \ref{fig:topDown}.
+
+In summary, gossip nodes has the following responsibilities:
+\begin{itemize}
+	\item gossip every new broadcast \msg
+	\item store every broadcast \msg without duplication
+	\item store the time stamps for each received new broadcast \msg
+	\item report each new broadcast \msg time stamps back to the source node
+\end{itemize}
+
+\section{Adaptive Fanout Extension Implementation}
+
+To add our proposed adaptive fanout scheme into the existing \pp ~\gp, we first aggregated a basic energy source to each gossip node. Then we utilized WiFi radio energy model to simulate the energy consumption for each gossip node when transmitting or receiving a packet. The basic energy source increase or decrease its remaining energy linearly. The WiFi radio energy model has 4 states defined. They are TX, RX, IDLE, and SLEEP. The power consumption of each state in Watts are defined as follow:
+
+\begin{itemize}
+	\item $P_{tx}=1.14$
+	\item $P_{rx}=0.94$
+	\item $P_{idle}=0.82$
+	\item $P_{sleep}=0.10$
+\end{itemize}
+
+In our implementation, we actually set $P_{idle}=0$ and $P_{sleep}=0$ because majority of the time when a node participated in broadcasting a \msg, it stays in the IDLE state. Therefore, it we don't disable $P_{idle}$ and $P_{sleep}$, the network lifetime will be largely determined by $P_{idle}$ which is undesirable. Once we have energy sources and Wifi radio energy model installed on the gossip nodes, we then can calculate the corresponding \emph{Fanout} for each node. One small detail worthing mentioning here is that the actual \emph{Fanout} $f_{actual}$ cannot exceed a node's degree (number of neighbors) $n_b$, thus $f_{actual} = min(f, n_b)$. Once we have the \emph{Fanout} information, the rest gossip process works as described in Section \ref{ppi}.
+
+\section{Simulation Environment Setting}
+For the simulation environment set up, because we want to collect simulation data about network lifetime, the simulation stop time is set to be large enough so that the energy source will be depleted first. Any depleted energy source will automatically trigger the simulation to stop. Topology wise, we wanted it to be a close resemble to Wireless Sensor Network (WSN) or MANET. In other words, we wanted to avoid gossip nodes cluster in a small area. We achieve that goal by adopting a small maximum WiFi range for each gossip node and scale up nodes' placement area as number of nodes increases. Since an area with dimension of $100m \times 100m$ can achieve a desirable network density for 10 gossip nodes, we used this ratio to calculate the dimension of nodes placement area. If we denote the side of a square area by $s$, then the equation to calculate the size of the nodes placement area is as follows:
+
+\[ s=\sqrt{1000\times n} \quad \mbox{where } n \mbox{ is number of nodes}\]
+
+Because of randomly gossip nodes placement and a fixed maximum WiFi range, a newly generated topology could contain isolated nodes that no other nodes can contact. In this case, we cannot achieve successful broadcasting no matter what we do. Therefore, we applied Depth First Search (DFS) algorithm to ensure that all nodes in the network are connected in some way. Even if the above situation does not happen, a case that shown in Figure~\ref{fig:twoSepNet} can occur where a network is divided into two separated subnets.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=3in]{twoSepNet.png}
+	\caption{An example when two separate subnets formed}
+	\label{fig:twoSepNet}
+\end{figure}
+
+calculate neighbor list for each node
+range
+x1y1
+x2y2
+distance > range
 
 Every node's coordinates are used to calculate neighbors list for each node. In practice, the global access of this information is usually not easy to obtain. Thus, Hello packets are used to compile neighbors list for each node.
 
@@ -103,6 +131,30 @@ Therefore, I used an algorithm that uses depth-first search algorithm to determi
 In order to collect benchmark of adaptive fanout gossip protocol, one extra node is place in the area. Its functions are generate new packets, collect other nodes' received time of every packets, and store new packets generate time. A trimmed version of adaptive fanout gossip protocol is used to generate new packets. An UDP server application is installed on the node to collect other nodes' received time of every packets.
 
 Adaptive fanout gossip protocol is installed on all other nodes in the network. Besides that, a UDP client application is also installed on them to send received time of every packet. The simulation stops when any one node's energy is depleted. After that, all the data collected is processed to generate our performance metrics. 
+
+the work flow
+
+
+
+source DSSSRate 11Mbps
+DsssRate 1Mbps
+maxRange = 50m
+num of nodes = 10
+simulation time = 100000.0s
+initialEnergy = 108J
+
+Gossip Interval 1s
+request interval 5s
+
+
+
+\begin{itemize}
+	\item Extend the Internet Control Message Protocol (ICMP) to support transmitting three simple control messages needed for gossip protocol.
+	\item Develop the gossip protocol application to be installed on network nodes.
+	\item Set wireless ad-hoc network attributes and gossip protocol attributes, which has already be presented in section~\ref{sec:problem}.
+	\item Import nodes connectivity information from topology files and export simulation results for performance evaluation.
+\end{itemize}
+
 
 \section{Performance Metrics}
 Life Span of the Network

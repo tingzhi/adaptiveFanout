@@ -29,13 +29,15 @@
 \contentsline {section}{\numberline {3.2}Our Basic Push-pull Gossip Protocol}{11}{section.35}
 \contentsline {section}{\numberline {3.3}Proposed Energy-aware Adaptive Gossip Protocol}{13}{section.37}
 \contentsline {chapter}{\numberline {4}Implementation}{16}{chapter.40}
-\contentsline {subsection}{\numberline {4.0.1}ICMP Extension}{17}{subsection.42}
-\contentsline {section}{\numberline {4.1}Performance Metrics}{18}{section.46}
-\contentsline {subsection}{\numberline {4.1.1}Gathering Simulation Data}{19}{subsection.47}
-\contentsline {chapter}{\numberline {5}Performance Evaluation}{21}{chapter.49}
-\contentsline {section}{\numberline {5.1}Results Analysis}{22}{section.50}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{25}{chapter.56}
+\contentsline {section}{\numberline {4.1}Basic Push-pull Gossip Protocol Implementation}{16}{section.41}
+\contentsline {section}{\numberline {4.2}Adaptive Fanout Extension Implementation}{18}{section.45}
+\contentsline {section}{\numberline {4.3}Simulation Environment Setting}{19}{section.46}
+\contentsline {section}{\numberline {4.4}Performance Metrics}{21}{section.48}
+\contentsline {subsection}{\numberline {4.4.1}Gathering Simulation Data}{22}{subsection.49}
+\contentsline {chapter}{\numberline {5}Performance Evaluation}{24}{chapter.51}
+\contentsline {section}{\numberline {5.1}Results Analysis}{25}{section.52}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{28}{chapter.58}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}An Appendix}{27}{appendix.57}
+\contentsline {chapter}{\numberline {A}An Appendix}{30}{appendix.59}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{28}{dummy.58}
+\contentsline {chapter}{Bibliography}{31}{dummy.60}
