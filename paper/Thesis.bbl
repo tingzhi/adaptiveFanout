@@ -63,6 +63,18 @@ A.~Lee and I.~Ra, ``Adaptive-gossiping for an energy-aware routing protocol in
   Wireless Communications and Mobile Computing Conference}, pp.~1131--1135,
   ACM, 2010.
 
+\bibitem{khan2008distance}
+I.~A. Khan, A.~Javaid, and H.~L. Qian, ``Distance-based dynamically adjusted
+  probabilistic forwarding for wireless mobile ad hoc networks,'' in {\em 2008
+  5th IFIP International Conference on Wireless and Optical Communications
+  Networks (WOCN'08)}, pp.~1--6, IEEE, 2008.
+
+\bibitem{ling2005coverage}
+H.~Ling, D.~Moss{\'e}, and T.~Znati, ``Coverage-based probabilistic forwarding
+  in ad hoc routing,'' in {\em Proceedings. 14th International Conference on
+  Computer Communications and Networks, 2005. ICCCN 2005.}, pp.~13--18, IEEE,
+  2005.
+
 \bibitem{james}
 F.~K. James and W.~R. Keith, {\em Computer networking a top-down approach
   featuring the internet}.

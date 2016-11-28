@@ -76,7 +76,7 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{Chapter3}{{3}{8}{Energy-aware Gossip Protocol}{chapter.29}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}Classic Gossip Protocol}{8}{section.30}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Mathematical Model of Gossip Protocol}{9}{subsection.31}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}How it works}{8}{subsection.31}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Key Gossip Protocol Control Parameters}{9}{subsection.32}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Variations of Gossip Protocol}{9}{subsection.33}}
 \@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Gossip Protocol Category Matrix\relax }}{9}{table.caption.34}}
@@ -92,51 +92,57 @@
 \citation{wisitpongphan2007broadcast}
 \citation{2015survey}
 \citation{lee2010adaptive}
-\citation{}
+\citation{khan2008distance}
+\citation{ling2005coverage}
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Our Basic Push-pull Gossip Protocol}{11}{section.35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The pseudo code of our push-pull gossip algorithm\relax }}{13}{figure.caption.36}}
-\newlabel{fig:pseudo}{{3.1}{13}{The pseudo code of our push-pull gossip algorithm\relax }{figure.caption.36}{}}
+\newlabel{pp}{{3.2}{11}{Our Basic Push-pull Gossip Protocol}{section.35}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The pseudo code of our push-pull gossip protocol\relax }}{12}{figure.caption.36}}
+\newlabel{fig:pseudo}{{3.1}{12}{The pseudo code of our push-pull \gp \relax }{figure.caption.36}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.3}Proposed Energy-aware Adaptive Gossip Protocol}{13}{section.37}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Adaptive Fanout Function Plot\relax }}{14}{figure.caption.38}}
+\newlabel{fig:step}{{3.2}{14}{Adaptive Fanout Function Plot\relax }{figure.caption.38}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces The pseudo code of our adaptive fanout push-pull gossip protocol\relax }}{14}{figure.caption.39}}
+\newlabel{fig:gossip}{{3.3}{14}{The pseudo code of our adaptive fanout push-pull \gp \relax }{figure.caption.39}{}}
 \citation{james}
 \citation{forouzan}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementation}{15}{chapter.38}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Implementation}{16}{chapter.40}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter4}{{4}{15}{Implementation}{chapter.38}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces An example when two separate subnets formed\relax }}{15}{figure.caption.39}}
-\newlabel{fig:twoSepNet}{{4.1}{15}{An example when two separate subnets formed\relax }{figure.caption.39}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.1}ICMP Extension}{16}{subsection.40}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces ICMP Header Structure\relax }}{16}{table.caption.41}}
-\newlabel{table:1}{{4.1}{16}{ICMP Header Structure\relax }{table.caption.41}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Control Messages\relax }}{16}{table.caption.42}}
-\newlabel{table:2}{{4.2}{16}{Control Messages\relax }{table.caption.42}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Gossip Protocol Control Messages\relax }}{16}{table.caption.43}}
-\newlabel{table:3}{{4.3}{16}{Gossip Protocol Control Messages\relax }{table.caption.43}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.1}Performance Metrics}{17}{section.44}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Gathering Simulation Data}{18}{subsection.45}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A topology file of a linear topology with three nodes.\relax }}{19}{figure.caption.46}}
-\newlabel{fig:topsimple}{{4.2}{19}{A topology file of a linear topology with three nodes.\relax }{figure.caption.46}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Performance Evaluation}{20}{chapter.47}}
+\newlabel{Chapter4}{{4}{16}{Implementation}{chapter.40}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces An example when two separate subnets formed\relax }}{16}{figure.caption.41}}
+\newlabel{fig:twoSepNet}{{4.1}{16}{An example when two separate subnets formed\relax }{figure.caption.41}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.0.1}ICMP Extension}{17}{subsection.42}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces ICMP Header Structure\relax }}{17}{table.caption.43}}
+\newlabel{table:1}{{4.1}{17}{ICMP Header Structure\relax }{table.caption.43}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Control Messages\relax }}{17}{table.caption.44}}
+\newlabel{table:2}{{4.2}{17}{Control Messages\relax }{table.caption.44}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Gossip Protocol Control Messages\relax }}{17}{table.caption.45}}
+\newlabel{table:3}{{4.3}{17}{Gossip Protocol Control Messages\relax }{table.caption.45}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Performance Metrics}{18}{section.46}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Gathering Simulation Data}{19}{subsection.47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces A topology file of a linear topology with three nodes.\relax }}{20}{figure.caption.48}}
+\newlabel{fig:topsimple}{{4.2}{20}{A topology file of a linear topology with three nodes.\relax }{figure.caption.48}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Performance Evaluation}{21}{chapter.49}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter5}{{5}{20}{Performance Evaluation}{chapter.47}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes\relax }}{21}{figure.caption.49}}
-\newlabel{fig:brTime}{{5.1}{21}{Average message broadcast time vs. number of nodes\relax }{figure.caption.49}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Average number of broadcasted messages vs. number of nodes\relax }}{21}{figure.caption.50}}
-\newlabel{fig:brNum}{{5.2}{21}{Average number of broadcasted messages vs. number of nodes\relax }{figure.caption.50}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes\relax }}{21}{figure.caption.51}}
-\newlabel{fig:energy}{{5.3}{21}{Average consumed energy per node per message vs. number of nodes\relax }{figure.caption.51}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Results Analysis}{21}{section.48}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Average packets sent per node per message vs. number of nodes\relax }}{22}{figure.caption.52}}
-\newlabel{fig:overhead}{{5.4}{22}{Average packets sent per node per message vs. number of nodes\relax }{figure.caption.52}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Average network lifetime vs. number of nodes\relax }}{22}{figure.caption.53}}
-\newlabel{fig:life}{{5.5}{22}{Average network lifetime vs. number of nodes\relax }{figure.caption.53}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{24}{chapter.54}}
+\newlabel{Chapter5}{{5}{21}{Performance Evaluation}{chapter.49}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes\relax }}{22}{figure.caption.51}}
+\newlabel{fig:brTime}{{5.1}{22}{Average message broadcast time vs. number of nodes\relax }{figure.caption.51}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Average number of broadcasted messages vs. number of nodes\relax }}{22}{figure.caption.52}}
+\newlabel{fig:brNum}{{5.2}{22}{Average number of broadcasted messages vs. number of nodes\relax }{figure.caption.52}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes\relax }}{22}{figure.caption.53}}
+\newlabel{fig:energy}{{5.3}{22}{Average consumed energy per node per message vs. number of nodes\relax }{figure.caption.53}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Results Analysis}{22}{section.50}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Average packets sent per node per message vs. number of nodes\relax }}{23}{figure.caption.54}}
+\newlabel{fig:overhead}{{5.4}{23}{Average packets sent per node per message vs. number of nodes\relax }{figure.caption.54}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Average network lifetime vs. number of nodes\relax }}{23}{figure.caption.55}}
+\newlabel{fig:life}{{5.5}{23}{Average network lifetime vs. number of nodes\relax }{figure.caption.55}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{25}{chapter.56}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter6}{{6}{24}{Conclusions and Future Work}{chapter.54}{}}
+\newlabel{Chapter6}{{6}{25}{Conclusions and Future Work}{chapter.56}{}}
 \@writefile{toc}{\vspace  {2em}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}An Appendix}{26}{appendix.55}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}An Appendix}{27}{appendix.57}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\vspace  {2em}}
@@ -153,9 +159,11 @@
 \bibcite{cartigny2003border}{{9}{}{{}}{{}}}
 \bibcite{qing2010dynamic}{{10}{}{{}}{{}}}
 \bibcite{wisitpongphan2007broadcast}{{11}{}{{}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{27}{dummy.56}}
-\newlabel{Bibliography}{{9}{27}{An Appendix}{dummy.56}{}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{28}{dummy.58}}
+\newlabel{Bibliography}{{9}{28}{An Appendix}{dummy.58}{}}
 \bibcite{lee2010adaptive}{{12}{}{{}}{{}}}
-\bibcite{james}{{13}{}{{}}{{}}}
-\bibcite{forouzan}{{14}{}{{}}{{}}}
+\bibcite{khan2008distance}{{13}{}{{}}{{}}}
+\bibcite{ling2005coverage}{{14}{}{{}}{{}}}
+\bibcite{james}{{15}{}{{}}{{}}}
+\bibcite{forouzan}{{16}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
