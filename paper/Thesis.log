@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  29 NOV 2016 00:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  29 NOV 2016 10:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -751,13 +751,13 @@ File: twoSepNet.png Graphic file (type png)
 <use twoSepNet.png>
 Package pdftex.def Info: twoSepNet.png used on input line 119.
 (pdftex.def)             Requested size: 216.81pt x 119.83365pt.
- [20 <./twoSepNet.png>] [21]) (./Chapters/Chapter5.tex
-[22]
+ [20 <./twoSepNet.png>] [21] [22]) (./Chapters/Chapter5.tex
+[23]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Performance Evaluation
 ------------------------------------------------------------------------------
-[23
+[24
 
 ]
 Missing character: There is no â in font cmr10!
@@ -766,92 +766,92 @@ Missing character: There is no ¦ in font cmr10!
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¦ in font cmr10!
- [24]
+ [25]
 
-LaTeX Warning: Reference `sec:problem' on page 25 undefined on input line 61.
+LaTeX Warning: Reference `sec:problem' on page 26 undefined on input line 61.
 
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¦ in font cmr10!
-[25] <brTime.png, id=485, 765.0984pt x 510.708pt>
+[26] <brTime.png, id=491, 765.0984pt x 510.708pt>
 File: brTime.png Graphic file (type png)
  <use brTime.png>
 Package pdftex.def Info: brTime.png used on input line 99.
 (pdftex.def)             Requested size: 216.81pt x 144.71945pt.
 
-<brNum.png, id=486, 728.9634pt x 470.2368pt>
+<brNum.png, id=492, 728.9634pt x 470.2368pt>
 File: brNum.png Graphic file (type png)
  <use brNum.png>
 Package pdftex.def Info: brNum.png used on input line 106.
 (pdftex.def)             Requested size: 216.81pt x 139.85951pt.
 
-<energy.png, id=487, 728.9634pt x 519.8622pt>
+<energy.png, id=493, 728.9634pt x 519.8622pt>
 File: energy.png Graphic file (type png)
  <use energy.png>
 Package pdftex.def Info: energy.png used on input line 113.
 (pdftex.def)             Requested size: 216.81pt x 154.61926pt.
 
-<overhead.png, id=488, 770.3982pt x 470.7186pt>
+<overhead.png, id=494, 770.3982pt x 470.7186pt>
 File: overhead.png Graphic file (type png)
  <use overhead.png>
 Package pdftex.def Info: overhead.png used on input line 120.
 (pdftex.def)             Requested size: 216.81pt x 132.46828pt.
 
-<life.png, id=489, 769.9164pt x 535.7616pt>
+<life.png, id=495, 769.9164pt x 535.7616pt>
 File: life.png Graphic file (type png)
  <use life.png>
 Package pdftex.def Info: life.png used on input line 127.
 (pdftex.def)             Requested size: 216.81pt x 150.8706pt.
- [26 <./brTime.png> <./brNum.png> <./energy.png>]
+ [27 <./brTime.png> <./brNum.png> <./energy.png>]
 
-LaTeX Warning: Reference `fig:msgAbs' on page 27 undefined on input line 140.
-
-
-LaTeX Warning: Reference `fig:msgAbs' on page 27 undefined on input line 140.
+LaTeX Warning: Reference `fig:msgAbs' on page 28 undefined on input line 140.
 
 
-LaTeX Warning: Reference `fig:msgOver' on page 27 undefined on input line 140.
-
-[27 <./overhead.png> <./life.png>]
-
-LaTeX Warning: Reference `fig:msgP' on page 28 undefined on input line 163.
+LaTeX Warning: Reference `fig:msgAbs' on page 28 undefined on input line 140.
 
 
-LaTeX Warning: Reference `fig:hop' on page 28 undefined on input line 165.
+LaTeX Warning: Reference `fig:msgOver' on page 28 undefined on input line 140.
+
+[28 <./overhead.png> <./life.png>]
+
+LaTeX Warning: Reference `fig:msgP' on page 29 undefined on input line 163.
 
 
-LaTeX Warning: Reference `fig:graph' on page 28 undefined on input line 165.
+LaTeX Warning: Reference `fig:hop' on page 29 undefined on input line 165.
 
 
-LaTeX Warning: Reference `fig:time' on page 28 undefined on input line 188.
+LaTeX Warning: Reference `fig:graph' on page 29 undefined on input line 165.
 
 
-LaTeX Warning: Reference `sec:further' on page 28 undefined on input line 197.
+LaTeX Warning: Reference `fig:time' on page 29 undefined on input line 188.
 
-) (./Chapters/Chapter6.tex [28] [29]
+
+LaTeX Warning: Reference `sec:further' on page 29 undefined on input line 197.
+
+) (./Chapters/Chapter6.tex [29] [30]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Conclusions and Future Work
 ------------------------------------------------------------------------------
-[30
+[31
 
-]) (./Appendices/AppendixA.tex [31]
+]) (./Appendices/AppendixA.tex [32]
 Appendix A.
 ------------------------------------------------------------------------------
  A An Appendix
 ------------------------------------------------------------------------------
-) [32
+) [33
 
 ]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(./Thesis.bbl [33
+(./Thesis.bbl [34
 
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 232.
- [34]
+ [35]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 232.
  (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 232.
@@ -865,8 +865,8 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 232.
  ) 
 Here is how much of TeX's memory you used:
- 13434 strings out of 493089
- 190805 string characters out of 6134842
+ 13435 strings out of 493089
+ 190812 string characters out of 6134842
  268989 words of memory out of 5000000
  16584 multiletter control sequences out of 15000+600000
  13476 words of font info for 50 fonts, out of 8000000 for 9000
@@ -877,22 +877,24 @@ Here is how much of TeX's memory you used:
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></us
-r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/
-local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/lo
-cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loca
-l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/t
-exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texli
-ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on Thesis.pdf (47 pages, 828048 bytes).
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
+local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive
+/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
+Output written on Thesis.pdf (48 pages, 845247 bytes).
 PDF statistics:
- 620 PDF objects out of 1000 (max. 8388607)
- 535 compressed objects within 6 object streams
- 127 named destinations out of 1000 (max. 500000)
+ 632 PDF objects out of 1000 (max. 8388607)
+ 544 compressed objects within 6 object streams
+ 128 named destinations out of 1000 (max. 500000)
  356 words of extra memory for PDF output out of 10000 (max. 10000000)
 
