@@ -37,10 +37,12 @@
 \contentsline {section}{\numberline {4.3}Simulation Control Program}{19}{section.49}
 \contentsline {chapter}{\numberline {5}Performance Evaluation}{24}{chapter.51}
 \contentsline {section}{\numberline {5.1}Performance Metrics}{24}{section.52}
-\contentsline {section}{\numberline {5.2}Simulation Data Process}{25}{section.53}
-\contentsline {section}{\numberline {5.3}Results Analysis}{28}{section.54}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{31}{chapter.60}
+\contentsline {subsection}{\numberline {5.1.1}Average Network Lifetime}{24}{subsection.53}
+\contentsline {subsection}{\numberline {5.1.2}Average Message Broadcast Time}{25}{subsection.54}
+\contentsline {section}{\numberline {5.2}Simulation Data Process}{26}{section.55}
+\contentsline {section}{\numberline {5.3}Results Analysis}{27}{section.56}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{31}{chapter.62}
 \vspace {2em}
-\contentsline {chapter}{\numberline {A}An Appendix}{33}{appendix.61}
+\contentsline {chapter}{\numberline {A}An Appendix}{33}{appendix.63}
 \vspace {2em}
-\contentsline {chapter}{Bibliography}{34}{dummy.62}
+\contentsline {chapter}{Bibliography}{34}{dummy.64}

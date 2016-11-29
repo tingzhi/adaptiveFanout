@@ -2,14 +2,22 @@
 \label{Chapter5}
 \lhead{Chapter 5. \emph{Performance Evaluation}} % Write in your own chapter title to set the page header
 
+In this chapter, we first will introduce our designed performance metrics in order to properly evaluate our proposed adaptive fanout \pp ~\gp. Then we will discuss our simulation data process. Finally, we will analyze the results.
+
 \section{Performance Metrics}
-Life Span of the Network
+As we stated in Section \ref{}, the objective of our proposed approach is to achieve the balance between fast broadcasting time and long network lifetime. So obviously, the first two performance metrics that we proposed are \emph{Average \nl} and \emph{Average Message Broadcast Time}. Other performance metrics are \emph{Average Overhead Per Node Per Message}, \emph{Average Consumed Energy Per Node Per Message}, and \emph{Average Number of Success Broadcast Messages}.
 
-Definition: The time when any node's battery die
+\subsection{Average Network Lifetime}
+%\textbf{Average Network Lifetime}
 
-Because the goal of this protocol is to broadcast any new packet, the network will lose the physical ability whenever any node lost wireless connection to its neighbors due to energy depletion. Therefore, this metric indicates how long a network with size n could stay connected using a broadcast protocol.
+Before we define \emph{Average Network Lifetime}, we need to define \emph{Network Lifetime} first. 
 
-Average Packet Broadcast Time
+\textbf{Network Lifetime}: The time duration which a wireless ad-hoc network can physically broadcast \msgs ~successfully.
+
+So when a \gn's energy is depleted, this \gn ~will no longer be able to transmit and receive new broadcast \msgs. Thus, this network is considered to be physically unable to broadcast \msgs ~successfully. Now the definition of \emph{Average Network Lifetime} is simply just an average over all \emph{Network Lifetime} under $n$ \gns ~case. This performance metric measures how long a wireless ad-hoc network with $n$ \gns ~can stay connected when running our proposed adaptive fanout \gp.
+
+\subsection{Average Message Broadcast Time}
+%\textbf{Average Message Broadcast Time}
 
 Let's think about broadcasting one packet from one node to (n-1) nodes, the packet broadcast time of this packet for this network is the difference between the time when last node received the packet and the time this packet was first sent.
 
@@ -19,7 +27,7 @@ Need to develop a mathematical equation for this
 
 The average packet broadcast time indicates the time needed for a packet to reach every node in the network.
 
-Protocol Overhead
+\textbf{Average Overhead Per Node Per Message}:
 
 There are three types of protocol packets for the protocol. The ack packet, solicit packet, and the payload packet. The acknowledgment packet is sent to the sender from receiver when a node received a payload that it already received before. The solicit packet is sent to query a random neighbor for its latest payload. For example, in one trial with n nodes, if it broadcaster m packets, then the average protocol overhead is defined as:
 
@@ -27,7 +35,7 @@ $overhead = ()(p1 + p2 + … + p_n) / n) / m$
 
 This metric indicated how many packets is needed for a node to facilitate broadcasting one packet. 
 
-Consumed Energy
+\textbf{Average Consumed Energy Per Node Per Message}:
 
 The consumed energy per node per packet is defined as
 
