@@ -2,11 +2,12 @@
 \label{Chapter4}
 \lhead{Chapter 4. \emph{Implementation}} % Write in your own chapter title to set the page header
 
-In order to evaluate our proposed energy-aware gossip broadcasting protocol, we implemented the protocol in a open-source software called Network Simulator 3 (ns-3). There are two folds in our implementation. First fold is that we implemented the basic push-pull \gp. The second fold is how we implemented proposed adaptive fanout scheme. 
+In order to evaluate our proposed energy-aware gossip broadcasting protocol, we implemented the protocol in a open-source software called Network Simulator 3 (ns-3). From system point of view, this whole implementation consists of 4 major parts. They are the ICMP extension, the adaptive fanout \pp ~\gp, the UDP server and client application, and the simulation control program. The ICMP extension is the necessary backbone gossip communication infrastructure developed to support adaptive fanout \gp ~in application layer. The adaptive fanout \gp ~is the protocol entity that we are interested in studying. It utilized underlining ICMP extension to communication among gossip nodes. It controls our proposed adaptive fanout gossip protocol's logic and behavior. The UDP server and UDP client are installed on source node and gossip nodes respectively. This provides a channel to collect simulation data. Lastly, the simulation control program is developed to handle simulation environment set up, start and stop simulation, and process and output collected data.
+
 
 \section{Basic Push-pull Gossip Protocol Implementation} \label{ppi}
-
-For the basic push-pull \gp implementation, we first started building those 3 types of packets (Data packet, Ack packet, and Request packet) by extending the existing Internet Control Message Protocol (ICMP). The most common use of ICMP is for error reporting~\cite{james}. An ICMP message contains two parts: 8-byte header and data section. The first 4 bytes of the header have a fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in table \ref{table:1}.
+\subsection{ICMP Extension}
+For the basic push-pull \gp implementation, we first started building those 3 types of packets (Data packet, Ack packet, and Request packet) by extending the existing Internet Control Message Protocol (ICMP). The most common use of ICMP is for error reporting~\cite{james}. An ICMP message contains two parts: 8-byte header and data section. The first 4 bytes of the header have a fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in Table \ref{table:1}.
 
 \begin{table}[h!]￼
 	\centering
@@ -49,7 +50,7 @@ Table \ref{table:2} here presented some of the selected ICMP message types.
 	\end{tabular}
 \end{table}
 
-Since type 42 to 255 are reserved for further development, we decided to extend ICMP by defining type 42, 43, and 44 to represent Ack packet, Request packet, and Data packet respectively. The detail is shown in table \ref{table:3}.
+Since type 42 to 255 are reserved for further development, we decided to extend ICMP by defining type 42, 43, and 44 to represent Ack packet, Request packet, and Data packet respectively. The detail is shown in Table \ref{table:3}.
 
 \begin{table}[h]
 	\centering
@@ -69,24 +70,25 @@ Since type 42 to 255 are reserved for further development, we decided to extend 
 
 Based on these new control message types extension, we could further develop our basic \pp  ~\gp ~in ns-3. ICMP is a layer 3 protocol, but the actual control logic of our \gp ~is developed in application layer. 
 
-In order to collect simulation results, the system consists of a source node and $n$ gossip nodes. The source node is responsible for the following duties:
+\subsection{Source Node Implementation}
+In order to generate and collect simulation results, the system consists of a source node and $n$ gossip nodes. The source node is responsible for the following duties:
 
 \begin{itemize}
-	\item generate new broadcast \msgs
-	\item store time stamps for each generated new \msgs
-	\item collect time stamps from gossip nodes.
+	\item Generate new broadcast \msgs
+	\item Store time stamps for each generated new \msgs
 \end{itemize}
 
-Every time when a new broadcast \msg ~is generated, it will send it to one of the gossip nodes thus start the whole process. Except the first broadcast \msg, every other new broadcast \msg ~will only be generated and sent out when it received $n$ time stamps from all gossip nodes for the previous broadcast \msg. Because in the program, we make sure that each gossip node will only send the time stamp of a specific broadcast \msg once, it is a good indication that this \msg ~has been successfully broadcast. In order to support these roles that a source node play, we deployed an UDP server application so that every gossip node could connect to it and report its broadcast \msg ~time stamps. 
+Every time when a new broadcast \msg ~is generated, it will send it to one of the gossip nodes via a special pair of wireless ad-hoc network thus kick start the broadcasting process. Except the first broadcast \msg, every other new broadcast \msg ~will only be generated and sent out when it received $n$ \emph{Acknowledgment packet} (different from the Ack packet) from all gossip nodes for the previous broadcast \msg. Because in the program, we make sure that each gossip node will only send this special \emph{Acknowledgment packet }once per broadcast \msg, it is a good indication that this broadcast \msg ~has been successfully broadcast. In order to support this feedback mechanism, we deployed an UDP server application so that every gossip node can connect to it and send its \emph{Acknowledgment packet}. It is worth noting that the actual implementation of a source node is a streamlined \gn ~\im ~with functions in the receiving end and the ability to send Ack packets and Request packets disabled. 
 
+\subsection{Gossip Nodes Implementation}
 For gossip nodes, as shown in Figure \ref{fig:pseudo}, there are two main processes running. The periodic request processes and periodic gossip processes. At the start of the simulation, these two processes will be initialized. Most of the functionalities for a gossip node belong to either receiving end or transmitting end. In receiving end, we developed functions to handle Ack packet, Request packet, and Data packet. In the transmitting end, we developed functions to send Ack packet, Request packet, and Data packet. Besides, we also deployed an UDP client application on these gossip nodes so that it can send time stamps of each broadcast \msg ~back. To make all these functionalities work, these functions actually call the corresponding functions in ICMP as we described earlier. For example, if a gossip node is trying to send a new broadcast \msg ~to another gossip node, it would first call the function \emph{sendPayload()} that is in application layer. Then \emph{sendPayload()} would have to call the function \emph{sendMessage()} in ICMP which is in network layer. On the receiving end, a node first would receive the new broadcast \msg ~in network layer. The \msg ~is handled by a function in ICMP called \emph{handleData()}. Then in turn, this function will call the corresponding function in the application layer. The whole process is illustrated in Figure \ref{fig:topDown}.
 
 In summary, gossip nodes has the following responsibilities:
 \begin{itemize}
-	\item gossip every new broadcast \msg
-	\item store every broadcast \msg without duplication
-	\item store the time stamps for each received new broadcast \msg
-	\item report each new broadcast \msg time stamps back to the source node
+	\item Gossip every new broadcast \msg
+	\item Store every broadcast \msg without duplication
+	\item Store the time stamps for each received new broadcast \msg
+	\item Report each new broadcast \msg time stamps back to the source node
 \end{itemize}
 
 \section{Adaptive Fanout Extension Implementation}
@@ -102,12 +104,15 @@ To add our proposed adaptive fanout scheme into the existing \pp ~\gp, we first 
 
 In our implementation, we actually set $P_{idle}=0$ and $P_{sleep}=0$ because majority of the time when a node participated in broadcasting a \msg, it stays in the IDLE state. Therefore, it we don't disable $P_{idle}$ and $P_{sleep}$, the network lifetime will be largely determined by $P_{idle}$ which is undesirable. Once we have energy sources and Wifi radio energy model installed on the gossip nodes, we then can calculate the corresponding \emph{Fanout} for each node. One small detail worthing mentioning here is that the actual \emph{Fanout} $f_{actual}$ cannot exceed a node's degree (number of neighbors) $n_b$, thus $f_{actual} = min(f, n_b)$. Once we have the \emph{Fanout} information, the rest gossip process works as described in Section \ref{ppi}.
 
-\section{Simulation Environment Setting}
-For the simulation environment set up, because we want to collect simulation data about network lifetime, the simulation stop time is set to be large enough so that the energy source will be depleted first. Any depleted energy source will automatically trigger the simulation to stop. Topology wise, we wanted it to be a close resemble to Wireless Sensor Network (WSN) or MANET. In other words, we wanted to avoid gossip nodes cluster in a small area. We achieve that goal by adopting a small maximum WiFi range for each gossip node and scale up nodes' placement area as number of nodes increases. Since an area with dimension of $100m \times 100m$ can achieve a desirable network density for 10 gossip nodes, we used this ratio to calculate the dimension of nodes placement area. If we denote the side of a square area by $s$, then the equation to calculate the size of the nodes placement area is as follows:
+\section{Simulation Control Program}
 
-\[ s=\sqrt{1000\times n} \quad \mbox{where } n \mbox{ is number of nodes}\]
+As we stated earlier in this chapter, the simulation control program is here to properly set up simulation environment, initialize simulation objects, start and stop simulation, and collect, process, and export simulation data.
 
-Because of randomly gossip nodes placement and a fixed maximum WiFi range, a newly generated topology could contain isolated nodes that no other nodes can contact. In this case, we cannot achieve successful broadcasting no matter what we do. Therefore, we applied Depth First Search (DFS) algorithm to ensure that all nodes in the network are connected in some way. Even if the above situation does not happen, a case that shown in Figure~\ref{fig:twoSepNet} can occur where a network is divided into two separated subnets.
+For the simulation environment set up, because we want to collect simulation data about network lifetime, the simulation stop time is set to be large enough so that the energy source will be depleted first. Any depleted energy source will automatically trigger the simulation to stop. Topology wise, we wanted it to be a close resemble to Wireless Sensor Network (WSN) or MANET. In other words, we wanted to avoid gossip nodes cluster in a small area. We achieve that goal by adopting a small maximum WiFi range for each gossip node and scale up nodes' placement area as number of nodes increases. Since an area with dimension of $100m \times 100m$ with $50m$ maximum WiFi range can achieve a desirable network density for 10 gossip nodes, we used this ratio to calculate the dimension of nodes placement area. If we denote the side of a square area by $s$, then the equation to calculate the size of the nodes placement area is as follows:
+
+\[ s=\sqrt{1000\times n} \quad \mbox{where } n \mbox{ is number of gossip nodes}\]
+
+Because of random gossip nodes placement and a fixed maximum WiFi range, a newly generated topology could contain isolated nodes that no other nodes can contact. In this case, we cannot achieve successful broadcasting no matter what we do. Another possible case is shown in Figure~\ref{fig:twoSepNet} where a network is divided into two separated subnets unconnected. In this case, none of the gossip nodes are isolated but we still cannot successfully broadcast a \msg. Therefore, we applied Depth First Search (DFS) algorithm to ensure that all nodes in the network are connected in some way. Based on each gossip node's neighbor list, DFS would try to traverse all gossip nodes starting from any gossip node. If the algorithm is able to visit all gossip nodes, we consider this newly generated topology suitable for our simulation. On the other hand, when the algorithm cannot traverse all gossip nodes successfully, this simulation instance will be terminated.
 
 \begin{figure}
 	\centering
@@ -116,105 +121,34 @@ Because of randomly gossip nodes placement and a fixed maximum WiFi range, a new
 	\label{fig:twoSepNet}
 \end{figure}
 
-calculate neighbor list for each node
-range
-x1y1
-x2y2
-distance > range
+As mentioned earlier, DFS algorithm need each \gn's neighbors list in order to properly perform. To obtain this information, after the random \gn placement, the program can access each node's coordinates. Assuming node 1 ($node_1$) has the coordinate of $(x_1, y_1)$ and node 2 ($node_2$) has the coordinate of $(x_2, y_2)$, the distance between $node_1$ and $node_2$ can be easily computed by the distance formula. Therefore, if we denote the distance between $node_1$ and $node_2$ is $d$, then $d = \sqrt{(x_1 - x_2)^2+(y_1 - y_2)^2}$. Now if we denote each \gn's WiFi range to be $R$, then $node_1$ and $node_2$ are neighbors when $d\leq R$. While $node_1$ and $node_2$ are not neighbors when $d > R$. We used this process to generate neighbors list for each \gn. In practice, the global access of each \gn's coordinate information is usually not easy to obtain. Thus, Hello packets are used to generate neighbors list for each \gn.
 
-Every node's coordinates are used to calculate neighbors list for each node. In practice, the global access of this information is usually not easy to obtain. Thus, Hello packets are used to compile neighbors list for each node.
-
-Because nodes are randomly placed in a square area, with fixed WiFi range there could be a case that each node has at least one neighbor but the network is separated into two subnets unconnected. [twoSepNet.png]
-
-Therefore, I used an algorithm that uses depth-first search algorithm to determine whether all nodes get visited during the recursive search. If the algorithm successfully traverse all nodes, it is considered a complete graph which means the network is connected. If the algorithm yield a failure, this trial will be rejected and the simulation will move on to next trial.
-
-In order to collect benchmark of adaptive fanout gossip protocol, one extra node is place in the area. Its functions are generate new packets, collect other nodes' received time of every packets, and store new packets generate time. A trimmed version of adaptive fanout gossip protocol is used to generate new packets. An UDP server application is installed on the node to collect other nodes' received time of every packets.
-
-Adaptive fanout gossip protocol is installed on all other nodes in the network. Besides that, a UDP client application is also installed on them to send received time of every packet. The simulation stops when any one node's energy is depleted. After that, all the data collected is processed to generate our performance metrics. 
-
-the work flow
-
-
-
-source DSSSRate 11Mbps
-DsssRate 1Mbps
-maxRange = 50m
-num of nodes = 10
-simulation time = 100000.0s
-initialEnergy = 108J
-
-Gossip Interval 1s
-request interval 5s
-
-
+The work flow of our simulation control program is described below. 
 
 \begin{itemize}
-	\item Extend the Internet Control Message Protocol (ICMP) to support transmitting three simple control messages needed for gossip protocol.
-	\item Develop the gossip protocol application to be installed on network nodes.
-	\item Set wireless ad-hoc network attributes and gossip protocol attributes, which has already be presented in section~\ref{sec:problem}.
-	\item Import nodes connectivity information from topology files and export simulation results for performance evaluation.
+	\item Read in simulation environment parameters. 
+	\item Create a source node and $n$ gossip nodes.
+	\item The wireless ad-hoc network channel speed is set to be 1Mbps for all \gns.
+	\item Create a special wireless ad-hoc network connection between a source node and a \gn and set its speed to be 11Mbps.
+	\item Compute the side size of a square area for nodes placement.
+	\item Randomly place all nodes in the square area
+	\item Install basic energy source and \wf ~radio energy model on the \gns.
+	\item Assign IP addresses to all nodes.
+	\item Install adaptive fanout \gp and UDP client application ~on the \gns.
+	\item Install gossip generator application and UDP server application on the \sn.
+	\item Generate neighbors list for each \gn.
+	\item Check topology connectivity using DFS algorithm.
+	\item If the topology is disconnected somehow, terminate this simulation.
+	\item If the topology is connected, start the simulation.
 \end{itemize}
 
+The link speed among \gns is set to be 1Mbps because it is sufficient to transmit a very small Data packet quickly. The link speed between the source node and one of the \gn ~is set to be 11Mbps because we want to make sure that source node does not become the bottleneck for the performance of our proposed \gp. Since all nodes including the source node are randomly placed in this area, we make sure that the \wf ~range of the \sn ~is large enough that it will always be able to reach any \gns. The \wf ~range of \gns ~is set to be 50m in order to control node's degree. As we stated earlier, the simulation will stop once any \gn's energy is depleted. From that point, the program will enter the data collection and process stage. At this stage, the program is trying to calculate the following data:
 
-\section{Performance Metrics}
-Life Span of the Network
+\begin{itemize}
+	\item Message broadcast time (one output file per simulation)
+	\item Average overhead per node per \msg ~(average within each simulation)
+	\item Average energy consumption per node per \msg ~(average within each simulation)
+	\item Network lifetime
+\end{itemize}
 
-Definition: The time when any node's battery die
-
-Because the goal of this protocol is to broadcast any new packet, the network will lose the physical ability whenever any node lost wireless connection to its neighbors due to energy depletion. Therefore, this metric indicates how long a network with size n could stay connected using a broadcast protocol.
-
-Average Packet Broadcast Time
-
-Let's think about broadcasting one packet from one node to (n-1) nodes, the packet broadcast time of this packet for this network is the difference between the time when last node received the packet and the time this packet was first sent.
-
-Because for each independent trial, multiple packets will be sent. The packet broadcast time is calculated for each packet in the way described above. In the end, we average the times for each scenario (e.g. n = 10). 
-
-Need to develop a mathematical equation for this
-
-The average packet broadcast time indicates the time needed for a packet to reach every node in the network.
-
-Protocol Overhead
-
-There are three types of protocol packets for the protocol. The ack packet, solicit packet, and the payload packet. The acknowledgment packet is sent to the sender from receiver when a node received a payload that it already received before. The solicit packet is sent to query a random neighbor for its latest payload. For example, in one trial with n nodes, if it broadcaster m packets, then the average protocol overhead is defined as:
-
-$overhead = ()(p1 + p2 + … + p_n) / n) / m$
-
-This metric indicated how many packets is needed for a node to facilitate broadcasting one packet. 
-
-Consumed Energy
-
-The consumed energy per node per packet is defined as
-
-energy = ((e1 + e2 + … + en)/n)/m
-
-This metric measures the amount of energy needed for a node to facilitate broadcasting one packet. 
-
-
-\subsection{Gathering Simulation Data}
-
-To evaluate the performance of gossip protocol, we use several randomly generated topology files with the number of nodes as variable. Those topology files are derived from a random geometric graph network, which was created by uniformly and randomly placing nodes into a space and then connect nodes whose distance is smaller than some given radius.
-
-\begin{figure}
-	\centering
-	\begin{verbatim}[fontsize=\small]
-	#Nodes
-	0
-	1
-	2
-	#Edges
-	(0, 1)
-	(1, 2)
-	\end{verbatim}
-	\caption{A topology file of a linear topology with three nodes.}
-	\label{fig:topsimple}
-\end{figure}
-
-
-Each topology file contains the number of nodes as well as all the edges, which represents the connections between nodes. As an example, the content of a simple topology file is shown in figure~\ref{fig:topsimple}. A parser written in C++ is developed to create the given number of nodes in NS-3 and installed the gossip protocol application on them. Thereafter, all edges are parsed and created accordingly. Each node holds an NS-3 Ipv4Interface with assigned Ipv4 address and stores the Ipv4 addresses of his neighbors.
-
-For the simulation, we set the link rate for all connections to be 1Mbp. Also, all nodes are instructed to execute the gossip process of sending out data periodically every 5ms. The interval of requesting new data is set to 5s.
-
-To allow the performance analysis, all nodes count the number of data packets they sent. All nodes would track how many hops the data message experienced before reaching them and they record the time when they received the data message as well. For every single simulation, we collect the information from the nodes and determine the average amount of data packets sent per node and average number of hops per node. Moreover, the information about how long it took for the message to reach the ``last'' node is also recorded.
-
-This information is determined and stored for each of the several hundred topology files. It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data in the hope of verifying the assumptions we made in section~\ref{sec:problem}.
-
+For the average \msg ~broadcast time, the program will access the vector stored in the \sn ~that represent the time stamps for each generated new broadcast \msg. Similarly, it will also access $n$ vectors from $n$ \gns. These vectors stored the received broadcast \msg ~time stamps of each \gn. Let's take a look at an example where we have one \sn ~and one \gn, if we denote the vector on the \sn ~side to be $T_s=<t_{s1}, t_{s2}, \ldots, t_{sn}>$ and the vector on the \gn ~side to be $T_g=<t_{g1}, t_{g2}, \ldots, t_{gn}>$, then the broadcast time for these \msgs ~are $T_{broadcast}= T_g - T_s = <t_{g1}-t_{s1}, t_{g2}-t_{s2}, \ldots, t_{gn}-t_{sn}>$. 

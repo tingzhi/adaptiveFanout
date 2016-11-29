@@ -2,7 +2,76 @@
 \label{Chapter5}
 \lhead{Chapter 5. \emph{Performance Evaluation}} % Write in your own chapter title to set the page header
 
+\section{Performance Metrics}
+Life Span of the Network
+
+Definition: The time when any node's battery die
+
+Because the goal of this protocol is to broadcast any new packet, the network will lose the physical ability whenever any node lost wireless connection to its neighbors due to energy depletion. Therefore, this metric indicates how long a network with size n could stay connected using a broadcast protocol.
+
+Average Packet Broadcast Time
+
+Let's think about broadcasting one packet from one node to (n-1) nodes, the packet broadcast time of this packet for this network is the difference between the time when last node received the packet and the time this packet was first sent.
+
+Because for each independent trial, multiple packets will be sent. The packet broadcast time is calculated for each packet in the way described above. In the end, we average the times for each scenario (e.g. n = 10). 
+
+Need to develop a mathematical equation for this
+
+The average packet broadcast time indicates the time needed for a packet to reach every node in the network.
+
+Protocol Overhead
+
+There are three types of protocol packets for the protocol. The ack packet, solicit packet, and the payload packet. The acknowledgment packet is sent to the sender from receiver when a node received a payload that it already received before. The solicit packet is sent to query a random neighbor for its latest payload. For example, in one trial with n nodes, if it broadcaster m packets, then the average protocol overhead is defined as:
+
+$overhead = ()(p1 + p2 + … + p_n) / n) / m$
+
+This metric indicated how many packets is needed for a node to facilitate broadcasting one packet. 
+
+Consumed Energy
+
+The consumed energy per node per packet is defined as
+
+energy = ((e1 + e2 + … + en)/n)/m
+
+This metric measures the amount of energy needed for a node to facilitate broadcasting one packet. 
+
+
+\section{Simulation Data Process}
+The simulation program output data files needs to be further processed in order to yield our performance metrics results. 
+
+\begin{itemize}
+	\item Average \msg ~broadcast time
+	\item Average overhead
+	\item Average energy consumption
+	\item Network lifetime 
+\end{itemize}
+
+ 
+
+To evaluate the performance of gossip protocol, we use several randomly generated topology files with the number of nodes as variable. Those topology files are derived from a random geometric graph network, which was created by uniformly and randomly placing nodes into a space and then connect nodes whose distance is smaller than some given radius.
+
+
+
+Each node holds an NS-3 Ipv4Interface with assigned Ipv4 address and stores the Ipv4 addresses of his neighbors.
+
+For the simulation, we set the link rate for all connections to be 1Mbp. Also, all nodes are instructed to execute the gossip process of sending out data periodically every 5ms. The interval of requesting new data is set to 5s.
+
+To allow the performance analysis, all nodes count the number of data packets they sent. All nodes would track how many hops the data message experienced before reaching them and they record the time when they received the data message as well. For every single simulation, we collect the information from the nodes and determine the average amount of data packets sent per node and average number of hops per node. Moreover, the information about how long it took for the message to reach the ``last'' node is also recorded.
+
+This information is determined and stored for each of the several hundred topology files. It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data in the hope of verifying the assumptions we made in section~\ref{sec:problem}.
+
 Talk about the settings
+
+
+source DSSSRate 11Mbps
+DsssRate 1Mbps
+maxRange = 50m
+num of nodes = 10
+simulation time = 100000.0s
+initialEnergy = 108J
+
+Gossip Interval 1s
+request interval 5s
 
 In summary, the simulation parameters are set to be as follows:
 \begin{itemize}

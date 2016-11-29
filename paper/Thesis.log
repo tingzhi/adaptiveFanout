@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  28 NOV 2016 00:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  29 NOV 2016 00:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -488,22 +488,22 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 ) (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 38.
+LaTeX Font Info:    ... okay on input line 38.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
@@ -532,7 +532,7 @@ Package caption Info: End \AtBeginDocument code.
 )
 \c@lstlisting=\count147
 \AtBeginShipoutBox=\box37
-Package hyperref Info: Link coloring ON on input line 33.
+Package hyperref Info: Link coloring ON on input line 38.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -541,9 +541,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count148
 )
-LaTeX Info: Redefining \ref on input line 33.
-LaTeX Info: Redefining \pageref on input line 33.
-LaTeX Info: Redefining \nameref on input line 33.
+LaTeX Info: Redefining \ref on input line 38.
+LaTeX Info: Redefining \pageref on input line 38.
+LaTeX Info: Redefining \nameref on input line 38.
 
 (./Thesis.out) (./Thesis.out)
 \@outlinefile=\write4
@@ -561,16 +561,16 @@ LaTeX Info: Redefining \nameref on input line 33.
 ------------------------------------------------------------------------------
  Declaration of Authorship
 ------------------------------------------------------------------------------
-LaTeX Font Info:    Try loading font information for U+msa on input line 89.
+LaTeX Font Info:    Try loading font information for U+msa on input line 94.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 89.
+LaTeX Font Info:    Try loading font information for U+msb on input line 94.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 89--89
+Underfull \hbox (badness 10000) in paragraph at lines 94--94
 
  []
 
@@ -701,7 +701,7 @@ Chapter 3.
 [8
 
 ] [9] [10] [11] [12] [13]
-<stepFunction2.png, id=404, 854.19125pt x 466.74374pt>
+<stepFunction2.png, id=417, 854.19125pt x 466.74374pt>
 File: stepFunction2.png Graphic file (type png)
  <use stepFunction2.png>
 Package pdftex.def Info: stepFunction2.png used on input line 158.
@@ -714,168 +714,162 @@ Chapter 4.
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no ¼ in font cmr10!
+[16
 
-Overfull \hbox (1.87524pt too wide) in paragraph at lines 38--38
+]
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 39--39
 []\OT1/cmr/m/n/10.95 Code| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--46
+Underfull \hbox (badness 10000) in paragraph at lines 46--47
 []\OT1/cmr/m/n/10.95 Router dis-cov-ery/s-e-lec-
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (1.87524pt too wide) in paragraph at lines 60--60
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 61--61
 []\OT1/cmr/m/n/10.95 Type| 
  []
 
 
-Overfull \hbox (10.41116pt too wide) in paragraph at lines 60--60
+Overfull \hbox (10.41116pt too wide) in paragraph at lines 61--61
 []\OT1/cmr/m/n/10.95 Code| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--62
+Underfull \hbox (badness 10000) in paragraph at lines 63--63
 []\OT1/cmr/m/n/10.95 Send Ac-knowl-edg-
  []
 
-[16
+[17]
 
-]
+LaTeX Warning: Reference `fig:topDown' on page 18 undefined on input line 84.
 
-LaTeX Warning: Reference `fig:topDown' on page 17 undefined on input line 82.
-
-[17] [18] <twoSepNet.png, id=440, 314.17375pt x 173.64874pt>
+[18] [19] <twoSepNet.png, id=457, 314.17375pt x 173.64874pt>
 File: twoSepNet.png Graphic file (type png)
 
 <use twoSepNet.png>
-Package pdftex.def Info: twoSepNet.png used on input line 114.
+Package pdftex.def Info: twoSepNet.png used on input line 119.
 (pdftex.def)             Requested size: 216.81pt x 119.83365pt.
- [19] [20 <./twoSepNet.png>]
-
-LaTeX Warning: Reference `sec:problem' on page 21 undefined on input line 154.
-
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ¦ in font cmr10!
-[21]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ¦ in font cmr10!
- [22]
-
-LaTeX Warning: Reference `sec:problem' on page 23 undefined on input line 219.
-
-) (./Chapters/Chapter5.tex [23]
+ [20 <./twoSepNet.png>] [21]) (./Chapters/Chapter5.tex
+[22]
 Chapter 5.
 ------------------------------------------------------------------------------
  5 Performance Evaluation
 ------------------------------------------------------------------------------
+[23
+
+]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ¦ in font cmr10!
-<brTime.png, id=464, 765.0984pt x 510.708pt>
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ¦ in font cmr10!
+ [24]
+
+LaTeX Warning: Reference `sec:problem' on page 25 undefined on input line 61.
+
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ¦ in font cmr10!
+[25] <brTime.png, id=485, 765.0984pt x 510.708pt>
 File: brTime.png Graphic file (type png)
  <use brTime.png>
-Package pdftex.def Info: brTime.png used on input line 30.
+Package pdftex.def Info: brTime.png used on input line 99.
 (pdftex.def)             Requested size: 216.81pt x 144.71945pt.
- [24
 
-]
-<brNum.png, id=470, 728.9634pt x 470.2368pt>
+<brNum.png, id=486, 728.9634pt x 470.2368pt>
 File: brNum.png Graphic file (type png)
  <use brNum.png>
-Package pdftex.def Info: brNum.png used on input line 37.
+Package pdftex.def Info: brNum.png used on input line 106.
 (pdftex.def)             Requested size: 216.81pt x 139.85951pt.
 
-<energy.png, id=471, 728.9634pt x 519.8622pt>
+<energy.png, id=487, 728.9634pt x 519.8622pt>
 File: energy.png Graphic file (type png)
  <use energy.png>
-Package pdftex.def Info: energy.png used on input line 44.
+Package pdftex.def Info: energy.png used on input line 113.
 (pdftex.def)             Requested size: 216.81pt x 154.61926pt.
 
-<overhead.png, id=472, 770.3982pt x 470.7186pt>
+<overhead.png, id=488, 770.3982pt x 470.7186pt>
 File: overhead.png Graphic file (type png)
  <use overhead.png>
-Package pdftex.def Info: overhead.png used on input line 51.
+Package pdftex.def Info: overhead.png used on input line 120.
 (pdftex.def)             Requested size: 216.81pt x 132.46828pt.
 
-<life.png, id=473, 769.9164pt x 535.7616pt>
+<life.png, id=489, 769.9164pt x 535.7616pt>
 File: life.png Graphic file (type png)
  <use life.png>
-Package pdftex.def Info: life.png used on input line 58.
+Package pdftex.def Info: life.png used on input line 127.
 (pdftex.def)             Requested size: 216.81pt x 150.8706pt.
- [25 <./brTime.png> <./brNum.png> <./energy.png>]
+ [26 <./brTime.png> <./brNum.png> <./energy.png>]
 
-LaTeX Warning: Reference `fig:msgAbs' on page 26 undefined on input line 71.
-
-
-LaTeX Warning: Reference `fig:msgAbs' on page 26 undefined on input line 71.
+LaTeX Warning: Reference `fig:msgAbs' on page 27 undefined on input line 140.
 
 
-LaTeX Warning: Reference `fig:msgOver' on page 26 undefined on input line 71.
+LaTeX Warning: Reference `fig:msgAbs' on page 27 undefined on input line 140.
 
 
-LaTeX Warning: Reference `fig:msgP' on page 26 undefined on input line 94.
+LaTeX Warning: Reference `fig:msgOver' on page 27 undefined on input line 140.
 
-[26 <./overhead.png> <./life.png>]
+[27 <./overhead.png> <./life.png>]
 
-LaTeX Warning: Reference `fig:hop' on page 27 undefined on input line 96.
-
-
-LaTeX Warning: Reference `fig:graph' on page 27 undefined on input line 96.
+LaTeX Warning: Reference `fig:msgP' on page 28 undefined on input line 163.
 
 
-LaTeX Warning: Reference `fig:time' on page 27 undefined on input line 119.
+LaTeX Warning: Reference `fig:hop' on page 28 undefined on input line 165.
 
 
-LaTeX Warning: Reference `sec:further' on page 27 undefined on input line 128.
+LaTeX Warning: Reference `fig:graph' on page 28 undefined on input line 165.
 
-) (./Chapters/Chapter6.tex [27]
+
+LaTeX Warning: Reference `fig:time' on page 28 undefined on input line 188.
+
+
+LaTeX Warning: Reference `sec:further' on page 28 undefined on input line 197.
+
+) (./Chapters/Chapter6.tex [28] [29]
 Chapter 6.
 ------------------------------------------------------------------------------
  6 Conclusions and Future Work
 ------------------------------------------------------------------------------
-[28
+[30
 
-]) (./Appendices/AppendixA.tex [29]
+]) (./Appendices/AppendixA.tex [31]
 Appendix A.
 ------------------------------------------------------------------------------
  A An Appendix
 ------------------------------------------------------------------------------
-) [30
+) [32
 
 ]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(./Thesis.bbl [31
+(./Thesis.bbl [33
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 227.
- [32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 227.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 232.
+ [34]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 232.
  (./Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 227.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 227.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 232.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 232.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 7F11E41F3D8312AD5719A9500D6DA20F;6536.
+(rerunfilecheck)             Checksum: 2AD6DCFC51FAF1338547F81DC26FABCC;7116.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 227.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 232.
  ) 
 Here is how much of TeX's memory you used:
- 13423 strings out of 493089
- 190750 string characters out of 6134842
- 268005 words of memory out of 5000000
- 16577 multiletter control sequences out of 15000+600000
- 13644 words of font info for 51 fonts, out of 8000000 for 9000
+ 13434 strings out of 493089
+ 190805 string characters out of 6134842
+ 268989 words of memory out of 5000000
+ 16584 multiletter control sequences out of 15000+600000
+ 13476 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,12n,45p,13210b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
@@ -895,10 +889,10 @@ ve/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on Thesis.pdf (45 pages, 824461 bytes).
+Output written on Thesis.pdf (47 pages, 828048 bytes).
 PDF statistics:
- 599 PDF objects out of 1000 (max. 8388607)
- 516 compressed objects within 6 object streams
- 123 named destinations out of 1000 (max. 500000)
- 332 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 620 PDF objects out of 1000 (max. 8388607)
+ 535 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 356 words of extra memory for PDF output out of 10000 (max. 10000000)
 
