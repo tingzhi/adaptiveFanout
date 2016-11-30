@@ -4,7 +4,7 @@
 
 In this chapter, we first will introduce our designed performance metrics in order to properly evaluate our proposed adaptive fanout \pp ~\gp. Then we will explain our simulation environment settings. Finally, we will analyze the simulation results.
 
-\section{Performance Metrics}
+\section{Performance Metrics} \label{pm}
 As we stated in Section \ref{basic gossip}, the objective of our proposed approach is to achieve the balance between fast broadcasting time and long network lifetime. So obviously, the first two performance metrics that we proposed are \emph{Average \nl} and \emph{Average Message Broadcast Time}. Other performance metrics are \emph{Average Overhead Per Node Per Message}, \emph{Average Consumed Energy Per Node Per Message}, and \emph{Average Number of Success Broadcast Messages}.
 
 \subsection{Average Network Lifetime}
@@ -70,104 +70,100 @@ This metric measures how many \msgs ~can be successfully broadcast with limited 
 
 \section{Simulation Environment Settings}
 
-\wf ~speed among \gns: 1Mbps
-\wf ~speed between the \sn ~and a \gn: 11Mbps
-Gossip node maximum \wf ~range: 50m
-Number of nodes: 10, 50, 90, 130, 170
-Simulation stop time = 100000.0s
-Initial battery energy = 108.0J
-Gossip interval: 1.0s
-Request interval 5.0s
+In order to properly evaluate our proposed \pp ~\gp, we need to compare it to the same basic \pp ~\gp ~but with constant \emph{Fanout} settings. Here we picked three typical \emph{Fanout} values. They are $f=1, 5, 10$. By obtaining performance metrics data from these three constant fanout settings, we can study how different \emph{Fanout} affect protocol performance. 
 
-In summary, the simulation parameters are set to be as follows:
+The simulation environment setting is summarized below.
+
 \begin{itemize}
-	\item Number of Nodes = 10, 20, 30, … , 200
-	\item Simulation time = large enough to ensure energy depletion happens first
-	\item Maximum Wifi Range = 50m
-	\item Initial Energy = 108J
-	\item Gossip Interval = 1.0s
-	\item Solicit interval = 5.0s 
+	\item Fanout: 1, 5, 10, or adaptive
+	\item Number of nodes: 10, 50, 90, 130, 170
+	\item \wf ~speed among \gns: 1Mbps
+	\item \wf ~speed between the \sn ~and a \gn: 11Mbps
+	\item MAC: IEEE 802.11 for \gns ~and \sn
+	\item Gossip node maximum \wf ~range: 50m
+	\item Source node maximum \wf ~range: 500m
+	\item Simulation stop time: 100000.0s
+	\item Initial battery energy: 108.0J  (3V)
+	\item Gossip interval: 1.0s
+	\item Request interval 5.0s
+	\item \wf ~radio idle current: 0.0A
+	\item \wf ~radio sleep current: 0.0A
+	\item \wf ~radio transmit current: 0.38A
+	\item \wf ~radio receive current: 0.313A
+	\item Gossip nodes IP address: 10.1.1.0/24
+	\item Source node and a \gn's IP address: 10.1.2.0/24	
 \end{itemize}
 
-The number of nodes, simulation time, maximum wifi range, initial battery energy, gossip interval, and solicit interval are all the parameters I could control in the simulation. The number of nodes is ranging from 10 to 200 with step 10. The simulation time is set to be large enough to ensure any node's battery will die before the simulation stops. The maximum wifi range is set to be 50 meters so that no one node is connected to all other nodes. The initial battery energy is set to be 1080 Joule (equivalent to 100mAh) for every node. The gossip interval is set to be 1 second meaning for any node every second the gossip process will wake up and check if it need to gossip a new packet to its neighbors. The solicit interval is set to be 5 seconds which means every 5 seconds, a node will randomly pick a neighbor and query for their latest received packet. 
-
-The simulation will stop when any node's energy was depleted. For each scenario (e.g. n = 10), 100 independent trials were simulated in order to gather performance data. Any simulation parameters other than number of nodes stay the same through all simulation trials. 
-
-
-
-It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data.
-
-
+As we stated earlier, the simulation stop time is set to be large enough so that the energy sources on \gns ~will be depleted first. Thus, it will trigger the termination of our simulations. 
 
 \section{Results Analysis}
 
-For cases of \emph{Fanout} $f=1$, we performed total of ?? simulations with number of \gns ~ranging from 10 to 170.
+In order to obtain simulation data for these $f=1,5,10, adaptive$ settings, we ran 100 simulations for each number of \gns ~setting. Because of the random placement of \gns ~can potentially generate a disconnected topology, some of the simulations will be terminated in the beginning. Table \ref{table:sim} shows the number of successful simulations under each number of \gns ~setting. It is worth noting that this table holds true for all four \emph{Fanout} settings.
 
-$f=1,5,10$  $f=adaptive$
-insert a table here
+\begin{table}[h]
+	\centering
+	\caption{Number of Simulations Run}
+	\label{table:sim}
+	\begin{tabular}{|c|c|c|}
+		\hline 
+		Number of gossip nodes & Total number of simulations & Number of success simulations \\ 
+		\hline 
+		10 & 100 & 85 \\ 
+		\hline 
+		50 & 100 & 52 \\ 
+		\hline 
+		90 & 100 & 50 \\ 
+		\hline 
+		130 & 100 & 46 \\ 
+		\hline 
+		170 & 100 & 34 \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
 
-success simulation
-total simulation 
+By conducting statistical analysis based on the method in Section \ref{pm}, we were able to extract the data of each performance metrics. 
 
-Fanout of gossip protocol is defined as the number of neighbors a node contact each time when a new packet is received. It is one of the parameters that control the behavior of gossip protocol. In one scenario, fanout is set to be one. In another scenario, fanout is set to be five. These two scenarios 's trials are conducted to compare to the adaptive fanout scenario. 
+Figure \ref{fig:brTime} depicts the \emph{Average Message Broadcast Time} over number of \gns. As we would expect, under any \emph{Fanout} setting, the \emph{\ambt} will increase as the number of \gns ~increase. It is especially obvious for $f=1$ setting. For other \emph{Fanout} settings, their \emph{\ambt} are much shorter than $f=1$ setting across different number of \gns ~settings. We can see a huge performance improvement when \emph{Fanout} is switched from 1 to 5. That is because a \gn ~can forward the broadcast \msg ~to more neighbors comparing to $f=1$ setting. However, the performance improvement from $f=5$ to $f=10$ is marginal. We believe that it is related to the average node's degree since a \emph{Fanout} setting that exceeds the number of neighbors a \gn ~has will bring no additional performance boost. Our adaptive fanout approach performed as good as $f=5$ setting even though its \emph{Fanout} is ranging from 1 to 5 during a simulation. 
 
-\begin{figure}
+\begin{figure} 
 	\centering
 	\includegraphics[width=5.5in]{brTime.png}
 	\caption{Average message broadcast time vs. number of nodes}
 	\label{fig:brTime}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=5.5in]{brNum.png}
-	\caption{Average number of broadcasted messages vs. number of nodes}
-	\label{fig:brNum}
-\end{figure}
+Figure \ref{fig:life} presents the \emph{Average Network Lifetime} over different number of \gns. For three constant \emph{Fanout} settings, the \emph{\anl} decreases as \emph{Fanout} increases. This is within our expectation because for every gossip round, a \gn ~with a higher \emph{Fanout} setting will have to contact more neighbors thus consume more energy. $f=1$ setting has the best \emph{\anl} but as we see in Figure \ref{fig:brTime}, it has the worst \emph{\ambt}. Under $f=5$ setting, the \emph{\anl} is reasonably good while the \emph{\ambt} is shorter. However, our proposed adaptive fanout setting can achieve even better \emph{\anl} comparing to $f=5,10$ settings while still perform as good as the other two in terms of \emph{\ambt}. 
 
-\begin{figure}
-	\centering
-	\includegraphics[width=5.5in]{energy.png}
-	\caption{Average consumed energy per node per message vs. number of nodes}
-	\label{fig:energy}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=5.5in]{overhead.png}
-	\caption{Average packets sent per node per message vs. number of nodes}
-	\label{fig:overhead}
-\end{figure}
-
-\begin{figure}
+\begin{figure} 
 	\centering
 	\includegraphics[width=5.5in]{life.png}
 	\caption{Average network lifetime vs. number of nodes}
 	\label{fig:life}
 \end{figure}
 
+From Figure \ref{fig:energy}, we can see that as number of \gns ~increases, the \emph{Average Energy Consumption Per Node Per Message} increases as expected. For the ease of discussion, in the following chapter we will call it \emph{Average Energy Consumption}. The interesting part here we would like to point out is that $f=1$ setting actually has the highest energy consumption. The reason is that even though it has the longest \emph{\anl}, it also has the worst \emph{\ambt}. So given these two constrains, the number of \msgs it can broadcast is less than other \emph{Fanout} settings. Since we computed this metric on a per \msg ~basis, it would result in a higher \emph{\aec}. Under $f=5$ and adaptive fanout setting, their \emph{\aec} plots are almost overlapping each other. The reason is the trade off between \emph{\ambt} and \emph{\anl}. $f=10$ setting has the lowest \emph{\aec} except for 170 \gns ~setting, but as shown in Figure \ref{fig:life}, it has the worst \emph{\anl}. 
 
+\begin{figure} 
+	\centering
+	\includegraphics[width=5.5in]{energy.png}
+	\caption{Average consumed energy per node per message vs. number of nodes}
+	\label{fig:energy}
+\end{figure}
 
+Figure \ref{fig:overhead} shows the results of \emph{Average Overhead Per Node Per Message} over various number of \gns. For the ease of discussion, from now on we will call it \emph{\ao}. Comparing Figure \ref{fig:overhead} to Figure \ref{fig:energy}, we can see that the shape of each plot is almost identical even though the unit on the y-axis is different. That is because energy consumption is closely related to overhead since overhead is defined as the number of packets sent by each \gn. Therefore, the same analysis on Figure \ref{fig:energy} can be applied here as well.
 
+\begin{figure} 
+	\centering
+	\includegraphics[width=5.5in]{overhead.png}
+	\caption{Average overhead per node per message vs. number of nodes}
+	\label{fig:overhead}
+\end{figure}
 
-(from 563 paper).
+Lastly, Figure \ref{fig:brNum} presents the number of \msgs broadcast over different number of \gns. $f=1$ setting can deliver the least amount of \msgs comparing to other \emph{Fanout} settings. In general, higher \emph{Fanout} setting will increase the number of \msgs the protocol can deliver. However, as we see in Figure \ref{fig:brTime}, switching \emph{Fanout} from 5 to 10 would result in a very limited performance boost. Our proposed adaptive fanout approach performed as good as $f=5,10$ setting while as shown in Figure \ref{fig:life} it has longer \emph{\anl}.
 
-The random generated topology files are the input of our simulations. There are 7 different cases where the number of nodes vary from 100 to 1000 , increasing with 150 nodes step. And for each case, we sampled 100 topology files to run the simulations.
-
-First, I analyzed the average number of data packets each node sent, depicted in fig.~\ref{fig:msgAbs}. It is important to note that the the collected average number for one topology file was again averaged over all reported values produced by topology files with the same number of nodes. Thus, the error bar is an indicator how consistent the average number is. It can be deduced from fig.~\ref{fig:msgAbs} that this value is ranging from 190 data packets per node to 280 data packets per node depending on the scale of the network. But considering the network scale, average number of data packets per node didn't increase proportionally as we can see in fig.~\ref{fig:msgOver}. This metrics actually decreased exponentially. 
-
-
-Since when I collected the different data (average ICMP messages per node) from wired peer-to-peer network environment, here I could not perform a fair comparasion between these two evnironment. But as you can see in fig.~\ref{fig:msgP}, the average ICMP messages per node is significantly lower than in the wireless ad-hoc network. I believe the reason behind this is the shared medium for wireless communication. With shared medium, collision is prone to occur thus RTS/CTS plays an important role during the whole communicating process. Thus higher average data packets sent per node is expected.
-
-Second, the average number of hops per node is analyzed. This is different from what we collected in the P2P environment which is maximum number of hops. Thus fair comparison between these two environment can not be performed here. In the wireless ad-hoc network, as we can see in fig. ~\ref{fig:hop}, the average number of hops per node mostly concentrated around 2.3 hops regardless of the growing number of nodes. For wired P2P network, the maximum hops is around 16.5. But the standard deviation has the tendency to decrease which is a positive sign since we hope the gossip protocol performance metrics would converge as the network grows. Nonetheless, the overall impression for both network environment is that the number of hops either average or maximum are more or less constant. But why is that the average hops per node could remaine 2 to 3 in a wireless ad-hoc network? My explaination is that since the topology of the network is almost a complete graph as you can see in fig.~\ref{fig:graph} showing a simple 10 nodes case, with gossip interval 5ms and request interval 5s, before any node send out request packets, chances are the starting node already gossipped with most of the node in the network result to a low average hops per node.
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/hop}
-%	\caption{The average number of hops per node (Ad-hoc environment).}
-%	\label{fig:hop}
-%\end{figure}
-%
-
-
-Moreover, figure~\ref{fig:time} illustrates the time needed to spread the message across the whole network. For the P2P network environment, the average time needed to spread the message is found to be more or less constant and slightly less than 15s. Due to the huge difference in the gossip-interval-time (5ms) and solicit-interval-time (5s), only the influence of the solicit-interval can be deduced from the results. One can see, that the time needed to spread the message is fluctuating due to the random nature of the gossip protocol, especially for the case of a number of nodes of 100, where the standard deviation is the largest. However, when we compare this result with ad-hoc network simulation result, the different between them is significant. For the latter case, the spread time starts around 190s and grows almost linearly with the number of nodes in the network. In term of absolute maginitude, wireless network perform much worse than P2P network. However, this result is total within our expectation since wireless communication often encounter collision problem and thus result in longer spread time.
+\begin{figure} 
+	\centering
+	\includegraphics[width=5.5in]{brNum.png}
+	\caption{Average number of broadcast messages vs. number of nodes}
+	\label{fig:brNum}
+\end{figure}
