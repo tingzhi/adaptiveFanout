@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 NOV 2016 10:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 NOV 2016 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -658,11 +658,14 @@ Chapter 1.
 ------------------------------------------------------------------------------
  1 Introduction
 ------------------------------------------------------------------------------
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no ™ in font cmr10!
 [1
 
 
 
-]) (./Chapters/Chapter2.tex [2]
+] [2]) (./Chapters/Chapter2.tex [3]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Related Work
@@ -671,15 +674,15 @@ Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
 
-LaTeX Warning: Reference `vsnfig' on page 3 undefined on input line 27.
+LaTeX Warning: Reference `vsnfig' on page 4 undefined on input line 27.
 
-[3
+[4
 
 ]
 Missing character: There is no â in font cmr10!
 Missing character: There is no € in font cmr10!
 Missing character: There is no ™ in font cmr10!
- [4]
+ [5]
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 55.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -688,12 +691,12 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 55.
 
 
-LaTeX Warning: Reference `fig:allocator' on page 5 undefined on input line 68.
+LaTeX Warning: Reference `fig:allocator' on page 6 undefined on input line 68.
 
 
-LaTeX Warning: Reference `sec:solution' on page 5 undefined on input line 68.
+LaTeX Warning: Reference `sec:solution' on page 6 undefined on input line 68.
 
-[5]) (./Chapters/Chapter3.tex [6] [7]
+[6]) (./Chapters/Chapter3.tex [7]
 Chapter 3.
 ------------------------------------------------------------------------------
  3 Energy-Aware Gossip Protocol
@@ -701,7 +704,7 @@ Chapter 3.
 [8
 
 ] [9] [10] [11] [12] [13]
-<stepFunction2.png, id=447, 854.19125pt x 466.74374pt>
+<stepFunction2.png, id=418, 854.19125pt x 466.74374pt>
 File: stepFunction2.png Graphic file (type png)
  <use stepFunction2.png>
 Package pdftex.def Info: stepFunction2.png used on input line 158.
@@ -731,13 +734,13 @@ Overfull \hbox (1.87524pt too wide) in paragraph at lines 61--61
 []\OT1/cmr/m/n/10.95 Code| 
  []
 
-[17] <topDown.png, id=476, 682.55pt x 332.24126pt>
+[17] <topDown.png, id=448, 682.55pt x 332.24126pt>
 File: topDown.png Graphic file (type png)
  <use topDown.png>
 Package pdftex.def Info: topDown.png used on input line 88.
 (pdftex.def)             Requested size: 397.48499pt x 193.48584pt.
  [18]
-[19 <./topDown.png>] <twoSepNet.png, id=490, 314.17375pt x 173.64874pt>
+[19 <./topDown.png>] <twoSepNet.png, id=462, 314.17375pt x 173.64874pt>
 File: twoSepNet.png Graphic file (type png)
 
 <use twoSepNet.png>
@@ -756,31 +759,31 @@ Overfull \hbox (14.03516pt too wide) in paragraph at lines 107--122
  [][] 
  []
 
-[28] <brTime.png, id=535, 765.0984pt x 510.708pt>
+[28] <brTime.png, id=507, 765.0984pt x 510.708pt>
 File: brTime.png Graphic file (type png)
  <use brTime.png>
 Package pdftex.def Info: brTime.png used on input line 130.
 (pdftex.def)             Requested size: 397.48499pt x 265.32031pt.
 
-<life.png, id=538, 769.9164pt x 535.7616pt>
+<life.png, id=510, 769.9164pt x 535.7616pt>
 File: life.png Graphic file (type png)
  <use life.png>
 Package pdftex.def Info: life.png used on input line 139.
 (pdftex.def)             Requested size: 397.48499pt x 276.59474pt.
  [29 <./brTime.png>]
-<energy.png, id=546, 728.9634pt x 519.8622pt>
+<energy.png, id=518, 728.9634pt x 519.8622pt>
 File: energy.png Graphic file (type png)
  <use energy.png>
 Package pdftex.def Info: energy.png used on input line 148.
 (pdftex.def)             Requested size: 397.48499pt x 283.47395pt.
 
-<overhead.png, id=551, 770.3982pt x 470.7186pt>
+<overhead.png, id=523, 770.3982pt x 470.7186pt>
 File: overhead.png Graphic file (type png)
  <use overhead.png>
 Package pdftex.def Info: overhead.png used on input line 157.
 (pdftex.def)             Requested size: 397.48499pt x 242.87169pt.
 
-<brNum.png, id=555, 728.9634pt x 470.2368pt>
+<brNum.png, id=527, 728.9634pt x 470.2368pt>
 File: brNum.png Graphic file (type png)
  <use brNum.png>
 Package pdftex.def Info: brNum.png used on input line 166.
@@ -809,25 +812,25 @@ Appendix A.
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 237.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 244.
  [37]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 237.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 244.
  (./Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 237.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 237.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 244.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 244.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A51430A965B9C772EFB1EECFCFA25CCC;8541.
+(rerunfilecheck)             Checksum: 82908CC14ECE39800534068244715FF4;7669.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 237.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 244.
  ) 
 Here is how much of TeX's memory you used:
- 13455 strings out of 493089
- 191043 string characters out of 6134842
+ 13443 strings out of 493089
+ 190899 string characters out of 6134842
  269336 words of memory out of 5000000
- 16594 multiletter control sequences out of 15000+600000
+ 16588 multiletter control sequences out of 15000+600000
  13476 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,12n,45p,13210b,465s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -850,10 +853,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2015/
 texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb>
-Output written on Thesis.pdf (50 pages, 862112 bytes).
+Output written on Thesis.pdf (50 pages, 864127 bytes).
 PDF statistics:
- 689 PDF objects out of 1000 (max. 8388607)
- 597 compressed objects within 6 object streams
- 137 named destinations out of 1000 (max. 500000)
- 401 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 660 PDF objects out of 1000 (max. 8388607)
+ 568 compressed objects within 6 object streams
+ 131 named destinations out of 1000 (max. 500000)
+ 353 words of extra memory for PDF output out of 10000 (max. 10000000)
 
