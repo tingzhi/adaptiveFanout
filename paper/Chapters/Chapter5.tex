@@ -2,10 +2,10 @@
 \label{Chapter5}
 \lhead{Chapter 5. \emph{Performance Evaluation}} % Write in your own chapter title to set the page header
 
-In this chapter, we first will introduce our designed performance metrics in order to properly evaluate our proposed adaptive fanout \pp ~\gp. Then we will discuss our simulation data process. Finally, we will analyze the results.
+In this chapter, we first will introduce our designed performance metrics in order to properly evaluate our proposed adaptive fanout \pp ~\gp. Then we will explain our simulation environment settings. Finally, we will analyze the simulation results.
 
 \section{Performance Metrics}
-As we stated in Section \ref{}, the objective of our proposed approach is to achieve the balance between fast broadcasting time and long network lifetime. So obviously, the first two performance metrics that we proposed are \emph{Average \nl} and \emph{Average Message Broadcast Time}. Other performance metrics are \emph{Average Overhead Per Node Per Message}, \emph{Average Consumed Energy Per Node Per Message}, and \emph{Average Number of Success Broadcast Messages}.
+As we stated in Section \ref{basic gossip}, the objective of our proposed approach is to achieve the balance between fast broadcasting time and long network lifetime. So obviously, the first two performance metrics that we proposed are \emph{Average \nl} and \emph{Average Message Broadcast Time}. Other performance metrics are \emph{Average Overhead Per Node Per Message}, \emph{Average Consumed Energy Per Node Per Message}, and \emph{Average Number of Success Broadcast Messages}.
 
 \subsection{Average Network Lifetime}
 %\textbf{Average Network Lifetime}
@@ -14,72 +14,70 @@ Before we define \emph{Average Network Lifetime}, we need to define \emph{Networ
 
 \textbf{Network Lifetime}: The time duration which a wireless ad-hoc network can physically broadcast \msgs ~successfully.
 
-So when a \gn's energy is depleted, this \gn ~will no longer be able to transmit and receive new broadcast \msgs. Thus, this network is considered to be physically unable to broadcast \msgs ~successfully. Now the definition of \emph{Average Network Lifetime} is simply just an average over all \emph{Network Lifetime} under $n$ \gns ~case. This performance metric measures how long a wireless ad-hoc network with $n$ \gns ~can stay connected when running our proposed adaptive fanout \gp.
+When a \gn's energy is depleted, this \gn ~will no longer be able to transmit and receive new broadcast \msgs. Thus, this network is considered to be physically unable to broadcast \msgs ~successfully. Now the definition of \emph{Average Network Lifetime} is simply just an average over all \emph{Network Lifetime} under $n$ \gns ~case. For example, if we ran $s$ simulations under $n=10$ setting, and we denote \emph{Average Network Lifetime} for $10$ \gns ~as $L_{avg\_10}$, then the following equation can be used to calculate the \emph{Average Network Lifetime}.
+
+\[ L_{avg\_10} =\frac{L_1 + L_2 + \ldots + L_{s}}{s} \]
+
+This performance metric measures how long a wireless ad-hoc network with $n$ \gns ~can stay connected when running our proposed adaptive fanout \gp.
 
 \subsection{Average Message Broadcast Time}
 %\textbf{Average Message Broadcast Time}
 
-Let's think about broadcasting one packet from one node to (n-1) nodes, the packet broadcast time of this packet for this network is the difference between the time when last node received the packet and the time this packet was first sent.
+Before we jump into the definition of \emph{Average Message Broadcast Time}, we first need to clearly define \emph{Message Broadcast Time}.
 
-Because for each independent trial, multiple packets will be sent. The packet broadcast time is calculated for each packet in the way described above. In the end, we average the times for each scenario (e.g. n = 10). 
+\textbf{Message Broadcast Time}: The maximum delay among \gns ~for each broadcast \msg.
 
-Need to develop a mathematical equation for this
+Because here we are trying to measure the broadcast time of a certain \msg, it only makes sense when we sample the maximum delay among all \gns ~because the \msg ~received time of the last \gn ~determined our message broadcast time for a particular \msg. Now the \emph{Average Message Broadcast Time} is just an average over all \msg ~broadcast time under $n$ \gn ~case. Now because the randomness of our proposed \gp, each simulation under $n$ \gn ~case can result in different number of success broadcast \msgs. Therefore, for $n$ \gn ~case simulations, we first calculate the \emph{Average message broadcast time} for each simulation. And then we perform the average among those number to obtain this performance metrics data.
 
-The average packet broadcast time indicates the time needed for a packet to reach every node in the network.
+For example, let's denote the \emph{Average Message Broadcast Time} for $i$th simulation as $T_i$ and the \emph{Average Message Broadcast Time} for $n$ nodes as $T_{avg\_n}$. If we performed $s$ simulations, then the following equation can be used to calculate this metric:
 
-\textbf{Average Overhead Per Node Per Message}:
+\[ T_{avg\_n} = \frac{T_1 + T_2 + \ldots + T_s}{s} \]
 
-There are three types of protocol packets for the protocol. The ack packet, solicit packet, and the payload packet. The acknowledgment packet is sent to the sender from receiver when a node received a payload that it already received before. The solicit packet is sent to query a random neighbor for its latest payload. For example, in one trial with n nodes, if it broadcaster m packets, then the average protocol overhead is defined as:
+This metric indicates the time needed for a broadcast \msg ~to reach every \gn ~in the network.
 
-$overhead = ()(p1 + p2 + … + p_n) / n) / m$
+\subsection{Average Overhead Per Node Per Message}
 
-This metric indicated how many packets is needed for a node to facilitate broadcasting one packet. 
+The \emph{overhead} here is defined as the total number of packets sent by a \gn. These packets includes Ack packet, Request packet, and Data packet. For every simulation, in order to accurately measure the overhead for each \gn ~and for each broadcast \msg, we simply performed an average over $n$. And then take that number and further average over number of broadcast \msgs being sent. So for $k$th simulation, if we denote the overhead of node $i$ for \msg ~$j$ as $O_{ij}$, the number of \gns ~are $n$, and the system broadcast $m$ \msgs. Then for this simulation, the \emph{Average Overhead Per Node Per Message} can be computed using the following equation:
 
-\textbf{Average Consumed Energy Per Node Per Message}:
+\[ O_{k} = \frac{(O_{11} + O_{21} + \ldots + O_{n1})  + \ldots + (O_{1m} + O_{2m} + \ldots + O_{nm})}{n\times m} \]
 
-The consumed energy per node per packet is defined as
+If we performed $s$ simulations under $n$ \gns ~setting, then the \emph{Average Overhead Per Node Per Message} among these simulations is:
 
-energy = ((e1 + e2 + … + en)/n)/m
+\[ O_{avg\_n} = \frac{O_1 + O_2 + \ldots + O_s}{s} \]
 
-This metric measures the amount of energy needed for a node to facilitate broadcasting one packet. 
+%+ (O_{12} + O_{22} + \ldots + O_{n2})
+%\mbox{Average Overhead Per Node Per Message}
 
+This performance metric indicates how many packets are sent out for a \gn ~to facilitate broadcasting one \msg. 
 
-\section{Simulation Data Process}
-The simulation program output data files needs to be further processed in order to yield our performance metrics results. 
+\subsection{Average Energy Consumption Per Node Per Message}
 
-\begin{itemize}
-	\item Average \msg ~broadcast time
-	\item Average overhead
-	\item Average energy consumption
-	\item Network lifetime 
-\end{itemize}
+This performance metric is quite self-explanatory. We measure the amount of energy consumed by each \gn ~during the simulation. For each simulation, first we average among every \gn's energy consumption. Then we take that number and average among $m$ \msgs. If we denote $E_k$ as the \emph{Average Energy Consumption Per Node Per Message} for the $k$th simulation under $n$ \gns. Then 
 
- 
+\[ E_k = \frac{E_{node\_1} + E_{node\_2} + \ldots + E_{node\_n}}{n\times m} \]
 
-To evaluate the performance of gossip protocol, we use several randomly generated topology files with the number of nodes as variable. Those topology files are derived from a random geometric graph network, which was created by uniformly and randomly placing nodes into a space and then connect nodes whose distance is smaller than some given radius.
+Now if we ran $s$ simulations, then \emph{Average Energy Consumption Per Node Per Message} under $n$ \gns ~can be calculated using the following equation:
 
+\[ E_{avg\_n} = \frac{E_1 + E_2 + \ldots + E_s}{s} \]
 
+This metric measures the amount of energy needed for a \gn ~to facilitate broadcasting one \msg. 
 
-Each node holds an NS-3 Ipv4Interface with assigned Ipv4 address and stores the Ipv4 addresses of his neighbors.
+\subsection{Average Number of Broadcast Messages}
 
-For the simulation, we set the link rate for all connections to be 1Mbp. Also, all nodes are instructed to execute the gossip process of sending out data periodically every 5ms. The interval of requesting new data is set to 5s.
+This metric measures how many \msgs ~can be successfully broadcast with limited energy sources. If we ran $s$ simulations under $n$ \gns ~setting, this metric can be computed using the following equation:
 
-To allow the performance analysis, all nodes count the number of data packets they sent. All nodes would track how many hops the data message experienced before reaching them and they record the time when they received the data message as well. For every single simulation, we collect the information from the nodes and determine the average amount of data packets sent per node and average number of hops per node. Moreover, the information about how long it took for the message to reach the ``last'' node is also recorded.
+\[ N_{avg\_n} = \frac{N_1 + N_2 + \dots + N_s}{s} \]
 
-This information is determined and stored for each of the several hundred topology files. It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data in the hope of verifying the assumptions we made in section~\ref{sec:problem}.
+\section{Simulation Environment Settings}
 
-Talk about the settings
-
-
-source DSSSRate 11Mbps
-DsssRate 1Mbps
-maxRange = 50m
-num of nodes = 10
-simulation time = 100000.0s
-initialEnergy = 108J
-
-Gossip Interval 1s
-request interval 5s
+\wf ~speed among \gns: 1Mbps
+\wf ~speed between the \sn ~and a \gn: 11Mbps
+Gossip node maximum \wf ~range: 50m
+Number of nodes: 10, 50, 90, 130, 170
+Simulation stop time = 100000.0s
+Initial battery energy = 108.0J
+Gossip interval: 1.0s
+Request interval 5.0s
 
 In summary, the simulation parameters are set to be as follows:
 \begin{itemize}
@@ -93,53 +91,64 @@ In summary, the simulation parameters are set to be as follows:
 
 The number of nodes, simulation time, maximum wifi range, initial battery energy, gossip interval, and solicit interval are all the parameters I could control in the simulation. The number of nodes is ranging from 10 to 200 with step 10. The simulation time is set to be large enough to ensure any node's battery will die before the simulation stops. The maximum wifi range is set to be 50 meters so that no one node is connected to all other nodes. The initial battery energy is set to be 1080 Joule (equivalent to 100mAh) for every node. The gossip interval is set to be 1 second meaning for any node every second the gossip process will wake up and check if it need to gossip a new packet to its neighbors. The solicit interval is set to be 5 seconds which means every 5 seconds, a node will randomly pick a neighbor and query for their latest received packet. 
 
-
-
-
 The simulation will stop when any node's energy was depleted. For each scenario (e.g. n = 10), 100 independent trials were simulated in order to gather performance data. Any simulation parameters other than number of nodes stay the same through all simulation trials. 
+
+
+
+It should be noted that due to time limitations each topology file was only simulated once. Finally, we did statistical analysis upon those collected data.
+
 
 
 \section{Results Analysis}
 
+For cases of \emph{Fanout} $f=1$, we performed total of ?? simulations with number of \gns ~ranging from 10 to 170.
+
+$f=1,5,10$  $f=adaptive$
+insert a table here
+
+success simulation
+total simulation 
+
+Fanout of gossip protocol is defined as the number of neighbors a node contact each time when a new packet is received. It is one of the parameters that control the behavior of gossip protocol. In one scenario, fanout is set to be one. In another scenario, fanout is set to be five. These two scenarios 's trials are conducted to compare to the adaptive fanout scenario. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=3in]{brTime.png}
+	\includegraphics[width=5.5in]{brTime.png}
 	\caption{Average message broadcast time vs. number of nodes}
 	\label{fig:brTime}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=3in]{brNum.png}
+	\includegraphics[width=5.5in]{brNum.png}
 	\caption{Average number of broadcasted messages vs. number of nodes}
 	\label{fig:brNum}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=3in]{energy.png}
+	\includegraphics[width=5.5in]{energy.png}
 	\caption{Average consumed energy per node per message vs. number of nodes}
 	\label{fig:energy}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=3in]{overhead.png}
+	\includegraphics[width=5.5in]{overhead.png}
 	\caption{Average packets sent per node per message vs. number of nodes}
 	\label{fig:overhead}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=3in]{life.png}
+	\includegraphics[width=5.5in]{life.png}
 	\caption{Average network lifetime vs. number of nodes}
 	\label{fig:life}
 \end{figure}
 
 
 
-Fanout of gossip protocol is defined as the number of neighbors a node contact each time when a new packet is received. It is one of the parameters that control the behavior of gossip protocol. In one scenario, fanout is set to be one. In another scenario, fanout is set to be five. These two scenarios 's trials are conducted to compare to the adaptive fanout scenario. 
+
 
 (from 563 paper).
 
@@ -147,26 +156,6 @@ The random generated topology files are the input of our simulations. There are 
 
 First, I analyzed the average number of data packets each node sent, depicted in fig.~\ref{fig:msgAbs}. It is important to note that the the collected average number for one topology file was again averaged over all reported values produced by topology files with the same number of nodes. Thus, the error bar is an indicator how consistent the average number is. It can be deduced from fig.~\ref{fig:msgAbs} that this value is ranging from 190 data packets per node to 280 data packets per node depending on the scale of the network. But considering the network scale, average number of data packets per node didn't increase proportionally as we can see in fig.~\ref{fig:msgOver}. This metrics actually decreased exponentially. 
 
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/msgAbs}
-%	\caption{The average number of data packets each node sent (Ad-hoc environment)}
-%	\label{fig:msgAbs}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/msgOver}
-%	\caption{The average number of data packets each node over the size of the network (Ad-hoc environment) }
-%	\label{fig:msgOver}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/msgP}
-%	\caption{The average number of ICMP messages each node sent (P2P environment)}
-%	\label{fig:msgP}
-%\end{figure}
 
 Since when I collected the different data (average ICMP messages per node) from wired peer-to-peer network environment, here I could not perform a fair comparasion between these two evnironment. But as you can see in fig.~\ref{fig:msgP}, the average ICMP messages per node is significantly lower than in the wireless ad-hoc network. I believe the reason behind this is the shared medium for wireless communication. With shared medium, collision is prone to occur thus RTS/CTS plays an important role during the whole communicating process. Thus higher average data packets sent per node is expected.
 
@@ -179,31 +168,6 @@ Second, the average number of hops per node is analyzed. This is different from 
 %	\label{fig:hop}
 %\end{figure}
 %
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/hopP}
-%	\caption{The maximum amount of hops the message experienced (P2P environment).}
-%	\label{fig:hopP}
-%\end{figure}
-%
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/Net_10}
-%	\caption{A simple ten nodes random generated topology.}
-%	\label{fig:graph}
-%\end{figure}
+
 
 Moreover, figure~\ref{fig:time} illustrates the time needed to spread the message across the whole network. For the P2P network environment, the average time needed to spread the message is found to be more or less constant and slightly less than 15s. Due to the huge difference in the gossip-interval-time (5ms) and solicit-interval-time (5s), only the influence of the solicit-interval can be deduced from the results. One can see, that the time needed to spread the message is fluctuating due to the random nature of the gossip protocol, especially for the case of a number of nodes of 100, where the standard deviation is the largest. However, when we compare this result with ad-hoc network simulation result, the different between them is significant. For the latter case, the spread time starts around 190s and grows almost linearly with the number of nodes in the network. In term of absolute maginitude, wireless network perform much worse than P2P network. However, this result is total within our expectation since wireless communication often encounter collision problem and thus result in longer spread time.
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/time}
-%	\caption{The spread time under different number of nodes cases}
-%	\label{fig:time}
-%\end{figure}
-
-Section~\ref{sec:further} proposes further work which can be done to gain a more thorough evaluation.
-
-
-
-

@@ -32,9 +32,9 @@ Table \ref{table:2} here presented some of the selected ICMP message types.
 
 \begin{table}[h]
 	\centering
-	\caption{Control Messages}
+	\caption{ICMP Control Messages}
 	\label{table:2}
-	\begin{tabular}{|p{1.5cm}|p{0.8 cm}|p{4.5 cm}|}
+	\begin{tabular}{|p{1.5cm}|p{0.8 cm}|p{6.5 cm}|}
 		\hline
 		Type & Code & Description \\                                                           
 		\hline
@@ -54,9 +54,9 @@ Since type 42 to 255 are reserved for further development, we decided to extend 
 
 \begin{table}[h]
 	\centering
-	\caption{Gossip Protocol Control Messages}
+	\caption{Our Gossip Protocol Extension}
 	\label{table:3}
-	\begin{tabular}{|p{0.8cm}|p{0.5 cm}|p{3.5 cm}|}
+	\begin{tabular}{|p{0.8cm}|p{0.8 cm}|p{4.0 cm}|}
 		\hline
 		Type & Code & Description \\                                                           
 		\hline
@@ -82,6 +82,13 @@ Every time when a new broadcast \msg ~is generated, it will send it to one of th
 
 \subsection{Gossip Nodes Implementation}
 For gossip nodes, as shown in Figure \ref{fig:pseudo}, there are two main processes running. The periodic request processes and periodic gossip processes. At the start of the simulation, these two processes will be initialized. Most of the functionalities for a gossip node belong to either receiving end or transmitting end. In receiving end, we developed functions to handle Ack packet, Request packet, and Data packet. In the transmitting end, we developed functions to send Ack packet, Request packet, and Data packet. Besides, we also deployed an UDP client application on these gossip nodes so that it can send time stamps of each broadcast \msg ~back. To make all these functionalities work, these functions actually call the corresponding functions in ICMP as we described earlier. For example, if a gossip node is trying to send a new broadcast \msg ~to another gossip node, it would first call the function \emph{sendPayload()} that is in application layer. Then \emph{sendPayload()} would have to call the function \emph{sendMessage()} in ICMP which is in network layer. On the receiving end, a node first would receive the new broadcast \msg ~in network layer. The \msg ~is handled by a function in ICMP called \emph{handleData()}. Then in turn, this function will call the corresponding function in the application layer. The whole process is illustrated in Figure \ref{fig:topDown}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=5.5in]{topDown.png}
+	\caption{An example of how two gossip nodes communicate}
+	\label{fig:topDown}
+\end{figure}
 
 In summary, gossip nodes has the following responsibilities:
 \begin{itemize}
@@ -116,7 +123,7 @@ Because of random gossip nodes placement and a fixed maximum WiFi range, a newly
 
 \begin{figure}
 	\centering
-	\includegraphics[width=3in]{twoSepNet.png}
+	\includegraphics[width=4in]{twoSepNet.png}
 	\caption{An example when two separate subnets formed}
 	\label{fig:twoSepNet}
 \end{figure}
