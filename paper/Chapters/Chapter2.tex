@@ -1,102 +1,35 @@
 \chapter{Related Work}
 \label{Chapter2}
 \lhead{Chapter 2. \emph{Related Work}} % Write in your own chapter title to set the page header
-% why we could set p_g below 1.
-%The intuition behind this approach is that from our life experience, a rumor can be successfully spread even without everyone's participation. Thus, a \emph{probability of gossip} value set below 1 will still allow new messages to be broadcasted with reasonably high successful rate. 
 
-two category: fixed probability schemes, and adaptive probability schemes.
+Over the years, gossip techniques have prove to be the corner stone for building scalable and robust distributed computer network systems. This technique is often be used to design multicast protocol \cite{gossip} \cite{gupta2002efficient}, routing protocol, and broadcast protocol. Demers et. al. \cite{demers1987epidemic} demonstrated the advantages of deploying this technique in corporation for database maintenance in the early days. In recent years, this technique has been utilized in wired networks \cite{birman1999bimodal} as well as in wireless networks. Many proposed schemes whether is for wired networks or is for wireless networks, they all focused on optimizing protocol overhead, or energy consumption. The metrics they used includes network density, or nodes' energy level. 
 
-fixed probability: 
+In wired network domain, it is being used for peer-to-peer network \cite{gupta2002efficient}. In wireless network domain, it is being used for mobile ad-hoc networks \cite{vahdat2000epidemic} \cite{chandra2001anonymous}, and wireless sensor networks \cite{levis2004trickle} \cite{miller2005exploring}. There are many proposed schemes that are designed for wired network that uses network information for adaptive gossiping such as \cite{kempe2004spatial} \cite{rodrigues2003adaptive}, but those approaches are not suitable for wireless networks \cite{smart}. 
 
-adaptive probability: counter-based, non-counter-based
+Some of the basic gossip techniques that are specifically designed for wireless networks includes fixed forward probability scheme \cite{haas2006gossip} where each node has the probability of $p$ to gossip the \msg ~to its neighbor while it has the probability of $1-p$ to not gossip the \msg ~to its neighbor. Because in this paper the authors are designing a routing protocol in a wireless ad-hoc network, each time when a node receives a new \msg, it will only pick one of its neighbors. In other words, the \emph{Fanout} here is set to be 1. The advantage of this proposed scheme is that it is easy to implement in practice. However, due to the dynamic nature of mobile ad-hoc network or wireless sensor network, a fixed forward probability can be difficult to choose. Moreover, even an optimal forward probability may become sub-optimal over time. 
 
-counter-based: density, distance, energy
- 
-non-counter-based: density, speed, distance, energy
+To address the disadvantage of a fixed forward probability scheme, Cartigny et. al. \cite{cartigny2003border} proposed a new broadcast scheme for ad-hoc networks that would adjust \emph{\pog} based on number of neighbors a node has. The equation for calculating \emph{\pog} is $p_{gossip}=\frac{k}{n_b}$ where $k$ is the propagation factor and $n_b$ is a node's degree (number of neighbors). The minimum and maximum \emph{\pog} can be adjusted by changing propagation factor. The idea is that a node with more neighbors will have a lower probability to gossip new \msgs ~and vice versa. This scheme reduced overhead by tailoring \emph{\pog} for each node but a suitable $k$ value for various ad-hoc network topologies can still be difficult to choose. 
 
-PS: smart gossip, 
+Another interesting proposed gossip broadcast scheme is called "Smart Gossip" \cite{smart}. It uses "family classification" method to category a node's neighbors. A node's neighbor can be in one of three categories: parent, sibling, or child. Intuitively, the more siblings a node has, the lower the \emph{\pog} will be because other siblings may have transmit the new \msg ~to the child \cite{2015survey}. Moreover, \emph{\pog} is proportional to number of children a node has \cite{2015survey}. When a node has no child, the $p_{gossip}=0$. When a node has no siblings but only child, the $p_{gossip}=1$. This advantage of this approach is that it takes nodes dependency into account while gossiping. However, this scheme can be complicated to implement and there is no update after the initial hierarchy establishment \cite{2015survey}.
 
-outliers: trickle algorithm
+In terms of reducing energy consumption while using gossip techniques, Nitnaware et. al. \cite{nitnaware2009performance} proposed a simply scheme by defining a \emph{Energy Level Threshold}. When a node's energy level drops below the threshold, this node will not gossip new \msgs it received. Otherwise, it will gossip the new \msg ~with the probability of $k$. One special case is that when a node only has one neighbor, it will gossip the new \msg ~with probability of 1 regardless of its energy level. In \cite{nitnaware2010energy}, the authors proposed to use the remaining energy fraction directly as \emph{\pog}. So the gossip probability is defined as $p_{gossip}=\frac{E_{frac}}{100}$. A node with higher remaining energy fraction will have a higher gossip probability. A more advanced energy-aware gossip based broadcast scheme is proposed by Reina etl. al. in \cite{reina2012optimization}. In this paper, the authors proposed to calculate a node's \emph{\pog} according to the following equation: $p_{gossip}=\frac{E_i - E_{min}}{E_{max}-E_{min}}$ where $E_i$ is the node's energy level, $E_{max}$ is the maximum energy level among its neighbors, and $E_{min}$ is the minimum energy level among its neighbors. This approach requires nodes to insert their energy level information when requesting for a \msg ~update. This scheme is similar comparing to "Smart Gossip" in terms of collecting neighbors information instead of focusing on the information a node itself can obtain. 
 
+%Another energy-aware gossip broadcast protocol proposed by Machado et. al. \cite{energyMap} uses "Energy Map" to determine a node's \emph{\pog}. When a node received a new \msg, first it will check its energy level. If its energy level is below the cut-off energy, it will simply drop this \msg. Otherwise, it will calculate its \emph{\pog} based on the following equation: $p_{gossip}=\frac{d}{r}$
 
-
-
-(from 563 paper).
-
-\section{Virtual Sensor Networks}
-The ongoing technological progress further and further improves the computation, connectivity and sensing capabilities of various devices, sometimes mobile ones. \cite{Jayasumana} This enables a huge variety of opportunities in sensor networks. For example, devices in a sensor network could be assigned tasks based on their constraints in computation, power usage or networking potential. In contrast to dedicated sensor networks, where the participating nodes serve a single application, Virtual Sensor Networks (VSN) take advantage of the node’s technological progress. When a VSN is formed on top of a Wireless Sensor Network, only a subset of all available nodes is part in the VSN. Furthermore, several VSNs can exist simultaneously in on Wireless Sensor Network. \cite{Jayasumana} That is, one subset of the nodes forms a VSN and relies on the remaining nodes to communicate between its nodes. In some cases, physical nodes of one VSN even could be completely cut off from communication due to their spatial distribution and must rely on the other nodes. Usually the different VSNs pursue completely unrelated sensing tasks and the nodes in each VSN behave like they are on their independent Sensor Network. Figure~\ref{vsnfig} based on \cite{Jayasumana} depicts a visualization of two VSNs formed on top of an Wireless Sensor Network. This logical separation helps to simplify the implementation of applications significantly. \cite{Jayasumana} Further advantages of VSNs are enhanced performance and better scalability.
-
-The development of algorithms and protocols to support the grouping of VSNs on top of Sensor Networks, is still an ongoing research topic. Those need to consider how the available time and frequencies should be fairly distributed for intra network communication. Moreover, it should be possible for nodes to change their membership in VSNs.
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/VirtualSensorNetwork.pdf}
-%	\caption{Broadcast path from a node (S) in VSN2.}
-%	\label{vsnfig}
-%\end{figure}
-
-\section{Virtual Networks on Top of the Internet}
-It is important to realize that the Internet, due to so many different participants with sometimes opposing interests, is hard to modify and only possible small and slow steps, if at all. Therefore, Virtual Networks are often the only way to realize innovation. To implement a Virtual Network using the existing Internet, several things need to be considered. First, the characteristics of the networking technology determine the attributes of the Virtual Network. For instance, a wired network yields a more scalable and bandwidth flexible Virtual Network than a wireless network would do. \cite{Chowdhury} Second, the layer of virtualization (referring to the OSI layer model) impacts the flexibility of the Virtual Network. That is, the lower the layer of virtualization, the more flexibility will be possible. Specifically, so-called overlay networks, mostly realized in the application layer, are limited in their ability to support fundamentally different architectures. \cite{Chowdhury} Moreover, virtualization on top of IP is fixed to the network layer protocol and cannot deploy IP independent mechanisms.  \cite{Chowdhury} Lastly, an important consideration in the non-comprehensive list is also about security and privacy in virtual networks. Thus, attack vectors such as denial-of-service or distributed denial-of-service against the underlying physical network will have impact on all simultaneously virtualized networks.
-
-\section{Virtualization Algorithm}
-Though, it is possible to form a VSN of mobile IoT devices by having access to all relevant data such as availability, sensor capabilities or sensor mobility, a more efficient solution is to assume the managing cloud agent does not have full knowledge of every sensors’ properties. \cite{Sherif} The cloud agent even may not be connected to all nodes but only to a subgroup of them. The presented algorithm also takes into account mobility of the devices which sometimes leads to nodes being unavailable for some time. \cite{Sherif}
-This virtualization algorithm will search and select appropriate sensors from the whole network to form the virtual network which then executes the sensing task.
+One thing all these paper have in common is that they all focused on adjusting \emph{\pog} to reduce protocol overhead or reduce protocol energy consumption. They never explore the possibilities of adjusting \emph{Fanout} to achieve longer network lifetime. Because some of the paper that mentioned here focused on designing a routing protocol, a \emph{Fanout} setting of 1 is the common practice. A higher \emph{Fanout} is unlikely to improve routing protocol performance and is more complicated for a protocol to maintain the routing table. 
 
 
 
 
+%one paper about control gossip protocol infection pattern using adaptive fanout
 
+%based on density, energy level, node's distance
+%optimize overhead, energy consumption, 
+%in wireless: for manet, wsn, iot network
+%do: multicast, broadcast, routing 
 
-
-
-The project goal is to evaluate gossip protocol performance in the wireless ad-hoc network since several papers\cite{gossip}\cite{gossip2} claimed that gossip protocol is an efficient, scalable, reliable message dissemination approach. I would like to implement gossip protocol in a wireless ad-hoc network in ns-3 and study its reliability, scalability and efficiency. Based on the progress of implementation gossip protocol in a wired peer-to-peer network in ns-3, my first step is to switch the network environment from wired peer-to-peer to wireless ad-hoc network. The wireless ad-hoc network setting are as following:
-
-\begin{itemize}
-	\item WLAN Standard: IEEE 802.11b
-	\item MAC layer: wifi ad-hoc mode
-	\item Add non-QoS upper mac layer
-	\item Modulation: DSSS
-	\item Data Rate: 1Mbps
-	\item RTS/CTS: On
-	\item Receiver Gain: 0dB
-	\item Delay Mode: Constant Speed Propagation Delay Mode
-	\item Loss Mode: Friis Propagation Loss Mode
-	\item Ipv4 address base: 10.1.0.0
-	\item Ipv4 address netmask: 255.255.0.0
-\end{itemize}
-
-For the topologies that I used to evaluate gossip protocol, the number of nodes are 100, 250, 400, 550, 700, 850, and 1000. For each case, there are 100 random generated topology files defining the connectivity among those nodes. In the ad-hoc network, each node usually has multiple edges and we assume that there is no isolated node in the network. For the allocation of those nodes, I used random grip allocator in ns-3. The distance between two adjacent nodes is 5 meters. I assume that the connectivity remained regardless of the distance between two nodes. A simple example of 9 nodes random grip allocation would look like fig.~\ref{fig:allocator}. Implementation of gossip protocol will be presented in section~\ref{sec:solution}. 
-
-%\begin{figure}
-%	\centering
-%	\includegraphics[width=3in]{figs/allocator}
-%	\caption{Nine nodes random grip allocation.}
-%	\label{fig:allocator}
-%\end{figure}
-
-%Second, we need to test gossip protocol performance under different wireless ad-hoc network settings. Finally, thoroughly analysis the collected performance data and conduct evaluation on the performance of gossip protocol. 
-
-%customize the gossip protocol control messages based on ICMP. Second, we need to develop the gossip protocol and implement it in ns-3. Finanlly, we are supposed to evaluate the performance of the gossip protocol in a mesh network of peer-to-peer connected IoT devices by running simulations in ns-3. 
-
-There are three essential performance metrics I would like to measure. 
-
-\begin{itemize}
-	\item Average number of data packets sent per node
-	\item Average hops per node needed to spread the message
-	\item Maximum time needed until the message is spread
-\end{itemize}
-
-The average number of data packets sent per node is a key metrics that measure the efficieny of gossip protocol comparing to other popular multicast protocol like MAODV. It mostly emphysis on the efficiency or workload of sender's side. Theoretically, the average number of data packets sent per node would remain constant regradless of the scale of the network. 
-
-The average hops per node needed to spread the message is a metrics that indicates the efficiency on the receiver's side. It is a metrics that represents how many times the message is forwarded before the node received it. Generally, lower average hops per node is preferred. 
-
-The maximum time needed to spread the message could be used to evaluate the time complexity of gossip protocol. Baically, this metrics indicates how fast a message can be spred across the whole network.  
-
-In this project, randomness is shown in three different aspects: (1) network topologies are random generated. (2) The node that get the initial message is randomly chosen. (3) For each node during simulation, it randomly chooses neighbour to perform "gossipping." 
-
-After evaluation the performance of gossip protocol, we hope to verify the following assumptions.
-\begin{itemize}
-	\item Time complexity of the gossip protocol is $O(\log N)$, where $N$ is the number of nodes.
-	\item Average number of data packets sent per node will remain constant regardless of network scale.
-\end{itemize}
-
+%two category: fixed probability schemes, and adaptive probability schemes.
+%fixed probability: 
+%adaptive probability: counter-based, non-counter-based
+%counter-based: density, distance, energy 
+%non-counter-based: density, speed, distance, energy

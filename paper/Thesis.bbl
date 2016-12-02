@@ -4,47 +4,103 @@
 L.~Atzori, A.~Iera, and G.~Morabito, ``The internet of things: A survey,'' {\em
   Computer networks}, vol.~54, no.~15, pp.~2787--2805, 2010.
 
-\bibitem{gossip}
-K.~Jenkins, K.~Hopkinson, and K.~Birman, ``A gossip protocol for subgroup
-  multicast,'' in {\em Distributed Computing Systems Workshop, 2001
-  International Conference on}, pp.~25--30, IEEE, 2001.
-
-\bibitem{Jayasumana}
-A.~P. Jayasumana, Q.~Han, and T.~H. Illangasekare, ``Virtual sensor networks-a
-  resource efficient approach for concurrent applications,'' in {\em
-  Information Technology, 2007. ITNG'07. Fourth International Conference on},
-  pp.~111--115, IEEE, 2007.
-
-\bibitem{Chowdhury}
-N.~M.~K. Chowdhury and R.~Boutaba, ``A survey of network virtualization,'' {\em
-  Computer Networks}, vol.~54, no.~5, pp.~862--876, 2010.
-
-\bibitem{Sherif}
-S.~Abdelwahab, B.~Hamdaoui, and M.~Guizani, ``Cloud-assisted remote sensor
-  network virtualization for distributed consensus estimation,'' {\em arXiv
-  preprint arXiv:1501.03547}, 2015.
-
-\bibitem{gossip2}
-R.~Chandra, V.~Ramasubramanian, and K.~P. Birman, ``Anonymous gossip: Improving
-  multicast reliability in mobile ad-hoc networks,'' in {\em Distributed
-  Computing Systems, 2001. 21st International Conference on.}, pp.~275--283,
-  IEEE, 2001.
+\bibitem{smart}
+P.~Kyasanur, R.~R. Choudhury, and I.~Gupta, ``Smart gossip: An adaptive
+  gossip-based broadcasting service for sensor networks,'' in {\em 2006 IEEE
+  International Conference on Mobile Ad Hoc and Sensor Systems}, pp.~91--100,
+  IEEE, 2006.
 
 \bibitem{tseng2002broadcast}
 Y.-C. Tseng, S.-Y. Ni, Y.-S. Chen, and J.-P. Sheu, ``The broadcast storm
   problem in a mobile ad hoc network,'' {\em Wireless networks}, vol.~8,
   no.~2-3, pp.~153--167, 2002.
 
+\bibitem{nitnaware2009performance}
+D.~Nitnaware, P.~Karma, and A.~Verma, ``Performance analysis of energy
+  constraint gossip based routing protocol under stochastic traffic,'' in {\em
+  2009 Second International Conference on Emerging Trends in Engineering \&
+  Technology}, pp.~1110--1114, IEEE, 2009.
+
 \bibitem{2015survey}
 D.~Reina, S.~Toral, P.~Johnson, and F.~Barrero, ``A survey on probabilistic
   broadcast schemes for wireless ad hoc networks,'' {\em Ad Hoc Networks},
   vol.~25, pp.~263--292, 2015.
+
+\bibitem{nitnaware2010energy}
+D.~Nitnaware and A.~Verma, ``Energy based gossip routing algorithm for
+  manets,'' in {\em Recent Trends in Information, Telecommunication and
+  Computing (ITC), 2010 International Conference on}, pp.~23--27, IEEE, 2010.
+
+\bibitem{gossip}
+K.~Jenkins, K.~Hopkinson, and K.~Birman, ``A gossip protocol for subgroup
+  multicast,'' in {\em Distributed Computing Systems Workshop, 2001
+  International Conference on}, pp.~25--30, IEEE, 2001.
+
+\bibitem{gupta2002efficient}
+I.~Gupta, A.-M. Kermarrec, and A.~J. Ganesh, ``Efficient epidemic-style
+  protocols for reliable and scalable multicast,'' in {\em Reliable Distributed
+  Systems, 2002. Proceedings. 21st IEEE Symposium on}, pp.~180--189, IEEE,
+  2002.
+
+\bibitem{demers1987epidemic}
+A.~Demers, D.~Greene, C.~Hauser, W.~Irish, J.~Larson, S.~Shenker, H.~Sturgis,
+  D.~Swinehart, and D.~Terry, ``Epidemic algorithms for replicated database
+  maintenance,'' in {\em Proceedings of the sixth annual ACM Symposium on
+  Principles of distributed computing}, pp.~1--12, ACM, 1987.
+
+\bibitem{birman1999bimodal}
+K.~P. Birman, M.~Hayden, O.~Ozkasap, Z.~Xiao, M.~Budiu, and Y.~Minsky,
+  ``Bimodal multicast,'' {\em ACM Transactions on Computer Systems (TOCS)},
+  vol.~17, no.~2, pp.~41--88, 1999.
+
+\bibitem{vahdat2000epidemic}
+A.~Vahdat, D.~Becker, {\em et~al.}, ``Epidemic routing for partially connected
+  ad hoc networks,'' 2000.
+
+\bibitem{chandra2001anonymous}
+R.~Chandra, V.~Ramasubramanian, and K.~Birman, ``Anonymous gossip: Improving
+  multicast reliability in mobile ad-hoc networks,'' in {\em Distributed
+  Computing Systems, 2001. 21st International Conference on.}, pp.~275--283,
+  IEEE, 2001.
+
+\bibitem{levis2004trickle}
+P.~Levis, N.~Patel, D.~Culler, and S.~Shenker, ``Trickle: A self-regulating
+  algorithm for code propagation and maintenance in wireless sensor networks,''
+  in {\em Proc. of the 1st USENIX/ACM Symp. on Networked Systems Design and
+  Implementation}, 2004.
+
+\bibitem{miller2005exploring}
+M.~J. Miller, C.~Sengul, and I.~Gupta, ``Exploring the energy-latency trade-off
+  for broadcasts in energy-saving sensor networks,'' in {\em 25th IEEE
+  International Conference on Distributed Computing Systems (ICDCS'05)},
+  pp.~17--26, IEEE, 2005.
+
+\bibitem{kempe2004spatial}
+D.~Kempe, J.~Kleinberg, and A.~Demers, ``Spatial gossip and resource location
+  protocols,'' {\em Journal of the ACM (JACM)}, vol.~51, no.~6, pp.~943--967,
+  2004.
+
+\bibitem{rodrigues2003adaptive}
+L.~Rodrigues, S.~Handurukande, J.~Pereira, R.~Guerraoui, and A.-M. Kermarrec,
+  ``Adaptive gossip-based broadcast,'' in {\em International Conference on
+  Dependable Systems and Networks (DSN-2003)}, IEEE Computer Society, 2003.
+
+\bibitem{haas2006gossip}
+Z.~J. Haas, J.~Y. Halpern, and L.~Li, ``Gossip-based ad hoc routing,'' {\em
+  IEEE/ACM Transactions on Networking (ToN)}, vol.~14, no.~3, pp.~479--491,
+  2006.
 
 \bibitem{cartigny2003border}
 J.~Cartigny and D.~Simplot, ``Border node retransmission based probabilistic
   broadcast protocols in ad-hoc networks,'' in {\em System Sciences, 2003.
   Proceedings of the 36th Annual Hawaii International Conference on},
   pp.~10--pp, IEEE, 2003.
+
+\bibitem{reina2012optimization}
+D.~Reina, P.~Johnson, and F.~B.~S. Toral, ``Optimization of network lifetime
+  through energy-efficient broadcast scheme using dynamic random walk,'' in
+  {\em Power Electronics and Motion Control Conference (EPE/PEMC), 2012 15th
+  International}, pp.~LS4e--2, IEEE, 2012.
 
 \bibitem{qing2010dynamic}
 W.~Qing-wen, S.~Hao-shan, and Q.~Qi, ``A dynamic probabilistic broadcasting

@@ -6,7 +6,7 @@ In this chapter, we will first introduce the classic \gp ~which will serve as a 
 
 \section{Classic Gossip Protocol}
 % how gossip protocol works
-\subsection{How it works} \label{basic gossip}
+\subsection{How It Works} \label{basic gossip}
 
 The objective of gossip protocol is to broadcast messages in an efficient manner by mimicking social activities when people spread rumors in office by gossiping among each other. The classic \gp ~works as follows: when a node had a new message, it will send it to multiple randomly picked nodes in the network. Every node that received the new messages then will each randomly select multiple nodes and share the message with them. After a couple rounds of gossiping, majority of the nodes in the network have received this new message. The number of nodes a node tried to contacted is defined as the \emph{Fanout} of \gp. It is denoted as $f$. Each time when a node face the decision of whether sending a new message to another node or not, the probability of doing so is defined as $p_{gossip}$. In the rest of this thesis, I will refer to \emph{\pog} as $p_g$. Once a node received a new message, the number of times it will contact other nodes is defined as the \emph{Message Live Time} of \gp. It is denoted as $T_l$.
 
@@ -156,7 +156,7 @@ The function is plotted in Figure \ref{fig:step}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=5.5in]{stepFunction2.png}
-	\caption{Adaptive Fanout Function Plot}
+	\caption{Adaptive fanout function plot}
 	\label{fig:step}
 \end{figure}
 

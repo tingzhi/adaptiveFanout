@@ -1,0 +1,423 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  1 DEC 2016 22:07
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**thesis.tex
+(./thesis.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(./beavtex.cls
+Document Class: beavtex 2011/10/01 v1.0 BeavTeX: OSU thesis class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box26
+\UL@hyphenbox=\box27
+\UL@skip=\skip41
+\UL@hook=\toks14
+\UL@height=\dimen102
+\UL@pe=\count79
+\UL@pixel=\dimen103
+\ULC@box=\box28
+Package: ulem 2012/05/18
+\ULdepth=\dimen104
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/bk11.clo
+File: bk11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@chapter=\count81
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\c@figure=\count87
+\c@table=\count88
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\bibindent=\dimen105
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 94.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count89
+))
+\Gin@req@height=\dimen106
+\Gin@req@width=\dimen107
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count90
+\lst@gtempboxa=\box29
+\lst@token=\toks16
+\lst@length=\count91
+\lst@currlwidth=\dimen108
+\lst@column=\count92
+\lst@pos=\count93
+\lst@lostspace=\dimen109
+\lst@width=\dimen110
+\lst@newlines=\count94
+\lst@lineno=\count95
+\lst@maxwidth=\dimen111
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count96
+\lst@skipnumbers=\count97
+\lst@framebox=\box30
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks17
+\verbatim@line=\toks18
+\verbatim@in@stream=\read1
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 142.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count98
+\FV@InFile=\read2
+\FV@TabBox=\box31
+\c@FancyVerbLine=\count99
+\FV@StepNumber=\count100
+\FV@OutFile=\write3
+) (./thesis.aux)
+\openout1 = `thesis.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+
+(/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count101
+\scratchdimen=\dimen112
+\scratchbox=\box32
+\nofMPsegments=\count102
+\nofMParguments=\count103
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count104
+\MPscratchDim=\dimen113
+\MPnumerator=\count105
+\makeMPintoPDFobject=\count106
+\everyMPtoPDFconversion=\toks20
+) (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count107
+
+[1
+
+] [2{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 50.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 50.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 50.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 50.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 50.
+ [3
+
+] [4
+
+] [5
+
+]
+[6
+
+] (./thesis.toc)
+\tf@toc=\write4
+\openout4 = `thesis.toc'.
+
+
+Overfull \hbox (2.43333pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[7
+
+
+] (./thesis.lof)
+\tf@lof=\write5
+\openout5 = `thesis.lof'.
+
+
+Overfull \hbox (2.43333pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[8
+
+] (./thesis.lot)
+\tf@lot=\write6
+\openout6 = `thesis.lot'.
+
+
+Overfull \hbox (2.43333pt too wide) has occurred while \output is active
+$[]$ 
+ []
+
+[9
+
+] (./thesis.loap)
+\tf@loap=\write7
+\openout7 = `thesis.loap'.
+
+ (./thesis.loaf)
+\tf@loaf=\write8
+\openout8 = `thesis.loaf'.
+
+ (./thesis.loat)
+\tf@loat=\write9
+\openout9 = `thesis.loat'.
+
+
+Chapter 1.
+[1
+
+
+
+
+
+] [2] [3]
+Chapter 2.
+[4
+
+] [5] [6]
+Chapter 3.
+[7
+
+] [8] [9] [10]
+Overfull \hbox (4.48563pt too wide) in paragraph at lines 205--206
+[]\OT1/cmr/m/n/10.95 Rule 4: When a node is in gos-sip state, it will pe-ri-od-
+i-cally ran-domly se-lect $\OML/cmm/m/it/10.95 min\OT1/cmr/m/n/10.95 (\OML/cmm/
+m/it/10.95 f; n[]\OT1/cmr/m/n/10.95 )$
+ []
+
+[11] [12] <stepFunction2.png, id=80, 854.19125pt x 466.74374pt>
+File: stepFunction2.png Graphic file (type png)
+
+<use stepFunction2.png>
+Package pdftex.def Info: stepFunction2.png used on input line 273.
+(pdftex.def)             Requested size: 397.48499pt x 217.19028pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[13] [14 <./stepFunction2.png (PNG copy)>]
+Chapter 4.
+Missing character: There is no ï in font cmr10!
+Missing character: There is no ¿ in font cmr10!
+Missing character: There is no ¼ in font cmr10!
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 339--339
+[]\OT1/cmr/m/n/10.95 Code| 
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[15
+
+]
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 361--361
+[]\OT1/cmr/m/n/10.95 Type| 
+ []
+
+
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 361--361
+[]\OT1/cmr/m/n/10.95 Code| 
+ []
+
+[16] <topDown.png, id=94, 682.55pt x 332.24126pt>
+File: topDown.png Graphic file (type png)
+ <use topDown.png>
+Package pdftex.def Info: topDown.png used on input line 388.
+(pdftex.def)             Requested size: 397.48499pt x 193.48584pt.
+ [17]
+[18 <./topDown.png>] [19] <twoSepNet.png, id=106, 314.17375pt x 173.64874pt>
+File: twoSepNet.png Graphic file (type png)
+
+<use twoSepNet.png>
+Package pdftex.def Info: twoSepNet.png used on input line 426.
+(pdftex.def)             Requested size: 289.07999pt x 159.78528pt.
+ [20 <./twoSepNet.png>] [21] [22] [23]
+Chapter 5.
+[24
+
+] [25] [26] [27]
+Overfull \hbox (12.34201pt too wide) in paragraph at lines 578--593
+ [][] 
+ []
+
+[28] <brTime.png, id=139, 765.0984pt x 510.708pt>
+File: brTime.png Graphic file (type png)
+ <use brTime.png>
+Package pdftex.def Info: brTime.png used on input line 601.
+(pdftex.def)             Requested size: 397.48499pt x 265.32031pt.
+ [29 <./brTime.png>] <life.png, id=144, 769.9164pt x 535.7616pt>
+File: life.png Graphic file (type png)
+ <use life.png>
+Package pdftex.def Info: life.png used on input line 610.
+(pdftex.def)             Requested size: 397.48499pt x 276.59474pt.
+ [30 <./life.png>] <energy.png, id=149, 728.9634pt x 519.8622pt>
+File: energy.png Graphic file (type png)
+ <use energy.png>
+Package pdftex.def Info: energy.png used on input line 619.
+(pdftex.def)             Requested size: 397.48499pt x 283.47395pt.
+
+<overhead.png, id=150, 770.3982pt x 470.7186pt>
+File: overhead.png Graphic file (type png)
+ <use overhead.png>
+Package pdftex.def Info: overhead.png used on input line 628.
+(pdftex.def)             Requested size: 397.48499pt x 242.87169pt.
+ [31 <./energy.png>] <brNum.png, id=155, 728.9634pt x 470.2368pt>
+File: brNum.png Graphic file (type png)
+ <use brNum.png>
+Package pdftex.def Info: brNum.png used on input line 637.
+(pdftex.def)             Requested size: 397.48499pt x 256.41388pt.
+ [32 <./overhead.png>] [33 <./brNum.png>]
+Chapter 6.
+[34
+
+] (./thesis.bbl [35] [36
+
+] [37]) [38] [39
+
+] (./thesis.aux) ) 
+Here is how much of TeX's memory you used:
+ 3544 strings out of 493089
+ 51013 string characters out of 6134842
+ 124598 words of memory out of 5000000
+ 6970 multiletter control sequences out of 15000+600000
+ 7605 words of font info for 28 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 38i,10n,32p,1777b,254s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on thesis.pdf (48 pages, 782690 bytes).
+PDF statistics:
+ 228 PDF objects out of 1000 (max. 8388607)
+ 148 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+

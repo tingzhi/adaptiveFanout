@@ -1,0 +1,18 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Related Work}{}% 2
+\BOOKMARK [0][-]{chapter.3}{Energy-Aware Gossip Protocol}{}% 3
+\BOOKMARK [1][-]{section.3.1}{Classic Gossip Protocol}{chapter.3}% 4
+\BOOKMARK [2][-]{subsection.3.1.1}{How It Works}{section.3.1}% 5
+\BOOKMARK [2][-]{subsection.3.1.2}{Key Gossip Protocol Control Parameters}{section.3.1}% 6
+\BOOKMARK [2][-]{subsection.3.1.3}{Variations of Gossip Protocol}{section.3.1}% 7
+\BOOKMARK [1][-]{section.3.2}{Our Basic Push-Pull Gossip Protocol}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.3}{Proposed Energy-Aware Adaptive Gossip Protocol}{chapter.3}% 9
+\BOOKMARK [0][-]{chapter.4}{Introduction}{}% 10
+\BOOKMARK [1][-]{section.4.1}{Introduction to the Introduction}{chapter.4}% 11
+\BOOKMARK [0][-]{chapter.5}{The Body}{}% 12
+\BOOKMARK [1][-]{section.5.1}{Meat}{chapter.5}% 13
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 14
+\BOOKMARK [1][-]{section.6.1}{Fin}{chapter.6}% 15
+\BOOKMARK [0][-]{section.6.1}{Bibliography}{}% 16
+\BOOKMARK [0][-]{chapter*.2}{Appendices}{}% 17
+\BOOKMARK [0][-]{appendix.A}{Redundancy}{}% 18

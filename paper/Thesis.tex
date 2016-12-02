@@ -133,15 +133,11 @@ The current state of research on gossip techniques for wireless broadcasting is 
 \acknowledgements{
 \addtocontents{toc}{\vspace{1em}}  % Add a gap in the Contents, for aesthetics
 
-I would like to thank Dr. Bechir Hamdaoui for his advising. We also would like to thank Sherif Abelwahab for providing great suggestion and answering to my questions in many discussions.
+I would first like to thank my advisor Dr. Bechir Hamdaoui of the Department of Electrical and Computer Engineering at Oregon State University. The door to Professor Hamdaoui office was always open whenever I had a question about my research or writing. I would like to express my gratitude to him for the useful remarks and engagement through the researching and writing process of this master thesis. 
 
-Our team of three members had different responsibilities in fullfilling the project's goal. All of us did reasearch in the field of IoT, Sensor Networks and distributed algorithms. Each of us wrote different sections of the paper and helped improving all other sections by proof-reading.
+I would also like to thank Sherif Abelwahab for introducing me to the topic, providing great suggestions and answering my questions in many discussions. This research started as a team project in Advanced Computer Network class. Therefore, I would also like to acknowledge Marco Falke and Jinming Mu as initial project team members who participated in this project and in many ways shaped my research today.
 
-The two graduate students -- Marco Falke and Tingzhi Li -- wrote the section about related work. Marco Falke wrote about Virtual Networks and Tingzhi Li covered WiFi Direct.
-
-The different coding parts were assigned as follows. Jinming Mu did the initial setup of ns-3 and coded the topology creationg part of the code, he also helped Marco to implement the Gossip protocol. Marco Falke had the responsibility to implement the Gossip protocol in form of a ns-3 application. Furthermore, he wrote the topology file parser to read a given topology file. Lastly, he coded the connection between the ICMP level of ns-3 and application level. Tingzhi Li did modifications to the ICMP part of ns-3 to allow transmission of modified control messages. Moreover, he wrote code to process the produced data and create plots.
-
-
+Finally, I must express my very profound gratitude to my parents and girlfriend for providing me with unfailing support and continuous encouragement throughout my years of study abroad and through the process of researching and writing this thesis. This accomplishment would not have been possible without them.
 }
 \clearpage  % End of the Acknowledgements
 %% ----------------------------------------------------------------
@@ -161,47 +157,47 @@ The different coding parts were assigned as follows. Jinming Mu did the initial 
 \listoftables  % Write out the List of Tables
 
 %% ----------------------------------------------------------------
-\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
-\clearpage  % Start a new page
-\lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
-\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
-{
-% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
-\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
-
-}
-
-%% ----------------------------------------------------------------
-\clearpage  % Start a new page
-\lhead{\emph{Physical Constants}}  % Set the left side page header to "Physical Constants"
-\listofconstants{lrcl}  % Include a list of Physical Constants (a four column table)
-{
-% Constant Name & Symbol & = & Constant Value (with units) \\
-Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
-
-}
+%\setstretch{1.5}  % Set the line spacing to 1.5, this makes the following tables easier to read
+%\clearpage  % Start a new page
+%\lhead{\emph{Abbreviations}}  % Set the left side page header to "Abbreviations"
+%\listofsymbols{ll}  % Include a list of Abbreviations (a table of two columns)
+%{
+%% \textbf{Acronym} & \textbf{W}hat (it) \textbf{S}tands \textbf{F}or \\
+%\textbf{LAH} & \textbf{L}ist \textbf{A}bbreviations \textbf{H}ere \\
+%
+%}
 
 %% ----------------------------------------------------------------
-\clearpage  %Start a new page
-\lhead{\emph{Symbols}}  % Set the left side page header to "Symbols"
-\listofnomenclature{lll}  % Include a list of Symbols (a three column table)
-{
-% symbol & name & unit \\
-$a$ & distance & m \\
-$P$ & power & W (Js$^{-1}$) \\
-& & \\ % Gap to separate the Roman symbols from the Greek
-$\omega$ & angular frequency & rads$^{-1}$ \\
-}
+%\clearpage  % Start a new page
+%\lhead{\emph{Physical Constants}}  % Set the left side page header to "Physical Constants"
+%\listofconstants{lrcl}  % Include a list of Physical Constants (a four column table)
+%{
+%% Constant Name & Symbol & = & Constant Value (with units) \\
+%Speed of Light & $c$ & $=$ & $2.997\ 924\ 58\times10^{8}\ \mbox{ms}^{-\mbox{s}}$ (exact)\\
+%
+%}
+
+%% ----------------------------------------------------------------
+%\clearpage  %Start a new page
+%\lhead{\emph{Symbols}}  % Set the left side page header to "Symbols"
+%\listofnomenclature{lll}  % Include a list of Symbols (a three column table)
+%{
+%% symbol & name & unit \\
+%$a$ & distance & m \\
+%$P$ & power & W (Js$^{-1}$) \\
+%& & \\ % Gap to separate the Roman symbols from the Greek
+%$\omega$ & angular frequency & rads$^{-1}$ \\
+%}
 %% ----------------------------------------------------------------
 % End of the pre-able, contents and lists of things
 % Begin the Dedication page
 
-\setstretch{1.3}  % Return the line spacing back to 1.3
-
-\pagestyle{empty}  % Page style needs to be empty for this page
-\dedicatory{For/Dedicated to/To my\ldots}
-
-\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
+%\setstretch{1.3}  % Return the line spacing back to 1.3
+%
+%\pagestyle{empty}  % Page style needs to be empty for this page
+%\dedicatory{For/Dedicated to/To my\ldots}
+%
+%\addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
 
 
 %% ----------------------------------------------------------------
@@ -225,13 +221,13 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 
 %% ----------------------------------------------------------------
 % Now begin the Appendices, including them as separate files
-
-\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-
-\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
-
-\input{Appendices/AppendixA}	% Appendix Title
-
+%
+%\addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
+%
+%\appendix % Cue to tell LaTeX that the following 'chapters' are Appendices
+%
+%\input{Appendices/AppendixA}	% Appendix Title
+%
 \addtocontents{toc}{\vspace{2em}}  % Add a gap in the Contents, for aesthetics
 \backmatter
 
