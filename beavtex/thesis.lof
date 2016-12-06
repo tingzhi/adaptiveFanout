@@ -3,14 +3,14 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces The pseudo code of our push-pull gossip protocol}}{12}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Adaptive fanout function plot}}{14}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The pseudo code of our adaptive fanout push-pull gossip protocol}}{14}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The pseudo code of our adaptive fanout push-pull gossip protocol}}{15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces An example of how two gossip nodes communicate}}{18}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces An example when two separate subnets formed}}{20}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An example of how two gossip nodes communicate}}{19}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces An example when two separate subnets formed}}{21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes}}{29}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Average network lifetime vs. number of nodes}}{30}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes}}{31}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Average overhead per node per message vs. number of nodes}}{32}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Average number of broadcast messages vs. number of nodes}}{33}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes}}{30}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Average network lifetime vs. number of nodes}}{31}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes}}{32}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Average overhead per node per message vs. number of nodes}}{33}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Average number of broadcast messages vs. number of nodes}}{34}
 \addvspace {10\p@ }

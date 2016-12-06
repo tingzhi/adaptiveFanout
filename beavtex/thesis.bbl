@@ -51,11 +51,6 @@ Zygmunt~J Haas, Joseph~Y Halpern, and Li~Li.
 \newblock {\em IEEE/ACM Transactions on Networking (ToN)}, 14(3):479--491,
   2006.
 
-\bibitem{james}
-F~KUROSE James and W~ROSS Keith.
-\newblock {\em Computer networking a top-down approach featuring the internet}.
-\newblock Addison-Wesley, Reading, 2004.
-
 \bibitem{gossip}
 Kate Jenkins, Ken Hopkinson, and Ken Birman.
 \newblock A gossip protocol for subgroup multicast.

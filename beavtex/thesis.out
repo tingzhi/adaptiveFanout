@@ -7,12 +7,21 @@
 \BOOKMARK [2][-]{subsection.3.1.3}{Variations of Gossip Protocol}{section.3.1}% 7
 \BOOKMARK [1][-]{section.3.2}{Our Basic Push-Pull Gossip Protocol}{chapter.3}% 8
 \BOOKMARK [1][-]{section.3.3}{Proposed Energy-Aware Adaptive Gossip Protocol}{chapter.3}% 9
-\BOOKMARK [0][-]{chapter.4}{Introduction}{}% 10
-\BOOKMARK [1][-]{section.4.1}{Introduction to the Introduction}{chapter.4}% 11
-\BOOKMARK [0][-]{chapter.5}{The Body}{}% 12
-\BOOKMARK [1][-]{section.5.1}{Meat}{chapter.5}% 13
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 14
-\BOOKMARK [1][-]{section.6.1}{Fin}{chapter.6}% 15
-\BOOKMARK [0][-]{section.6.1}{Bibliography}{}% 16
-\BOOKMARK [0][-]{chapter*.2}{Appendices}{}% 17
-\BOOKMARK [0][-]{appendix.A}{Redundancy}{}% 18
+\BOOKMARK [0][-]{chapter.4}{Implementation}{}% 10
+\BOOKMARK [1][-]{section.4.1}{Basic Push-Pull Gossip Protocol Implementation}{chapter.4}% 11
+\BOOKMARK [2][-]{subsection.4.1.1}{ICMP Extension}{section.4.1}% 12
+\BOOKMARK [2][-]{subsection.4.1.2}{Source Node Implementation}{section.4.1}% 13
+\BOOKMARK [2][-]{subsection.4.1.3}{Gossip Nodes Implementation}{section.4.1}% 14
+\BOOKMARK [1][-]{section.4.2}{Adaptive Fanout Extension Implementation}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.3}{Simulation Control Program}{chapter.4}% 16
+\BOOKMARK [0][-]{chapter.5}{Performance Evaluation}{}% 17
+\BOOKMARK [1][-]{section.5.1}{Performance Metrics}{chapter.5}% 18
+\BOOKMARK [2][-]{subsection.5.1.1}{Average Network Lifetime}{section.5.1}% 19
+\BOOKMARK [2][-]{subsection.5.1.2}{Average Message Broadcast Time}{section.5.1}% 20
+\BOOKMARK [2][-]{subsection.5.1.3}{Average Overhead Per Node Per Message}{section.5.1}% 21
+\BOOKMARK [2][-]{subsection.5.1.4}{Average Energy Consumption Per Node Per Message}{section.5.1}% 22
+\BOOKMARK [2][-]{subsection.5.1.5}{Average Number of Broadcast Messages}{section.5.1}% 23
+\BOOKMARK [1][-]{section.5.2}{Simulation Environment Settings}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.3}{Result Analysis}{chapter.5}% 25
+\BOOKMARK [0][-]{chapter.6}{Conclusions and Future Work}{}% 26
+\BOOKMARK [0][-]{chapter.6}{Bibliography}{}% 27

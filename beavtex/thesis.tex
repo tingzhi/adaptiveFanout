@@ -6,7 +6,7 @@
 \doctype{Thesis}
 \department{Electrical Engineering and Computer Science}
 \depttype{School}
-\depthead{Head}
+\depthead{Director}
 \major{Electrical and Computer Engineering}
 \advisor{Bechir Hamdaoui}
 \submitdate{December 8, 2016}
@@ -22,12 +22,15 @@ Finally, I must express my very profound gratitude to my amazing parents Min Li,
 
 %\usepackage{algorithm}
 %\usepackage{algorithmic}
-
+\usepackage[square, numbers, comma, sort&compress]{natbib}  % Use the "Natbib" style for the references in the Bibliography
 \usepackage{graphicx}
 \usepackage{listings}
 \usepackage{verbatim}
 \usepackage{color}
 \usepackage{fancyvrb}
+%\usepackage{hyperref}
+
+\usepackage{amsmath}
 
 \newcommand{\gp}{gossip protocol}
 \newcommand{\pog}{Probability of Gossip}
@@ -54,9 +57,9 @@ Finally, I must express my very profound gratitude to my amazing parents Min Li,
 \chapter{Introduction} \label{Chapter1}
 %\lhead{Chapter 1. \emph{Introduction}} % Write in your own chapter title to set the page header
 
-Along with the development of the information technology, the price of the broadband connectivity becomes affordable. Devices are trending to be smaller and more powerful. People start to explore ways to connect devices to the network for better control and monitor the status of them. Devices such as smart phone, smart watch, smart thermostats, and radio-frequency identification (RFID) tags are able to connect to a network and these devices can communicate with each other. If these devices are connected to the Internet as well, we call them the \textit{Internet of Things}. There is no doubt that IoT is an innovative paradigm \cite{Atzori} because this idea combined the Internet with our everyday gadgets. Either from the perspective of private user or from the perspective of business user, there are infinite possible ways to exploit IoT. As of today, research in the area of IoT is emerging rapidly and many open questions remain to be answered.
+Along with the development of Information Technology, the price of the broadband connectivity continues to decrease. Devices are trending to be smaller and more powerful. People start to explore ways to connect devices to the network for better control and monitor the their status. Devices such as smart phones, smart watches, smart thermostats, and radio-frequency identification (RFID) tags are able to connect to networks and communicate to each other. If these devices are connected to the Internet as well, we call them the \textit{Internet of Things} devices. There is no doubt that IoT is an innovative paradigm \cite{Atzori} because this idea combines the Internet with our everyday gadgets. Either from the perspective of private users or from the perspective of business users, there are infinite possible ways to utilize IoT \cite{Atzori}. As of today, research in the area of IoT is emerging rapidly and many open questions remain to be answered.
 
-Many application services that IoT devices can provide rely on a network broadcast protocol to disseminating information \cite{smart}. For example, IoT devices firmware update package can be broadcast among devices in a distributed manner. However, the main challenge here is that IoT devices are often resource limited meaning they have limited bandwidth and energy, and restricted by their mobility. Due to the characteristics of IoT devices, topology of physical network formed from IoT devices is often dynamic. Therefore, a scalable, robust, and fault-tolerant broadcast protocol is needed for these dynamic networks. Flooding is consider to be the simplest broadcast protocol but it is not suitable. This is because flooding result in excessive overhead, media contention, and packet collision \cite{tseng2002broadcast} which would severely deplete devices' precious battery power. Gossip techniques instead offer a relatively simple, robust, fast and probabilistic approach. This technique is inspired by the form of gossip seen in social network.
+Many application services that IoT devices can provide rely on a network broadcast protocol to disseminate information \cite{smart}. For example, IoT devices' firmware update package can be broadcasted among devices in a distributed manner. However, the main challenge is that IoT devices are often resource limited meaning they have limited bandwidth and energy, and are restricted by their mobility. Due to the mobile characteristics of IoT devices, topology of physical networks formed from IoT devices is often dynamic. Therefore, a scalable, robust, and fault-tolerant broadcast protocol is needed for these dynamic networks. Flooding is consider to be the simplest broadcast protocol. However, flooding is unsuitable because of excessive overhead, media contention, and packet collision \cite{tseng2002broadcast} which would severely deplete devices' precious battery power. Gossip techniques instead offer a relatively simple, robust, fast and probabilistic approach. This technique is inspired by the form of gossip seen in social networks.
 
 Besides gossip techniques, several deterministic approaches have been proposed which aim to reduce overhead by shifting \msg ~forward responsibility to a subset of nodes in the network \cite{smart}. However, there are two main problems for these approaches. First, if any node in the subset fails, nodes that depend on it will not be able to receive new \msgs \cite{smart}. Second, the energy nodes in those subset will be depleted sooner than other nodes that are not the subset \cite{smart}.
 
@@ -79,21 +82,21 @@ The rest of this thesis is organized as follows. We present related work in Chap
 \chapter{Related Work} \label{Chapter2}
 %\lhead{Chapter 2. \emph{Related Work}} % Write in your own chapter title to set the page header
 
-Over the years, gossip techniques have proven to be the corner stone for building scalable and robust distributed computer network systems. This technique is often used to design multicast protocol \cite{gupta2002efficient} \cite{gossip} , routing protocol, and broadcast protocol. Demers et. al \cite{demers1987epidemic} demonstrated the advantages of deploying this technique in corporation for database maintenance in the early days. In recent years, this technique has been utilized in wired networks \cite{birman1999bimodal} as well as in wireless networks. Many proposed schemes whether is for wired networks or is for wireless networks, all focused on optimizing protocol overhead, or energy consumption. The metrics they used include network density, or nodes' energy level. 
+Over the years, gossip techniques have proven to be the corner stone for building scalable and robust distributed computer network systems. This technique is often used to design multicast protocol \cite{gupta2002efficient} \cite{gossip} , routing protocol, and broadcast protocol. Demers et. al \cite{demers1987epidemic} demonstrated the advantages of deploying gossip techniques in corporation for database maintenance in the early days. In recent years, gossip techniques has been utilized in wired networks \cite{birman1999bimodal} as well as in wireless networks. Many proposed schemes whether is for wired networks or is for wireless networks, all focused on optimizing protocol overhead, or energy consumption. The metrics they used include network density, or nodes' energy level \cite{} \cite{}. 
 
-In wired network domain, it has being used for peer-to-peer network \cite{gupta2002efficient}. In wireless network domain, it has being used for mobile ad-hoc networks \cite{chandra2001anonymous} \cite{vahdat2000epidemic}, and wireless sensor networks \cite{levis2004trickle} \cite{miller2005exploring}. There are many proposed schemes that are designed for wired network that uses network information for adaptive gossiping such as \cite{kempe2004spatial} \cite{rodrigues2003adaptive}, but those approaches are not suitable for wireless networks \cite{smart}. 
+In the wired network domain, gossip techniques have being used for peer-to-peer networks \cite{gupta2002efficient}. In the wireless network domain, gossip techniques have being used for mobile ad-hoc networks \cite{chandra2001anonymous} \cite{vahdat2000epidemic}, and wireless sensor networks \cite{levis2004trickle} \cite{miller2005exploring}. There are many proposed schemes that are designed for wired networks that uses network information for adaptive gossiping such as \cite{kempe2004spatial} \cite{rodrigues2003adaptive}, but those approaches are not suitable for wireless networks \cite{smart}. 
 
-Some of the basic gossip techniques that are specifically designed for wireless networks includes fixed forward probability scheme \cite{haas2006gossip} where each node has the probability of $p$ to gossip the \msg ~to its neighbor while it has the probability of $1-p$ to not gossip the \msg ~to its neighbor. Because in this paper the authors are designing a routing protocol in a wireless ad-hoc network, each time when a node receives a new \msg, it will only pick one of its neighbors. In other words, the \emph{Fanout} here is set to be 1. The advantage of this proposed scheme is that it is easy to implement in practice. However, due to the dynamic nature of mobile ad-hoc network or wireless sensor network, a fixed forward probability can be difficult to choose. Moreover, even an optimal forward probability may become sub-optimal over time. 
+Some of the basic gossip techniques that are specifically designed for wireless networks includes fixed forward probability scheme \cite{haas2006gossip} where each node has the probability of $p$ to gossip the \msg ~to its neighbor while it has the probability of $1-p$ to not gossip the \msg ~to its neighbor. In this paper, the authors are designing a routing protocol in a wireless ad-hoc network, so each time when a node receives a new \msg, it will only pick one of its neighbors. In other words, the \emph{Fanout} here is set to be 1. The advantage of this proposed scheme is that it is easy to implement in practice. However, due to the dynamic nature of mobile ad-hoc network or wireless sensor network, a sufficient fixed forward probability can be difficult to choose. Moreover, even an optimal forward probability may become sub-optimal over time. 
 
-To address the disadvantage of a fixed forward probability scheme, Cartigny et. al \cite{cartigny2003border} proposed a new broadcast scheme for ad-hoc networks that would adjust \emph{\pog} based on number of neighbors a node has. The equation for calculating \emph{\pog} is $p_{gossip}=\frac{k}{n_b}$ where $k$ is the propagation factor and $n_b$ is a node's degree (number of neighbors). The minimum and maximum \emph{\pog} can be adjusted by changing propagation factor. The idea is that a node with more neighbors will have a lower probability to gossip new \msgs ~and vice versa. This scheme reduced overhead by tailoring \emph{\pog} for each node but a suitable $k$ value for various ad-hoc network topologies can still be difficult to choose. 
+To address the disadvantage of a fixed forward probability scheme, Cartigny et. al \cite{cartigny2003border} proposed a new broadcast scheme for ad-hoc networks that would adjust \emph{\pog} based on number of neighbors a node has. The equation for calculating \emph{\pog} is $p_{gossip}=\frac{k}{n_b}$ where $k$ is the propagation factor and $n_b$ is a node's degree (number of neighbors). The minimum and maximum \emph{\pog} can be adjusted by changing propagation factor. The authors' idea is that a node with more neighbors will have a lower probability to gossip new \msgs ~and vice versa. This scheme reduced overhead by tailoring \emph{\pog} for each node but a suitable $k$ value for various ad-hoc network topologies can still be difficult to choose. 
 
-Another interesting proposed gossip broadcast scheme is called "Smart Gossip" \cite{smart}. It uses "family classification" method to category a node's neighbors. A node's neighbor can be classified in one of three categories: parent, sibling, or child. Intuitively, the more siblings a node has, the lower the \emph{\pog} will be because other siblings may have transmit the new \msg ~to the child \cite{2015survey}. Moreover, \emph{\pog} is proportional to number of children a node has \cite{2015survey}. When a node has no child, the $p_{gossip}=0$. When a node has no siblings but only child, the $p_{gossip}=1$. This advantage of this approach is that it takes nodes dependency into account while gossiping. However, this scheme can be complicated to implement and there is no update after the initial hierarchy establishment \cite{2015survey}.
+Another interesting proposed gossip broadcast scheme is called "Smart Gossip" \cite{smart}. It uses the "family classification" method to category a node's neighbors. A node's neighbor can be classified in one of three categories: parent, sibling, or child. Intuitively, the more siblings a node has, the lower the \emph{\pog} will be because other siblings may have transmit the new \msg ~to the child \cite{2015survey}. Moreover, \emph{\pog} is proportional to number of children a node has \cite{2015survey}. When a node has no child, the $p_{gossip}=0$. When a node has no siblings but has children, the $p_{gossip}=1$. This advantage of this approach is that it takes nodes dependency into account while gossiping. However, this scheme can be complicated to implement and there is no update after the establishing initial hierarchy \cite{2015survey}.
 
-In terms of reducing energy consumption while using gossip techniques, Nitnaware et. al \cite{nitnaware2009performance} proposed a simply scheme by defining a \emph{Energy Level Threshold}. When a node's energy level drops below the threshold, this node will not gossip new \msgs it received. Otherwise, it will gossip the new \msg ~with the probability of $k$. One special case is that when a node only has one neighbor, it will gossip the new \msg ~with probability of 1 regardless of its energy level. In \cite{nitnaware2010energy}, the authors proposed to use the remaining energy fraction directly as \emph{\pog}. So the gossip probability is defined as $p_{gossip}=\frac{E_{frac}}{100}$. A node with higher remaining energy fraction will have a higher gossip probability. A more advanced energy-aware gossip based broadcast scheme is proposed by Reina etl. al in \cite{reina2012optimization}. In this paper, the authors proposed to calculate a node's \emph{\pog} according to the following equation: $p_{gossip}=\frac{E_i - E_{min}}{E_{max}-E_{min}}$ where $E_i$ is the node's energy level, $E_{max}$ is the maximum energy level among its neighbors, and $E_{min}$ is the minimum energy level among its neighbors. This approach requires nodes to insert their energy level information when requesting for a \msg ~update. This scheme is similar comparing to "Smart Gossip" in terms of collecting neighbors information instead of focusing on the information a node itself can obtain. 
+In terms of reducing energy consumption while using gossip techniques, Nitnaware et. al \cite{nitnaware2009performance} proposed a simply scheme by defining a \emph{Energy Level Threshold}. When a node's energy level drops below the threshold, this node will not gossip new \msgs ~it received. Otherwise, it will gossip the new \msg ~with the probability of $k$. However, when a node only has one neighbor, it will gossip the new \msg ~with probability of 1 regardless of its energy level. In \cite{nitnaware2010energy}, the authors proposed to use the remaining energy fraction directly as \emph{\pog}. So the gossip probability is defined as $p_{gossip}=\frac{E_{frac}}{100}$. A node with higher remaining energy fraction will have a higher gossip probability. A more advanced energy-aware gossip based broadcast scheme is proposed by Reina etl. al in \cite{reina2012optimization}. In this paper, the authors proposed to calculate a node's \emph{\pog} according to the following equation: $p_{gossip}=\frac{E_i - E_{min}}{E_{max}-E_{min}}$ where $E_i$ is the node's energy level, $E_{max}$ is the maximum energy level among its neighbors, and $E_{min}$ is the minimum energy level among its neighbors. This approach requires nodes to insert their energy level information when requesting a \msg ~update. This scheme is similar to "Smart Gossip" in terms of collecting neighbors information instead of focusing on the information a node itself can obtain. 
 
 %Another energy-aware gossip broadcast protocol proposed by Machado et. al. \cite{energyMap} uses "Energy Map" to determine a node's \emph{\pog}. When a node received a new \msg, first it will check its energy level. If its energy level is below the cut-off energy, it will simply drop this \msg. Otherwise, it will calculate its \emph{\pog} based on the following equation: $p_{gossip}=\frac{d}{r}$
 
-One thing all these paper have in common is that they all focused on adjusting \emph{\pog} to reduce protocol overhead or reduce protocol energy consumption. They never explore the possibilities of adjusting \emph{Fanout} to achieve longer network lifetime. Because some of the paper that mentioned here focused on designing a routing protocol, a \emph{Fanout} setting of 1 is the common practice. A higher \emph{Fanout} is unlikely to improve routing protocol performance and is more complicated for a protocol to maintain the routing table. 
+One thing all these paper have in common is that they all focused on adjusting \emph{\pog} to reduce protocol overhead or reduce protocol energy consumption. They have not explored the possibilities of adjusting \emph{Fanout} to achieve longer network lifetime. Some of the paper mentioned here focused on designing a routing protocol, therefore a \emph{Fanout} setting of 1 is the common practice. A higher \emph{Fanout} is unlikely to improve routing protocol performance and is more complicated for a protocol to maintain the routing table. 
 
 %one paper about control gossip protocol infection pattern using adaptive fanout
 
@@ -113,20 +116,20 @@ One thing all these paper have in common is that they all focused on adjusting \
 \label{Chapter3}
 %\lhead{Chapter 3. \emph{Energy-aware Gossip Protocol}} % Write in your own chapter title to set the page header
 
-In this chapter, we will first introduce the classic \gp ~which will serve as a base protocol for other variations of gossip protocols. Then we will explain the detail of our basic push-pull \gp. And lastly, we will introduce our proposed energy-aware gossip protocol which is based on the basic push-pull \gp.
+In this chapter, we will first introduce the classic \gp ~which will serve as a base protocol for other variations of gossip protocols. Then we will explain the detail of our basic push-pull \gp. And finally, we will introduce our proposed energy-aware gossip protocol which is based on the basic push-pull \gp.
 
 \section{Classic Gossip Protocol}
 % how gossip protocol works
 \subsection{How It Works} \label{basic gossip}
 
-The objective of gossip protocol is to broadcast messages in an efficient manner by mimicking social activities when people spread rumors in office by gossiping among each other. The classic \gp ~works as follows: when a node had a new message, it will send it to multiple randomly picked nodes in the network. Every node that received the new messages then will each randomly select multiple nodes and share the message with them. After a couple rounds of gossiping, majority of the nodes in the network have received this new message. The number of nodes a node tried to contact is defined as the \emph{Fanout} of \gp. It is denoted as $f$. Each time when a node face the decision of whether sending a new message to another node or not, the probability of doing so is defined as $p_{gossip}$. In the rest of this thesis, I will refer to \emph{\pog} as $p_g$. Once a node received a new message, the number of times it will contact other nodes is defined as the \emph{Message Live Time} of \gp. It is denoted as $T_l$.
+The objective of the gossip protocol is to broadcast messages in an efficient manner by mimicking social activities such as when people spread rumors in office by gossiping among each other. The classic \gp ~works as follows: when a node has a new message, it will send it to multiple randomly picked nodes in the network. Every node that received the new messages then will each randomly select multiple nodes and share the message with them. After a couple rounds of gossiping, a majority of the nodes in the network will have received this new message. The number of nodes a node tries to contact in each round is defined as the \emph{Fanout} of the \gp. It is denoted as $f$. Each time when a node face the decision of whether sending a new message to another node or not, the probability of doing so is defined as $p_{gossip}$. In the rest of this thesis, I will refer to the \emph{\pog} as $p_g$. Once a node receives a new message, the number of times it will contact other nodes is defined as the \emph{Message Live Time} of the \gp. \emph{Message Live Time} is denoted as $T_l$.
 
-In a wired network setting , the \emph{\pog} of classic \gp ~is set to be 1 and \emph{Fanout} is usually set to be 1 or 2. \emph{Message Live Time} could vary depending on the application requirement. In a wireless ad-hoc network setting, a simple broadcasting by flooding would cause \emph{broadcast storm} problem \cite{tseng2002broadcast}. Due to overlapping radio signals in a geographical area, flooding often cause excessive redundancy, serious contention, and collision. Instead \emph{Fanout} is set to be 1 or 2 as well. However, people often tweak \emph{\pog} based on local or global network information such as total number of nodes, or node's degree (number of neighbors). Their goal is to reduce protocol overhead by lowering \emph{\pog} while still achieving decent message broadcasting coverage. 
+In a wired network setting , the $p_g$ of classic \gp ~is set to 1 and the \emph{Fanout} is usually set to 1 or 2. \emph{Message Live Time} could vary depending on the applications' requirement. In a wireless ad-hoc network setting, a simple broadcasting by flooding would cause the \emph{broadcast storm} problem \cite{tseng2002broadcast}. Due to overlapping radio signals in a geographical area, flooding often causes excessive redundancy, serious contention, and collision. Instead of overwhelming the network, the \emph{Fanout} is limited to 1 or 2. However, people often tweak $p_g$ based on local or global network information such as total number of nodes, or node's degree (number of neighbors). Their goal is to reduce protocol overhead by lowering $p_g$ while still achieving decent message broadcasting coverage. 
 
 %\subsection{Mathematical Model of Gossip Protocol}
 
 \subsection{Key Gossip Protocol Control Parameters}
-Four key parameters that define the behavior of gossip protocol in a wireless ad hoc network are: 
+Four key parameters that define the behavior of the \gp ~in a wireless ad hoc network are: 
 
 \begin{itemize}
 	\item \emph{\pog}: $p_g  \quad (0 < p_g \leq 1)$
@@ -135,11 +138,11 @@ Four key parameters that define the behavior of gossip protocol in a wireless ad
 	\item \emph{Gossip Interval} $\Delta T_g$ (applicable when $T_l > 1$)
 \end{itemize}
 
-When $p_g = 1$ and $f = \mbox{node's degree}$, this protocol is closely resemble to flooding broadcast scheme which is not suitable for wireless ad hoc network. When $p_g = 1$ and $f = 1 \mbox{ or } 2$, this protocol is set to be classic \gp. $T_l$ is a parameter that is closely related to a node's memory constrain. A large $T_l$ setting will increase the message broadcasting successful rate at the expense of higher memory requirement and greater protocol overhead. 
+When $p_g = 1$ and $f = \mbox{node's degree}$, this protocol is closely resemble to flooding broadcast scheme which is not suitable for a wireless ad-hoc network. When $p_g = 1$ and $f = 1 \mbox{ or } 2$, this protocol is configured to be the classic \gp. $T_l$ is a parameter that is closely related to a node's memory constraint. A large $T_l$ setting will increase the message broadcasting successful rate at the expense of a higher memory requirement and a greater protocol overhead. 
 
 \subsection{Variations of Gossip Protocol}
 
-It is more clear when we category different variations of \gp ~into a matrix as shown in Table \ref{table:matrix}. 
+It is more clear when we categorize different variations of the \gp ~into a matrix as shown in Table \ref{table:matrix}. 
 
 \begin{table}[h]
 	\centering
@@ -157,7 +160,7 @@ It is more clear when we category different variations of \gp ~into a matrix as 
 	\end{tabular} 
 \end{table}
 
-The \emph{\pog} can be set to a fixed value or be adaptive. The basis of calculating $p_g$ can either be local network information such as node's degree (number of neighbors) or global network information such as number of nodes in the network. Therefore, we have four quadrants in this matrix. 
+The $p_g$ can be either a fixed or an adaptive value. The basis of calculating $p_g$ can either be local network information such as each node's degree (number of neighbors) or global network information such as the number of nodes in the network. Therefore, we have four quadrants in this matrix. 
 
 \begin{itemize}
 	\item \textbf{Quadrant I}: fixed $p_g$ based on global network information. 
@@ -166,48 +169,46 @@ The \emph{\pog} can be set to a fixed value or be adaptive. The basis of calcula
 	\item \textbf{Quadrant IV}: adaptive $p_g$ based on local network information. 
 \end{itemize}
 
-One observation is that researchers mainly focused on adjusting \emph{\pog}. Very little attention has been paid to another \gp ~parameter \emph{Fanout}. Fixed \emph{\pog} approaches can calculate its probability based on network density, distance among nodes, and speed \cite{2015survey}. In this scheme, nodes forward an incoming message with a fixed $p_g$, and the probability of not forwarding the incoming packet is $(1-p_g)$ \cite{2015survey}. The major challenge of fixed scheme is determining the optimal $p_g$. Due to the dynamic nature of wireless ad-hoc network, even an optimal initial global $p_g$ could become sub-optimal overtime. 
+One observation that researchers mainly focused on is adjusting $p_g$. Very little attention has been paid to another \gp ~parameter \emph{Fanout}. Approaches using fixed \emph{\pog} can calculate its probability based on network density, distance among nodes, and speed \cite{2015survey}. In this scheme, nodes forward an incoming message with a fixed $p_g$, and the probability of not forwarding the incoming packet is $(1-p_g)$ \cite{2015survey}. The major challenge of a fixed scheme is determining the optimal $p_g$. Due to the dynamic nature of wireless ad-hoc networks, even an optimal initial global $p_g$ could become sub-optimal overtime. 
 
-Adaptive \emph{\pog} approaches uses local or global network information such as density and speed to adjust individual or global probability. In adaptive scheme, there are adaptive non-counter-based schemes and adaptive counter-based schemes \cite{2015survey}. Adaptive density-based schemes usually utilize node's degree metrics. In (nb-scheme) the $p_g$ has an inverse relationship with the number of neighbors of a node \cite{cartigny2003border}. If we denote node's degree as $n_b$, then 
+Approaches using adaptive \emph{\pog} use local or global network information such as density and speed to adjust individual or global probability. Adaptive schemes can be divided into two categories, adaptive non-counter-based schemes and adaptive counter-based schemes \cite{2015survey}. Adaptive density-based schemes usually utilize each node's degree metrics. In the nb-scheme, the $p_g$ has an inverse relationship with the number of neighbors of a node \cite{cartigny2003border}. If we denote the node's degree as $n_b$, then 
 
 \[ p_g = \frac{k}{n_b} \mbox{\quad where $k$ is the propagation factor}\]
 
-The $k$ is used so that the maximum and minimum probability can be adjusted \cite{cartigny2003border}. The basic idea behind this approach is that for a node with higher node's degree (meaning it has more neighbors, thus this area is more dense), a lower \emph{\pog} will be sufficient to spread out the new message. While for an sparse area, higher \emph{\pog} would be more desirable. Some paper \cite{qing2010dynamic}\cite{wisitpongphan2007broadcast} suggested schemes that dynamically adjust \emph{\pog} based on Received Signal Strength (RSS) or euclidean distance. In \cite{wisitpongphan2007broadcast}, the authors denoted the relative distance between node $i$ and node $j$ by $D_{ij}$ and the average transmission range by $r$. The \emph{\pog} is calculated using the following equation:
+The $k$ is manipulated to allow the maximum and minimum $p_g$ to be adjusted \cite{cartigny2003border}. The basic idea behind this approach is that for a node with higher node's degree (meaning it has more neighbors, thus indicating this area is more dense), a lower $p_g$ will be sufficient to spread out the new message. While for a sparse area, a higher $p_g$ would be more desirable. Some papers \cite{qing2010dynamic}\cite{wisitpongphan2007broadcast} suggest schemes that dynamically adjust $p_g$ based on Received Signal Strength (RSS) or euclidean distance. In \cite{wisitpongphan2007broadcast}, the authors denoted the relative distance between node $i$ and node $j$ by $D_{ij}$ and the average transmission range by $r$. The $p_g$ is calculated using the following equation:
 
 \[ p_g = \frac{D_{ij}}{r}\]
 
-For a given $D_{ij}$, wider average transmission range will result in a lower \emph{\pog}. On the other hand, for a given average transmission range, \emph{\pog} will increase when the distance between node $i$ and node $j$ gets greater.
+For a given $D_{ij}$, wider average transmission range will result in a lower $p_g$. On the other hand, for a given average transmission range, $p_g$ will increase when the distance between node $i$ and node $j$ gets greater.
 
-In counter-based schemes, nodes keep track with number of received copies of a given broadcast message and use it to determine its broadcasting state \cite{2015survey}. Similar to non-counter-density-based schemes, some paper \cite{lee2010adaptive} used node's degree in conjunction with a counter. The equation used to calculate \emph{\pog} is as follows:
+In counter-based schemes, nodes keep track of the number of received copies of a given broadcasted message and use it to determine its broadcasting state \cite{2015survey}. Similar to non-counter-density-based schemes, Lee et. al \cite{lee2010adaptive} uses each node's degree in conjunction with a counter. The equation used to calculate $p_g$ is as follows:
 
 \[ p_g = \frac{p_i}{n_b} \quad \mbox{where } p_i \mbox{ is the initial \pog}\]
 
-The initial probability is set to be 1. If we denote the copy of messages threshold by $m_{th}$ and number of received copies of a given broadcast message by $m_r$, then whenever $m_r \geq m_{th}$, the above equation starts to kick in.
+The initial probability is set to be 1. If we denote the copy of messages threshold as $m_{th}$ and the number of received copies of a given broadcasted message as $m_r$, then whenever $m_r \geq m_{th}$, the above equation start to take effect.
 
-Similar to non-counter-distance-based schemes, some paper \cite{khan2008distance}\cite{ling2005coverage} used the distance between nodes as a metrics combining with a counter to determine the broadcasting state a node should be in. 
+Similar to non-counter-distance-based schemes, some papers \cite{khan2008distance}\cite{ling2005coverage} use the distance between nodes as a metric combined with a counter to determine the broadcasting state a node should be in. 
 
 \section{Our Basic Push-Pull Gossip Protocol} \label{pp}
-When each node in the network forward new broadcast messages when it receive one, it is called a \emph{push} \gp. Similarly, when each node only request for new broadcast messages from other nodes, it is called  a \emph{pull} \gp. Our \gp ~combined both mechanisms thus it is called a \emph{push-pull} \gp. 
+When each node in the network forwards a new broadcast message as it receives one, it is called a \emph{push} \gp. Similarly, when each node only requests for new broadcast messages from other nodes, it is called  a \emph{pull} \gp. Our \gp ~combined both mechanisms thus it is called a \emph{push-pull} \gp. 
 
-Our basic push-pull \gp ~utilizes three packet types to perform. They are:
+Our basic push-pull \gp ~utilizes three packet types to communicate. They are:
 \begin{itemize}
 	\item Data packet
-	\item Ack packet 
+	\item ACK packet 
 	\item Request packet
 \end{itemize}
 
-Data packet carries the actually payload (broadcast \msg). Ack packet and Request packet are used to control gossip process.There are several rules in our push-pull \gp. The Ack packet is used to acknowledge to the sender that receiver node already received that \msg ~before. The Request packet is used for a node to ask for the latest message from another node.
+Data packets carry the actually payload (the broadcast \msg). ACK packets and Request packets are used to control the gossip process.There are several rules in our push-pull \gp. The ACK packet is used to acknowledge to the sender that receiver node previsouly received that \msg. The Request packet is used by a node to ask for the latest message from another node.
 
 \begin{itemize}
-	\item Rule 1: A node can only be in two states -- sleep state, and gossip state.
-	\item Rule 2: Periodically, a node will request for a new \msg ~from one randomly selected neighbor regardless of its state.
-	\item Rule 3: When a node received a new broadcast \msg, it will enter the gossip state.
-	\item Rule 4: When a node is in gossip state, it will periodically randomly select $min(f, n_b)$ neighbors and forward the \msg ~to them.
-	\item Rule 5: When a node received an Ack packet from any of its neighbor, it will enter sleep state which mean it will stop gossiping the new \msg.
-	\item Rule 6: When a node received a duplicate \msg ~from anther node, it will send an Ack packet back. 
+	\item Rule 1: A node can only be in two states -- sleep state or gossip state.
+	\item Rule 2: Periodically, a node will request a new \msg ~from one randomly selected neighbor regardless of its state.
+	\item Rule 3: When a node receives a new broadcast \msg, it will enter the gossip state.
+	\item Rule 4: When a node is in the gossip state, it will periodically randomly select $min(f, n_b)$ number of neighbors and forward the \msg ~to them.
+	\item Rule 5: When a node receives an ACK packet from any of its neighbor, it will enter sleep state which mean it will stop gossiping the new \msg.
+	\item Rule 6: When a node receives a duplicate \msg ~from anther node, it will return an ACK packet. 
 \end{itemize}
-
-
 
 \begin{figure}[!htbp]
 	\centering
@@ -234,8 +235,10 @@ Data packet carries the actually payload (broadcast \msg). Ack packet and Reques
 			state <- gossip
 		else
 			send an Ack back
+
 	if received an Ack packet:
 		state <- sleep
+
 	if received a Request packet:
 		send the latest message back	
 	\end{Verbatim}
@@ -243,28 +246,25 @@ Data packet carries the actually payload (broadcast \msg). Ack packet and Reques
 	\label{fig:pseudo}
 \end{figure}
 
-The pseudo code of our push-pull \gp ~is given in Figure~\ref{fig:pseudo}. All nodes in the network follow the same rules described above. For the sake of discussion, we assume that $f=1$ and there is no isolated node in the network. In the background, every node in the network will run a request process every 5 seconds regardless of its state. During the request process, it will randomly select a neighbor and request it to send its latest \msg. Initially, every node is in sleep state. Now let's assume that a new broadcast \msg ~is generated by node 1. Then node 1 immediately switch from sleep state to gossip state and start sending out this \msg ~to one of its neighbors. This gossip process runs every 5 seconds unless the node switched to sleep state. When a node switched to sleep state, it will do nothing. Now when a node received a Data packet, it will check for duplication. If it is indeed a new \msg, it will store the \msg ~and switch to gossip state. If it is not a new \msg, it will send an Ack packet back to the sender. If a node received an Ack packet, it will switch to sleep state. Lastly, if a node received a Request packet, it will send its latest \msg ~back to the sender. 
+The pseudo code of our push-pull \gp ~is given in Figure~\ref{fig:pseudo}. All nodes in the network follow the same rules described above. For the sake of discussion, we assume that $f=1$ and there is no isolated node in the network. In the background, every node in the network will run a request process every 5 seconds regardless of its state. During the request process, it will randomly select a neighbor and request the neighbor's latest \msg. Initially, every node is in the sleep state. Now let's assume that a new broadcast \msg ~is generated by node 1. Then node 1 immediately switches from the sleep state to the gossip state and starts sending out the new \msg ~to one of its neighbors. This gossip process runs every 5 seconds unless the node is switched to the sleep state. When a node is switched to the sleep state, it will do nothing. When a node receives a Data packet, it will check for duplication. If it is indeed a new \msg, the node will store the \msg ~and switch to the gossip state. If it is not a new \msg, the node will send an ACK packet back to the sender. If a node receives an ACK packet, it will switch to the sleep state. Finally, if a node receives a Request packet, it will send its latest \msg ~back to the sender. 
 
 \section{Proposed Energy-Aware Adaptive Gossip Protocol}
-As we stated previously in the thesis, the current state of research on gossip techniques for wireless broadcasting focused very little on energy efficiency and network lifetime. Far too many researches focused on dynamically adjusting $p_g$ based on global or local network information (global: number of nodes, local: node's degree, overhearing). Our objective here is to develop a new energy-aware gossip protocol that could extend network lifetime while still achieving a fast and reliable broadcasting performance. The parameter that we focused on shifted from \emph{\pog} to \emph{Fanout}.
+As stated previously, the current state of research on gossip techniques for wireless broadcasting focuses very little on energy efficiency and network lifetime. Far too much research focuses on dynamically adjusting $p_g$ based on global or local network information (global: number of nodes, local: node's degree). Our objective is to develop a new energy-aware \gp ~that could extend a network's lifetime while still achieving a fast and reliable broadcasting performance. We focused on manipulating \emph{Fanout} instead of \emph{\pog}.
 
-Our observation tells us that a higher \emph{Fanout} setting will result in a shorter broadcasting time for a new message at the expense of higher energy consumption. While a lower \emph{Fanout} setting conserves energy, it results in a longer broadcasting time. First of all, we argue that each node's battery life should be maximized in order to extend network lifetime. Since for a broadcasting protocol, any node that is disconnected from the network due to energy depletion renders a situation that broadcasting can no longer work. In order to maximize each node's battery life, a constant high \emph{Fanout} setting is undesirable when battery is very low. Similarly when battery is very high, a constant low \emph{Fanout} setting can hinder the message broadcasting time. Therefore, we proposed that \emph{Fanout} should be dynamically adjusted based on each node's remaining energy fraction. 
+Our observations show that a higher \emph{Fanout} setting will result in a shorter broadcasting time for a new message at the expense of higher energy consumption. A lower \emph{Fanout} setting conserves energy but results longer broadcasting times. First, we argue that each node's battery life should be maximized in order to extend network lifetime. Since for a broadcasting protocol, any node that is disconnected from the network due to energy depletion renders a situation that broadcasting can no longer be complete. In order to maximize each node's battery life, a high constant \emph{Fanout} setting is undesirable when a node's battery is very low. Similarly when a node's battery is very high, a low constant \emph{Fanout} setting can hinder the message broadcasting time. Therefore, we propose that \emph{Fanout} should be dynamically adjusted based on each node's remaining energy fraction. 
 
 Let's denote the \emph{Remaining Energy Fraction} as $E_{frac}$. The function that used to calculate \emph{Fanout} is defined as follow:
 
-
-%\begin{equation*}
-%f = \left\{
-%\begin{array}{rl}
-%5 & \text{if } 0.8 \leq E_{frac} \leq 1,\\
-%4 & \text{if } 0.6 \leq E_{frac} \leq 0.8,\\
-%3 & \text{if } 0.4 \leq E_{frac} \leq 0.6,\\
-%2 & \text{if } 0.2 \leq E_{frac} \leq 0.4,\\					
-%1 & \text{if } 0.0 \leq E_{frac} \leq 0.2.
-%\end{array} \right.
-%\end{equation*}
-
-
+\begin{equation*}
+f = \left\{
+\begin{array}{rl}
+5 & \text{if } 0.8 \leq E_{frac} \leq 1,\\
+4 & \text{if } 0.6 \leq E_{frac} \leq 0.8,\\
+3 & \text{if } 0.4 \leq E_{frac} \leq 0.6,\\
+2 & \text{if } 0.2 \leq E_{frac} \leq 0.4,\\					
+1 & \text{if } 0.0 \leq E_{frac} \leq 0.2.
+\end{array} \right.
+\end{equation*}
 
 The function is plotted in Figure \ref{fig:step}.
 
@@ -275,39 +275,60 @@ The function is plotted in Figure \ref{fig:step}.
 	\label{fig:step}
 \end{figure}
 
-The basic idea of our fanout function is that the \emph{Fanout} of a node will gradually stepping down as its battery energy being drained. We believe this new fanout function can combine the advantages of both worlds. When a node's has plenty of energy left, it will reach out to more neighbors and facilitate \msg ~broadcasting process. As a node's energy gets lower, it will conserve its battery energy by contacting less neighbors thus extend network lifetime.
+The general idea of our fanout function is that the \emph{Fanout} of a node will gradually step down as its battery energy is drained. We believe this new fanout function can combine the advantages of both low and high constant \emph{Fanout}. When a node has plenty of energy remaining, it will reach out to more neighbors and facilitate the \msg ~broadcasting process. As a node's energy gets lower, it will conserve its battery energy by contacting less neighbors thus extending network lifetime.
 
 \begin{figure}[!htbp]
 	\centering
 	\begin{Verbatim}
+	// Periodic request 
+	if state == gossip or state == sleep:
+		every 5 seconds:
+			find a random neighbor N
+			send a Request packet to N
+	
 	// Periodic gossip	
 	if state == gossip:
 		every 1 second:
 			calculate the fanout f based on its energy fraction
 			find min(f, node's degree) random neighbors N<vector>
 			send Data packet to N<vector>
+	
+	if state == sleep:
+		Do nothing
+	
+	// Handle packets
+	if receive a Data packet:
+		if it is a new one:
+			store the message
+			state <- gossip
+		else
+			send an Ack back
+	
+	if received an Ack packet:
+		state <- sleep
+	
+	if received a Request packet:
+		send the latest message back
 	\end{Verbatim}
 	\caption{The pseudo code of our adaptive fanout push-pull \gp}
 	\label{fig:gossip}
 \end{figure}
-
-%[fontsize=\small]	
-Now we could tweak our basic push-pull \gp ~that we explained in Section \ref{pp} based on the proposed fanout function. The pseudo code of adaptive fanout push-pull \gp ~is given in Figure~\ref{fig:gossip}. Every time when a node tries to gossip a new \msg, it will first calculate the \emph{Fanout} using the adaptive fanout function. One thing that worth mentioning here is that \emph{Fanout} cannot exceed its node's degree. So here we have to take the minimum number between the calculated \emph{Fanout} and node's degree. For example, if a node only has 3 neighbors but the result from the fanout function is 5, the actual \emph{Fanout} will be 3.
-
-
-
+	
+The pseudo code of our adaptive fanout push-pull \gp ~is given in Figure~\ref{fig:gossip}. Each time a node tries to gossip a new \msg, it will first calculate the \emph{Fanout} using the adaptive fanout function. One thing worth mentioning is that \emph{Fanout} cannot exceed its node's degree. We have to take the minimum number between the calculated \emph{Fanout} and the node's degree. For example, if a node only has 3 neighbors but the result from the fanout function is 5, the actual \emph{Fanout} will be 3.
 
 
 \chapter{Implementation}
 \label{Chapter4}
 %\lhead{Chapter 4. \emph{Implementation}} % Write in your own chapter title to set the page header
 
-In order to evaluate our proposed energy-aware gossip broadcasting protocol, we implemented the protocol in a open-source software called Network Simulator 3 (ns-3). From system point of view, this whole implementation consists of 4 major parts. They are the ICMP extension, the adaptive fanout \pp ~\gp, the UDP server and client application, and the simulation control program. The ICMP extension is the necessary backbone gossip communication infrastructure developed to support adaptive fanout \gp ~in application layer. The adaptive fanout \gp ~is the protocol entity that we are interested in studying. It utilized underlining ICMP extension to communication among gossip nodes. It controls our proposed adaptive fanout gossip protocol's logic and behavior. The UDP server and UDP client are installed on source node and gossip nodes respectively. This provides a channel to collect simulation data. Lastly, the simulation control program is developed to handle simulation environment set up, start and stop simulation, and process and output collected data.
+In order to evaluate our proposed energy-aware gossip broadcasting protocol, we implemented the protocol in an open-source software called Network Simulator 3 (ns-3). From the system point of view, this implementation consists of 4 major parts. They are the ICMP extension, the adaptive fanout \pp ~\gp, the UDP server and client application, and the simulation control program. The ICMP extension is the necessary backbone gossip communication infrastructure developed to support adaptive fanout \gp ~in application layer. The adaptive fanout \gp ~is the protocol entity that we are interested in studying and the pseudo code is shown in Figure \ref{fig:gossip}. The adaptive fanout \pp ~\gp ~utilizes the underlying ICMP extension to communication among the gossip nodes. The UDP server and UDP client are installed on the source node and the gossip nodes respectively. The UDP server and client provide a channel to collect simulation data. Finally, the simulation control program is developed to handle simulation environment set up, to start and stop simulation, and to process and output collected data.
 
 
 \section{Basic Push-Pull Gossip Protocol Implementation} \label{ppi}
 \subsection{ICMP Extension}
-For the basic push-pull \gp implementation, we first started building those 3 types of packets (Data packet, Ack packet, and Request packet) by extending the existing Internet Control Message Protocol (ICMP). The most common use of ICMP is for error reporting~\cite{james}. An ICMP message contains two parts: 8-byte header and data section. The first 4 bytes of the header have a fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in Table \ref{table:1}.
+For the basic push-pull \gp ~implementation, we first started building the 3 types of packets (Data packet, ACK packet, and Request packet) to extending the existing Internet Control Message Protocol (ICMP).  An ICMP message contains two parts: an 8-byte header and a data section. The first 4 bytes of the header have a fixed format. However, the last 4 bytes vary and depend on the type or code of the ICMP packet~\cite{forouzan}. The first and second byte of the header is the type field and code field respectively. And the third and fourth byte are checksum field. The format of the header is shown in Table \ref{table:1}.
+
+%The most common use of ICMP is for error reporting~\cite{james}.
 
 \begin{table}[h!]￼
 	\centering
@@ -328,7 +349,7 @@ For the basic push-pull \gp implementation, we first started building those 3 ty
 	\end{tabular}
 \end{table} 
 
-Table \ref{table:2} here presented some of the selected ICMP message types. 
+Table \ref{table:2} here presents some of the selected ICMP message types. 
 
 \begin{table}[h]
 	\centering
@@ -350,7 +371,7 @@ Table \ref{table:2} here presented some of the selected ICMP message types.
 	\end{tabular}
 \end{table}
 
-Since type 42 to 255 are reserved for further development, we decided to extend ICMP by defining type 42, 43, and 44 to represent Ack packet, Request packet, and Data packet respectively. The detail is shown in Table \ref{table:3}.
+Since types 42 to 255 are reserved for further development, we decided to extend ICMP by defining type 42, 43, and 44 to represent ACK packets, Request packets, and Data packets respectively. The detail is shown in Table \ref{table:3}.
 
 \begin{table}[h]
 	\centering
@@ -368,20 +389,20 @@ Since type 42 to 255 are reserved for further development, we decided to extend 
 	\end{tabular}
 \end{table}
 
-Based on these new control message types extension, we could further develop our basic \pp  ~\gp ~in ns-3. ICMP is a layer 3 protocol, but the actual control logic of our \gp ~is developed in application layer. 
+Based on these new control message type extensions, we could further develop our basic \pp  ~\gp ~in ns-3. ICMP is an Internet layer protocol, but the actual control logic of our \gp ~is developed in application layer. 
 
 \subsection{Source Node Implementation}
 In order to generate and collect simulation results, the system consists of a source node and $n$ gossip nodes. The source node is responsible for the following duties:
 
 \begin{itemize}
-	\item Generate new broadcast \msgs
-	\item Store time stamps for each generated new \msgs
+	\item Generating new broadcast \msgs
+	\item Storing time stamps for each generated \msg
 \end{itemize}
 
-Every time when a new broadcast \msg ~is generated, it will send it to one of the gossip nodes via a special pair of wireless ad-hoc network thus kick start the broadcasting process. Except the first broadcast \msg, every other new broadcast \msg ~will only be generated and sent out when it received $n$ \emph{Acknowledgment packet} (different from the Ack packet) from all gossip nodes for the previous broadcast \msg. Because in the program, we make sure that each gossip node will only send this special \emph{Acknowledgment packet }once per broadcast \msg, it is a good indication that this broadcast \msg ~has been successfully broadcast. In order to support this feedback mechanism, we deployed an UDP server application so that every gossip node can connect to it and send its \emph{Acknowledgment packet}. It is worth noting that the actual implementation of a source node is a streamlined \gn ~\im ~with functions in the receiving end and the ability to send Ack packets and Request packets disabled. 
+Every time when a new broadcast \msg ~is generated, the source node will send the \msg ~to one of the gossip nodes via a special pair of wireless ad-hoc network channel thus starting the broadcasting process. Except the first broadcast \msg, the source node will only generate new \msg when it receives $n$ \emph{Acknowledgment packets} (different from the ACK packets) from all gossip nodes for the previous broadcast \msg. For data collection, we make sure that each gossip node will only send this special \emph{Acknowledgment packet} once per broadcast \msg ~asi it will indicate that a \msg ~has been successfully broadcasted. In order to support this feedback mechanism, we deployed an UDP server application which connects to every gossip node and is used to send \emph{Acknowledgment packets}. It is worth noting that the actual implementation of a source node is a restricted  \gn ~\im ~that can only send out packets but cannot emit ACK packets or Request packets. 
 
 \subsection{Gossip Nodes Implementation}
-For gossip nodes, as shown in Figure \ref{fig:pseudo}, there are two main processes. The periodic request processes and periodic gossip processes. At the start of the simulation, these two processes will be initialized. Most of the functionalities for a gossip node belong to either receiving end or transmitting end. In receiving end, we developed functions to handle Ack packet, Request packet, and Data packet. In the transmitting end, we developed functions to send Ack packet, Request packet, and Data packet. Besides, we also deployed an UDP client application on these gossip nodes so that it can send time stamps of each broadcast \msg ~back. To make all these functionalities work, these functions actually call the corresponding functions in ICMP as we described earlier. For example, if a gossip node is trying to send a new broadcast \msg ~to another gossip node, it would first call the function \emph{sendPayload()} that is in application layer. Then \emph{sendPayload()} would have to call the function \emph{sendMessage()} in ICMP which is in network layer. On the receiving end, a node first would receive the new broadcast \msg ~in network layer. The \msg ~is handled by a function in ICMP called \emph{handleData()}. Then in turn, this function will call the corresponding function in the application layer. The whole process is illustrated in Figure \ref{fig:topDown}.
+For gossip nodes, as shown in Figure \ref{fig:pseudo}, there are two main processes. The periodic request process and periodic gossip process. At the start of the simulation, these two processes will be initialized. Most of the functionalities for a gossip node belong to either the receiving end or the transmitting end. In the receiving end, we developed functions to handle ACK packets, Request packets, and Data packets. In the transmitting end, we developed functions to send ACK packets, Request packets, and Data packets. Additionally, we also deployed a UDP client application on these gossip nodes so we can collect time stamps of each broadcast \msg. In order to make all these functionalities work across different layers, the functions in the \gns (application layer) call the corresponding functions in ICMP (Internet layer). For example, if a gossip node is trying to send a new broadcast \msg ~to another gossip node, it would first call the function \emph{sendPayload()} in the application layer. Then \emph{sendPayload()} calls the function \emph{sendMessage()} in ICMP which is in the Internet layer. On the receiving end, a node first would receive the new broadcast \msg ~in the Internet layer. The \msg ~is handled by a function in ICMP called \emph{handleData()}. In turn, this function calls the corresponding function in the application layer. The process is illustrated in Figure \ref{fig:topDown}.
 
 \begin{figure}
 	\centering
@@ -390,12 +411,12 @@ For gossip nodes, as shown in Figure \ref{fig:pseudo}, there are two main proces
 	\label{fig:topDown}
 \end{figure}
 
-In summary, gossip nodes has the following responsibilities:
+In summary, gossip nodes have the following responsibilities:
 \begin{itemize}
 	\item Gossip every new broadcast \msg
-	\item Store every broadcast \msg without duplication
-	\item Store the time stamps for each received new broadcast \msg
-	\item Report each new broadcast \msg time stamps back to the source node
+	\item Store every broadcast \msg ~without duplication
+	\item Store the time stamps for each new broadcast \msg ~received 
+	\item Report each new broadcast \msg ~time stamps back to the source node
 \end{itemize}
 
 \section{Adaptive Fanout Extension Implementation}
