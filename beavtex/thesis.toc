@@ -10,18 +10,18 @@
 \contentsline {chapter}{\numberline {4}Implementation}{16}
 \contentsline {section}{\numberline {4.1}Basic Push-Pull Gossip Protocol Implementation}{16}
 \contentsline {subsection}{\numberline {4.1.1}ICMP Extension}{16}
-\contentsline {subsection}{\numberline {4.1.2}Source Node Implementation}{17}
+\contentsline {subsection}{\numberline {4.1.2}Source Node Implementation}{18}
 \contentsline {subsection}{\numberline {4.1.3}Gossip Nodes Implementation}{18}
 \contentsline {section}{\numberline {4.2}Adaptive Fanout Extension Implementation}{19}
 \contentsline {section}{\numberline {4.3}Simulation Control Program}{20}
-\contentsline {chapter}{\numberline {5}Performance Evaluation}{25}
-\contentsline {section}{\numberline {5.1}Performance Metrics}{25}
-\contentsline {subsection}{\numberline {5.1.1}Average Network Lifetime}{25}
-\contentsline {subsection}{\numberline {5.1.2}Average Message Broadcast Time}{26}
-\contentsline {subsection}{\numberline {5.1.3}Average Overhead Per Node Per Message}{26}
-\contentsline {subsection}{\numberline {5.1.4}Average Energy Consumption Per Node Per Message}{27}
-\contentsline {subsection}{\numberline {5.1.5}Average Number of Broadcast Messages}{27}
-\contentsline {section}{\numberline {5.2}Simulation Environment Settings}{28}
-\contentsline {section}{\numberline {5.3}Result Analysis}{29}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{35}
-\contentsline {chapter}{Bibliography}{36}
+\contentsline {chapter}{\numberline {5}Performance Evaluation}{26}
+\contentsline {section}{\numberline {5.1}Performance Metrics}{26}
+\contentsline {subsection}{\numberline {5.1.1}Average Network Lifetime}{26}
+\contentsline {subsection}{\numberline {5.1.2}Average Message Broadcast Time}{27}
+\contentsline {subsection}{\numberline {5.1.3}Average Overhead Per Node Per Message}{27}
+\contentsline {subsection}{\numberline {5.1.4}Average Energy Consumption Per Node Per Message}{28}
+\contentsline {subsection}{\numberline {5.1.5}Average Number of Successfully Broadcast Messages}{29}
+\contentsline {section}{\numberline {5.2}Simulation Environment Settings}{29}
+\contentsline {section}{\numberline {5.3}Result Analysis}{30}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{36}
+\contentsline {chapter}{Bibliography}{37}

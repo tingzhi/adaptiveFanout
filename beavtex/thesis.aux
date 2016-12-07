@@ -13,15 +13,24 @@
 \citation{smart}
 \citation{smart}
 \citation{smart}
+\citation{nitnaware2009performance}
 \citation{2015survey}
 \citation{nitnaware2010energy}
 \citation{nitnaware2009performance}
 \citation{gupta2002efficient}
 \citation{gossip}
+\citation{haas2006gossip}
+\citation{nitnaware2009performance}
+\citation{nitnaware2010energy}
+\citation{smart}
+\citation{reina2012optimization}
+\citation{rodrigues2003adaptive}
 \citation{demers1987epidemic}
 \citation{birman1999bimodal}
-\citation{}
-\citation{}
+\citation{cartigny2003border}
+\citation{wegener2007autocast}
+\citation{nitnaware2009performance}
+\citation{nitnaware2010energy}
 \citation{gupta2002efficient}
 \citation{chandra2001anonymous}
 \citation{vahdat2000epidemic}
@@ -30,6 +39,7 @@
 \citation{kempe2004spatial}
 \citation{rodrigues2003adaptive}
 \citation{smart}
+\citation{haas2006gossip}
 \citation{haas2006gossip}
 \citation{cartigny2003border}
 \@writefile{toc}{\contentsline {chapter}{\numberline {2}Related Work}{4}}
@@ -90,46 +100,48 @@
 \newlabel{table:2}{{4.2}{17}}
 \@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Our Gossip Protocol Extension}}{17}}
 \newlabel{table:3}{{4.3}{17}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Source Node Implementation}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Source Node Implementation}{18}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Gossip Nodes Implementation}{18}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces An example of how two gossip nodes communicate}}{19}}
 \newlabel{fig:topDown}{{4.1}{19}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Adaptive Fanout Extension Implementation}{19}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Simulation Control Program}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces An example when two separate subnets formed}}{21}}
-\newlabel{fig:twoSepNet}{{4.2}{21}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Performance Evaluation}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces An example when there is an isolated gossip node}}{22}}
+\newlabel{fig:isolate}{{4.2}{22}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces An example when two separate subnets formed}}{22}}
+\newlabel{fig:twoSepNet}{{4.3}{22}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Performance Evaluation}{26}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter5}{{5}{25}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Performance Metrics}{25}}
-\newlabel{pm}{{5.1}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Average Network Lifetime}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Average Message Broadcast Time}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Average Overhead Per Node Per Message}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.4}Average Energy Consumption Per Node Per Message}{27}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.5}Average Number of Broadcast Messages}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Simulation Environment Settings}{28}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Result Analysis}{29}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Number of Simulations Run}}{29}}
-\newlabel{table:sim}{{5.1}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes}}{30}}
-\newlabel{fig:brTime}{{5.1}{30}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Average network lifetime vs. number of nodes}}{31}}
-\newlabel{fig:life}{{5.2}{31}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes}}{32}}
-\newlabel{fig:energy}{{5.3}{32}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Average overhead per node per message vs. number of nodes}}{33}}
-\newlabel{fig:overhead}{{5.4}{33}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Average number of broadcast messages vs. number of nodes}}{34}}
-\newlabel{fig:brNum}{{5.5}{34}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{35}}
+\newlabel{Chapter5}{{5}{26}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Performance Metrics}{26}}
+\newlabel{pm}{{5.1}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Average Network Lifetime}{26}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Average Message Broadcast Time}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Average Overhead Per Node Per Message}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.4}Average Energy Consumption Per Node Per Message}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.5}Average Number of Successfully Broadcast Messages}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Simulation Environment Settings}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Result Analysis}{30}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Number of Simulations Run}}{30}}
+\newlabel{table:sim}{{5.1}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Average message broadcast time vs. number of nodes}}{31}}
+\newlabel{fig:brTime}{{5.1}{31}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Average network lifetime vs. number of nodes}}{32}}
+\newlabel{fig:life}{{5.2}{32}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Average consumed energy per node per message vs. number of nodes}}{33}}
+\newlabel{fig:energy}{{5.3}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Average overhead per node per message vs. number of nodes}}{34}}
+\newlabel{fig:overhead}{{5.4}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Average number of broadcast messages vs. number of nodes}}{35}}
+\newlabel{fig:brNum}{{5.5}{35}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{36}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{Chapter6}{{6}{35}}
+\newlabel{Chapter6}{{6}{36}}
 \bibstyle{plain}
 \bibdata{thesis}
-\@writefile{toc}{\contentsline {chapter}{Bibliography}{36}}
+\@writefile{toc}{\contentsline {chapter}{Bibliography}{37}}
 \bibcite{Atzori}{{1}{}{{}}{{}}}
 \bibcite{birman1999bimodal}{{2}{}{{}}{{}}}
 \bibcite{cartigny2003border}{{3}{}{{}}{{}}}
@@ -154,5 +166,6 @@
 \bibcite{rodrigues2003adaptive}{{22}{}{{}}{{}}}
 \bibcite{tseng2002broadcast}{{23}{}{{}}{{}}}
 \bibcite{vahdat2000epidemic}{{24}{}{{}}{{}}}
-\bibcite{wisitpongphan2007broadcast}{{25}{}{{}}{{}}}
+\bibcite{wegener2007autocast}{{25}{}{{}}{{}}}
+\bibcite{wisitpongphan2007broadcast}{{26}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers

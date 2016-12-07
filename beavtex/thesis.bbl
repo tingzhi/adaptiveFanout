@@ -152,6 +152,14 @@ Yu-Chee Tseng, Sze-Yao Ni, Yuh-Shyan Chen, and Jang-Ping Sheu.
 Amin Vahdat, David Becker, et~al.
 \newblock Epidemic routing for partially connected ad hoc networks, 2000.
 
+\bibitem{wegener2007autocast}
+Axel Wegener, Horst Hellbruck, Stefan Fischer, Christiane Schmidt, and
+  S{\'a}ndor Fekete.
+\newblock Autocast: An adaptive data dissemination protocol for traffic
+  information systems.
+\newblock In {\em 2007 IEEE 66th Vehicular Technology Conference}, pages
+  1947--1951. IEEE, 2007.
+
 \bibitem{wisitpongphan2007broadcast}
 Nawaporn Wisitpongphan, Ozan~K Tonguz, Jayendra~S Parikh, Priyantha Mudalige,
   Fan Bai, and Varsha Sadekar.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  5 DEC 2016 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  6 DEC 2016 22:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -352,108 +352,107 @@ Chapter 2.
 Chapter 3.
 [7
 
-] [8] [9] [10] [11] [12]
-<stepFunction2.png, id=80, 854.19125pt x 466.74374pt>
+] [8] [9] [10] [11] [12] [13]
+<stepFunction2.png, id=83, 854.19125pt x 466.74374pt>
 File: stepFunction2.png Graphic file (type png)
  <use stepFunction2.png>
-Package pdftex.def Info: stepFunction2.png used on input line 273.
+Package pdftex.def Info: stepFunction2.png used on input line 286.
 (pdftex.def)             Requested size: 397.48499pt x 217.19028pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[13] [14 <./stepFunction2.png (PNG copy)>] [15]
+[14 <./stepFunction2.png (PNG copy)>] [15]
 Chapter 4.
+[16
+
+]
 Missing character: There is no ï in font cmr10!
 Missing character: There is no ¿ in font cmr10!
 Missing character: There is no ¼ in font cmr10!
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (1.87524pt too wide) in paragraph at lines 360--360
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 379--379
 []\OT1/cmr/m/n/10.95 Code| 
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[16
-
-]
-Overfull \hbox (1.87524pt too wide) in paragraph at lines 382--382
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 401--401
 []\OT1/cmr/m/n/10.95 Type| 
  []
 
 
-Overfull \hbox (1.87524pt too wide) in paragraph at lines 382--382
+Overfull \hbox (1.87524pt too wide) in paragraph at lines 401--401
 []\OT1/cmr/m/n/10.95 Code| 
  []
 
-[17] <topDown.png, id=98, 682.55pt x 332.24126pt>
+[17] [18] <topDown.png, id=100, 682.55pt x 332.24126pt>
 File: topDown.png Graphic file (type png)
  <use topDown.png>
-Package pdftex.def Info: topDown.png used on input line 409.
+Package pdftex.def Info: topDown.png used on input line 428.
 (pdftex.def)             Requested size: 397.48499pt x 193.48584pt.
- [18]
-[19 <./topDown.png>] [20] <twoSepNet.png, id=110, 314.17375pt x 173.64874pt>
+
+[19 <./topDown.png>] [20] <isolate.png, id=109, 601.24625pt x 335.2525pt>
+File: isolate.png Graphic file (type png)
+
+<use isolate.png>
+Package pdftex.def Info: isolate.png used on input line 475.
+(pdftex.def)             Requested size: 289.07999pt x 161.1956pt.
+ <twoSepNet.png, id=110, 314.17375pt x 173.64874pt>
 File: twoSepNet.png Graphic file (type png)
 
 <use twoSepNet.png>
-Package pdftex.def Info: twoSepNet.png used on input line 447.
+Package pdftex.def Info: twoSepNet.png used on input line 482.
 (pdftex.def)             Requested size: 289.07999pt x 159.78528pt.
- [21 <./twoSepNet.png>] [22] [23] [24]
+ [21] [22 <./isolate.png> <./twoSepNet.png>] [23] [24]
+[25]
 Chapter 5.
-[25
+[26
 
-] [26] [27] [28]
-Overfull \hbox (12.34201pt too wide) in paragraph at lines 599--614
+] [27] [28] [29]
+Overfull \hbox (12.34201pt too wide) in paragraph at lines 650--665
  [][] 
  []
 
-[29] <brTime.png, id=142, 765.0984pt x 510.708pt>
+[30] <brTime.png, id=147, 765.0984pt x 510.708pt>
 File: brTime.png Graphic file (type png)
  <use brTime.png>
-Package pdftex.def Info: brTime.png used on input line 622.
+Package pdftex.def Info: brTime.png used on input line 673.
 (pdftex.def)             Requested size: 397.48499pt x 265.32031pt.
- [30 <./brTime.png>] <life.png, id=147, 769.9164pt x 535.7616pt>
+ [31 <./brTime.png>] <life.png, id=152, 769.9164pt x 535.7616pt>
 File: life.png Graphic file (type png)
  <use life.png>
-Package pdftex.def Info: life.png used on input line 631.
+Package pdftex.def Info: life.png used on input line 682.
 (pdftex.def)             Requested size: 397.48499pt x 276.59474pt.
- [31 <./life.png>] <energy.png, id=152, 728.9634pt x 519.8622pt>
+ [32 <./life.png>] <energy.png, id=157, 728.9634pt x 519.8622pt>
 File: energy.png Graphic file (type png)
  <use energy.png>
-Package pdftex.def Info: energy.png used on input line 640.
+Package pdftex.def Info: energy.png used on input line 691.
 (pdftex.def)             Requested size: 397.48499pt x 283.47395pt.
-
-<overhead.png, id=153, 770.3982pt x 470.7186pt>
+ [33 <./energy.png>] <overhead.png, id=162, 770.3982pt x 470.7186pt>
 File: overhead.png Graphic file (type png)
  <use overhead.png>
-Package pdftex.def Info: overhead.png used on input line 649.
+Package pdftex.def Info: overhead.png used on input line 700.
 (pdftex.def)             Requested size: 397.48499pt x 242.87169pt.
- [32 <./energy.png>] <brNum.png, id=158, 728.9634pt x 470.2368pt>
+
+<brNum.png, id=163, 728.9634pt x 470.2368pt>
 File: brNum.png Graphic file (type png)
  <use brNum.png>
-Package pdftex.def Info: brNum.png used on input line 658.
+Package pdftex.def Info: brNum.png used on input line 709.
 (pdftex.def)             Requested size: 397.48499pt x 256.41388pt.
- [33 <./overhead.png>] [34 <./brNum.png>]
+ [34 <./overhead.png>] [35 <./brNum.png>]
 Chapter 6.
-[35
+[36
 
-] (./thesis.bbl [36] [37
+] (./thesis.bbl [37] [38
 
-] [38]) [39] [40
+] [39]) [40] [41
 
 ] (./thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 4525 strings out of 493089
- 63132 string characters out of 6134842
- 141863 words of memory out of 5000000
- 7929 multiletter control sequences out of 15000+600000
+ 4535 strings out of 493089
+ 63308 string characters out of 6134842
+ 139891 words of memory out of 5000000
+ 7938 multiletter control sequences out of 15000+600000
  8279 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,32p,1777b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,32p,1778b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
@@ -467,10 +466,10 @@ pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></
 usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on thesis.pdf (49 pages, 784176 bytes).
+Output written on thesis.pdf (50 pages, 792799 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 151 compressed objects within 2 object streams
+ 237 PDF objects out of 1000 (max. 8388607)
+ 153 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

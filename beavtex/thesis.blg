@@ -3,50 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
 The style file: plain.bst
 Database file #1: thesis.bib
-Repeated entry---line 379 of file thesis.bib
+Repeated entry---line 397 of file thesis.bib
  : @inproceedings{cartigny2003border
  :                                  ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for ""
-You've used 25 entries,
+You've used 26 entries,
             2118 wiz_defined-function locations,
-            649 strings with 9399 characters,
-and the built_in function-call counts, 10566 in all, are:
-= -- 1075
-> -- 509
-< -- 13
-+ -- 204
-- -- 174
-* -- 726
-:= -- 1650
-add.period$ -- 88
-call.type$ -- 25
-change.case$ -- 160
+            654 strings with 9656 characters,
+and the built_in function-call counts, 11162 in all, are:
+= -- 1138
+> -- 537
+< -- 14
++ -- 215
+- -- 184
+* -- 766
+:= -- 1735
+add.period$ -- 92
+call.type$ -- 26
+change.case$ -- 168
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 420
-empty$ -- 820
-format.name$ -- 174
-if$ -- 2308
+cite$ -- 26
+duplicate$ -- 445
+empty$ -- 864
+format.name$ -- 184
+if$ -- 2444
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 25
-newline$ -- 127
-num.names$ -- 50
-pop$ -- 201
+int.to.str$ -- 26
+missing$ -- 26
+newline$ -- 132
+num.names$ -- 52
+pop$ -- 212
 preamble$ -- 1
-purify$ -- 136
+purify$ -- 143
 quote$ -- 0
-skip$ -- 298
+skip$ -- 319
 stack$ -- 0
-substring$ -- 662
-swap$ -- 143
-text.length$ -- 13
+substring$ -- 707
+swap$ -- 156
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 98
+type$ -- 102
 warning$ -- 0
-while$ -- 104
-width$ -- 27
-write$ -- 285
+while$ -- 109
+width$ -- 28
+write$ -- 297
 (There was 1 error message)
