@@ -641,7 +641,7 @@ As we stated earlier, the simulation stop time is set to be large enough so that
 
 \section{Result Analysis}
 
-In order to obtain simulation data for these settings, we ran 2000 simulations. Because of the random placement of \gns ~can potentially generate a disconnected topology, some of the simulations will be terminated before starting. Table \ref{table:sim} shows the number of successful simulations for each $n$ \gn ~setting. It is worth noting that this table holds true for all four \emph{Fanout} settings.
+In order to obtain simulation data for these settings, we ran 2000 simulations. Because of the random placement of \gns ~can potentially generate a disconnected topology, some of the simulations will be terminated before starting. Table \ref{table:sim} shows the number of successful simulations for each $n$ \gn ~setting. It is worth noting that this table holds true for all four \emph{Fanout} settings. Therefore, 1068 out of 2000 simulations are successful.
 
 \begin{table}[h]
 	\centering
@@ -666,7 +666,7 @@ In order to obtain simulation data for these settings, we ran 2000 simulations. 
 
 By conducting statistical analysis based on the methods in Section \ref{pm}, we were able to extract performance metrics of each simulation. 
 
-Figure \ref{fig:brTime} depicts the \emph{Average Message Broadcast Time} over the number of \gns. As we would expect, under any \emph{Fanout} setting, the \emph{\ambt} will increase as the number of \gns ~increase. It is especially obvious for $f=1$ setting. For other \emph{Fanout} settings, their \emph{\ambt} are much shorter than the setting where $f=1$ across different number of \gns ~settings. We can see a huge performance improvement when \emph{Fanout} is increased from 1 to 5. This is because a \gn ~can forward the broadcast \msg ~to more neighbors compare to the $f=1$ setting. However, the performance improvement from $f=5$ to $f=10$ is marginal. We believe that the marginal improvement is related to the average node's degree since a \emph{Fanout} setting that exceeds the number of neighbors of a \gn ~will bring no additional performance boost. Our adaptive fanout approach performs similar to $f=5$ setting even though the \emph{Fanout} ranges from 1 to 5 during a simulation. 
+Figure \ref{fig:brTime} depicts the \emph{Average Message Broadcast Time} over the number of \gns. As we would expect, under any \emph{Fanout} setting, the \emph{\ambt} will increase as the number of \gns ~increase. It is especially obvious for $f=1$ setting. For other \emph{Fanout} settings, their \emph{\ambt} are much shorter than the setting where $f=1$ across different number of \gns ~settings. We can see a huge performance improvement when \emph{Fanout} is increased from 1 to 5. This is because a \gn ~can forward the broadcast \msg ~to more neighbors compare to the $f=1$ setting. However, the performance improvement from $f=5$ to $f=10$ is marginal. We believe that the marginal improvement is related to the average node's degree since a \emph{Fanout} setting that exceeds the number of neighbors of a \gn ~will bring no additional performance boost. Our adaptive fanout approach performs similar to $f=5$ setting (up to $28\%$ longer average message broadcast time in $n=10$ case shown in Table \ref{table:brTime}) even though the \emph{Fanout} ranges from 1 to 5 during a simulation. 
 
 \begin{figure} 
 	\centering
@@ -675,7 +675,28 @@ Figure \ref{fig:brTime} depicts the \emph{Average Message Broadcast Time} over t
 	\label{fig:brTime}
 \end{figure}
 
-Figure \ref{fig:life} presents the \emph{Average Network Lifetime} over different number of \gns. For three constant \emph{Fanout} settings, the \emph{\anl} decreases as \emph{Fanout} increases. This is within our expectations because for every gossip round, a \gn ~with a higher \emph{Fanout} setting will have to contact more neighbors and thus consume more energy. The $f=1$ setting has the best \emph{\anl} but as we see in Figure \ref{fig:brTime}, it has the worst \emph{\ambt}. For the $f=5$ setting, the \emph{\anl} is reasonably good while the \emph{\ambt} is shorter. However, our proposed adaptive fanout setting can achieve even better \emph{\anl} compared to $f=5,10$ settings while still perform on par with the other two in terms of \emph{\ambt}. 
+\begin{table}[h]
+	\centering
+	\caption{Average Message Broadcast Time for $n$ Gossip Nodes}
+	\label{table:brTime}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline 
+		$n$	& $f=1$ & $f=5$ & $f=10$ & adaptive & adaptive vs. $f=5$\\ 
+		\hline 
+		10 & 16.77s & 6.18s & 5.53s & 7.89s & 27.66\%\\ 
+		\hline 
+		50 & 49.58s & 18.97s & 16.53s & 21.86s & 15.24\%\\ 
+		\hline 
+		90 & 73.38s & 26.17s & 25.11s & 29.14s & 11.36\%\\ 
+		\hline 
+		130 & 85.96s & 29.46s & 28.40s & 31.37s & 6.48\%\\ 
+		\hline 
+		170 & 94.37s & 37.23s & 30.97s & 38.86s & 3.04\%\\ 
+		\hline 
+	\end{tabular} 
+\end{table}
+
+Figure \ref{fig:life} presents the \emph{Average Network Lifetime} over different number of \gns. For three constant \emph{Fanout} settings, the \emph{\anl} decreases as \emph{Fanout} increases. This is within our expectations because for every gossip round, a \gn ~with a higher \emph{Fanout} setting will have to contact more neighbors and thus consume more energy. The $f=1$ setting has the best \emph{\anl} but as we see in Figure \ref{fig:brTime}, it has the worst \emph{\ambt}. For the $f=5$ setting, the \emph{\anl} is reasonably good while the \emph{\ambt} is shorter. However, our proposed adaptive fanout setting can achieve even better \emph{\anl} compared to $f=5,10$ settings while still perform on par with the other two in terms of \emph{\ambt} (up to $30\%$ longer network lifetime when compare to $f=5$ setting as shown in Table \ref{table:life}). 
 
 \begin{figure} 
 	\centering
@@ -683,6 +704,27 @@ Figure \ref{fig:life} presents the \emph{Average Network Lifetime} over differen
 	\caption{Average network lifetime vs. number of nodes}
 	\label{fig:life}
 \end{figure}
+
+\begin{table}[h]
+	\centering
+	\caption{Average Network Lifetime for $n$ Gossip Nodes}
+	\label{table:life}
+	\begin{tabular}{|c|c|c|c|c|c|}
+		\hline 
+		$n$ & $f=1$ & $f=5$ & $f=10$ & adaptive & adaptive vs. $f=5$ \\ 
+		\hline 
+		10 & 15873.94s & 7504.42s & 6615.16s & 9688.12s & 29.10\% \\ 
+		\hline 
+		50 & 10983.04s & 7464.01s & 5860.44s & 8554.85s & 14.61\% \\ 
+		\hline 
+		90 & 10256.03s & 8030.57s & 6914.40s & 8676.51s & 8.04\% \\ 
+		\hline 
+		130 & 10001.87s & 8620.81s & 7253.99s & 8946.59s & 3.78\% \\ 
+		\hline 
+		170 & 9663.50s & 8803.94s & 7650.12s & 8923.41s & 1.36\% \\ 
+		\hline 
+	\end{tabular} 
+\end{table}
 
 From Figure \ref{fig:energy}, we can see that as the number of \gns ~increases, the \emph{Average Energy Consumption Per Node Per Message} increases as expected. For the ease of discussion, in the following chapter we will call it \emph{Average Energy Consumption}. The interesting part we would like to point out is that the $f=1$ setting actually has the highest energy consumption. The reason for this is that even though it has the longest \emph{\anl}, it also has the worst \emph{\ambt}. So given these two constrains, the number of \msgs ~it can broadcast is less than other \emph{Fanout} settings. Since we computed this metric on a per \msg ~basis, it results in a higher \emph{\aec}. Using the $f=5$ and adaptive fanout setting, their \emph{\aec} plots almost overlap each other. This is due to the trade off between \emph{\ambt} and \emph{\anl}. The $f=10$ setting has the lowest \emph{\aec} except when $n=170$, but as shown in Figure \ref{fig:life}, it has the worst \emph{\anl}. 
 
